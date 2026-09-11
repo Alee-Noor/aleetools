@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* Enforce class-based dark mode selector in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── DESIGN SYSTEM: "Soft Workshop" ─────────────────────────── */
+/* Claymorphism × Minimalist hybrid. Warm, tactile, restrained.   */
+
+@theme {
+  /* Color tokens */
+  --color-clay-base: #F7F5F0;
+  --color-clay-surface: #FFFFFF;
+  --color-clay-ink: #0F0E0C;
+  --color-clay-ink-soft: #1C1917;
+  --color-clay-border: #DDD6C8;
+  --color-clay-hover: #F0ECE2;
+
+  /* Category accent colors */
+  --color-accent-primary: #2C6E59;
+  --color-accent-secondary: #D4731F;
+  --color-accent-tertiary: #B83B26;
+  --color-accent-quaternary: #2868A9;
+  --color-accent-quinary: #7548A8;
+
+  /* Accent softs (for icon chip backgrounds) */
+  --color-accent-primary-soft: #E5EFEA;
+  --color-accent-secondary-soft: #FCEDE0;
+  --color-accent-tertiary-soft: #FAEBE8;
+  --color-accent-quaternary-soft: #E5EFF8;
+  --color-accent-quinary-soft: #EFEAF6;
+
+  /* Dark mode tokens */
+  --color-dark-base: #141312;
+  --color-dark-surface: #1E1D1A;
+  --color-dark-ink: #F2EFE8;
+  --color-dark-ink-soft: #C9C4B7;
+  --color-dark-border: #35332D;
+  --color-dark-hover: #292824;
+
+  /* Border radii — only 3 sizes */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ─── BASE STYLES ────────────────────────────────────────────── */
+
+:root {
+  --bg: var(--color-clay-base);
+  --surface: var(--color-clay-surface);
+  --ink: var(--color-clay-ink);
+  --ink-soft: var(--color-clay-ink-soft);
+  --border: var(--color-clay-border);
+  --hover: var(--color-clay-hover);
+
+  /* High contrast & Glowing Day/Light Mode Line Grid */
+  --line-pattern-stroke: rgba(44, 110, 89, 0.45);
+  --line-grid-color: rgba(44, 110, 89, 0.16);
+  --line-grid-secondary: rgba(212, 115, 31, 0.12);
+  --line-grid-highlight: rgba(44, 110, 89, 0.30);
+  --bg-pattern-opacity: 1;
+}
+
+.dark {
+  --bg: var(--color-dark-base);
+  --surface: var(--color-dark-surface);
+  --ink: var(--color-dark-ink);
+  --ink-soft: var(--color-dark-ink-soft);
+  --border: var(--color-dark-border);
+  --hover: var(--color-dark-hover);
+
+  /* High contrast & Glowing Night/Dark Mode Line Grid */
+  --line-pattern-stroke: rgba(61, 214, 160, 0.55);
+  --line-grid-color: rgba(61, 214, 160, 0.20);
+  --line-grid-secondary: rgba(167, 139, 250, 0.18);
+  --line-grid-highlight: rgba(61, 214, 160, 0.45);
+  --bg-pattern-opacity: 1;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+}
+
+/* Line length for readability */
+.prose-readable {
+  max-width: 75ch;
+}
+
+/* ─── CLAY SURFACE SYSTEM ────────────────────────────────────── */
+/* Only applied to interactive elements — buttons, cards, panels  */
+
+.clay-surface {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 2px 8px -1px rgba(38, 36, 31, 0.06),
+    0 12px 28px -4px rgba(38, 36, 31, 0.08),
+    -3px -3px 8px rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  transition: box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1), border-color 200ms ease;
+}
+
+.dark .clay-surface {
+  box-shadow:
+    0 4px 20px -2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border);
+}
+
+.clay-surface:hover {
+  box-shadow:
+    0 6px 14px -2px rgba(38, 36, 31, 0.08),
+    0 18px 36px -6px rgba(38, 36, 31, 0.12),
+    -4px -4px 12px rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.dark .clay-surface:hover {
+  box-shadow:
+    0 12px 32px -4px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.clay-surface--pressed {
+  box-shadow:
+    inset -3px -3px 8px rgba(255, 255, 255, 0.9),
+    inset 3px 3px 8px rgba(38, 36, 31, 0.1);
+}
+
+.dark .clay-surface--pressed {
+  box-shadow:
+    inset -3px -3px 8px rgba(60, 58, 52, 0.3),
+    inset 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.clay-button {
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 2px 6px rgba(38, 36, 31, 0.08),
+    0 4px 12px rgba(38, 36, 31, 0.06),
+    -2px -2px 6px rgba(255, 255, 255, 0.9);
+  transition: all 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.dark .clay-button {
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    -1px -1px 4px rgba(60, 58, 52, 0.3);
+  border: 1px solid var(--border);
+}
+
+.clay-button:active {
+  box-shadow: inset 2px 2px 6px rgba(38, 36, 31, 0.15), inset -2px -2px 6px rgba(255, 255, 255, 0.6);
+  transform: translateY(1px);
+}
+
+.dark .clay-button:active {
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(60, 58, 52, 0.2);
+}
+
+/* ─── CHIP SYSTEM (small, rounded tags) ──────────────────────── */
+
+.clay-chip {
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 150ms ease;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.clay-chip:hover {
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+}
+
+/* ─── DROPZONE ───────────────────────────────────────────────── */
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all 200ms ease;
+  cursor: pointer;
+  background: var(--surface);
+}
+
+.dropzone:hover,
+.dropzone.drag-over {
+  border-color: var(--color-accent-primary);
+  background: var(--color-accent-primary-soft);
+}
+
+.dark .dropzone:hover,
+.dark .dropzone.drag-over {
+  background: rgba(61, 107, 92, 0.15);
+}
+
+/* ─── ACCORDION ──────────────────────────────────────────────── */
+
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.accordion-trigger svg {
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+
+.accordion-trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 300ms ease;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ─── CATEGORY ACCENT UTILITIES ──────────────────────────────── */
+
+.accent-primary { color: var(--color-accent-primary); }
+.accent-secondary { color: var(--color-accent-secondary); }
+.accent-tertiary { color: var(--color-accent-tertiary); }
+.accent-quaternary { color: var(--color-accent-quaternary); }
+.accent-quinary { color: var(--color-accent-quinary); }
+
+.bg-accent-primary { background-color: var(--color-accent-primary); }
+.bg-accent-secondary { background-color: var(--color-accent-secondary); }
+.bg-accent-tertiary { background-color: var(--color-accent-tertiary); }
+.bg-accent-quaternary { background-color: var(--color-accent-quaternary); }
+.bg-accent-quinary { background-color: var(--color-accent-quinary); }
+
+.bg-accent-primary-soft { background-color: var(--color-accent-primary-soft); }
+.bg-accent-secondary-soft { background-color: var(--color-accent-secondary-soft); }
+.bg-accent-tertiary-soft { background-color: var(--color-accent-tertiary-soft); }
+.bg-accent-quaternary-soft { background-color: var(--color-accent-quaternary-soft); }
+.bg-accent-quinary-soft { background-color: var(--color-accent-quinary-soft); }
+
+/* ─── FOCUS STATES ───────────────────────────────────────────── */
+/* Visible focus rings — important for accessibility, kept visible */
+/* even over custom clay shadows.                                  */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+}
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .clay-surface:hover {
+    transform: none;
+  }
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-soft);
+}
+
+/* ─── SELECTION ──────────────────────────────────────────────── */
+
+::selection {
+  background: var(--color-accent-primary);
+  color: white;
+}
+
+/* ─── ANIMATED LINE PATTERN SYSTEM ───────────────────────────── */
+
+.animated-line-grid {
+  background-size: 48px 48px, 48px 48px, 96px 96px, 96px 96px;
+  background-image:
+    linear-gradient(to right, var(--line-grid-color) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--line-grid-color) 1.5px, transparent 1.5px),
+    linear-gradient(to right, var(--line-grid-secondary) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-grid-secondary) 1px, transparent 1px);
+  background-position: 0 0, 0 0, 24px 24px, 24px 24px;
+  mask-image: radial-gradient(ellipse 95% 80% at 50% 30%, black 55%, transparent 98%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 80% at 50% 30%, black 55%, transparent 98%);
+  animation: gridDrift 50s linear infinite;
+  filter: drop-shadow(0 0 3px var(--line-grid-highlight));
+}
+
+@keyframes gridDrift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 56px;
+  }
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 40%, transparent 35%, var(--bg) 95%);
+  transition: background 300ms ease;
+}
+
+@keyframes ambientSlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 25px) scale(1.12);
+  }
+}
+
+@keyframes ambientReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, -30px) scale(1.15);
+  }
+}
+
+.animate-ambient-slow {
+  animation: ambientSlow 18s ease-in-out infinite;
+}
+
+.animate-ambient-reverse {
+  animation: ambientReverse 22s ease-in-out infinite;
+}
+
+@keyframes lineBeam1 {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes lineBeam2 {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes lineBeam3 {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-line-beam-1 {
+  animation: lineBeam1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-line-beam-2 {
+  animation: lineBeam2 16s cubic-bezier(0.4, 0, 0.2, 1) infinite 3s;
+}
+
+.animate-line-beam-3 {
+  animation: lineBeam3 20s cubic-bezier(0.4, 0, 0.2, 1) infinite 7s;
+}
+
+@keyframes lineDash {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-line-dash {
+  animation: lineDash 28s linear infinite;
+}
+
+.animate-line-dash-reverse {
+  animation: lineDash 24s linear infinite reverse;
+}
+
