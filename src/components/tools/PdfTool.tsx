@@ -36,6 +36,8 @@ import {
   Scissors,
   Printer,
   Minimize2,
+  Maximize2,
+  X,
 } from 'lucide-react';
 import { ClayButton } from '@/components/ui/ClayButton';
 import { FileDropzone } from '@/components/ui/FileDropzone';
@@ -60,6 +62,7 @@ import {
   parsePageRange,
   formatPageIndicesToRange,
   renderPdfThumbnails,
+  renderSinglePdfPage,
   splitPdfToIndividualPages,
   compressPdf,
   rotateSpecificPdfPages,
@@ -130,6 +133,14 @@ export function PdfTool({ tool }: PdfToolProps) {
   const [pageOrder, setPageOrder] = useState<number[]>([]); // 1-indexed page ordering for reorder
   const [individualRotations, setIndividualRotations] = useState<Record<number, number>>({}); // 0-indexed page -> degrees
 
+  // Inspection modal states (Enlarge specific page & View full document)
+  const [inspectPageNumber, setInspectPageNumber] = useState<number | null>(null);
+  const [inspectPageData, setInspectPageData] = useState<PdfThumbnail | null>(null);
+  const [loadingInspectPage, setLoadingInspectPage] = useState<boolean>(false);
+  const [inspectZoom, setInspectZoom] = useState<number>(100);
+  const [showFullDocModal, setShowFullDocModal] = useState<boolean>(false);
+  const [fullDocZoom, setFullDocZoom] = useState<number>(100);
+
   // Split PDF modes
   const [splitMode, setSplitMode] = useState<'range' | 'individual'>('range');
   const [splitResults, setSplitResults] = useState<SplitPageResult[]>([]);
@@ -140,7 +151,7 @@ export function PdfTool({ tool }: PdfToolProps) {
   const [pageRange, setPageRange] = useState<string>('1');
   const [deletePagesStr, setDeletePagesStr] = useState<string>('');
   const [reorderPagesStr, setReorderPagesStr] = useState<string>('');
-  const [globalRotationAngle, setGlobalRotationAngle] = useState<number>(90);
+  const [globalRotationAngle, setGlobalRotationAngle] = useState<number>(0); // Default 0 to prevent sideways rendering
   const [watermarkText, setWatermarkText] = useState<string>('CONFIDENTIAL');
   const [watermarkOpacity, setWatermarkOpacity] = useState<number>(0.25);
   const [numberPosition, setNumberPosition] = useState<'bottom-center' | 'bottom-right' | 'top-right'>('bottom-center');
@@ -171,6 +182,22 @@ export function PdfTool({ tool }: PdfToolProps) {
     setErrorMsg(null);
   };
 
+  // Keyboard navigation for modals
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setInspectPageNumber(null);
+        setShowFullDocModal(false);
+      } else if (inspectPageNumber && e.key === 'ArrowLeft') {
+        navigateInspectPage('prev');
+      } else if (inspectPageNumber && e.key === 'ArrowRight') {
+        navigateInspectPage('next');
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [inspectPageNumber, pdfInfo]);
+
   // Handle files
   const handleFilesSelected = async (selected: File[]) => {
     resetResults();
@@ -184,6 +211,7 @@ export function PdfTool({ tool }: PdfToolProps) {
         setThumbnails([]);
         setSelectedIndices([]);
         setIndividualRotations({});
+        setGlobalRotationAngle(0);
         setPdfInfo(null);
 
         // Check if PDF is encrypted
@@ -218,7 +246,7 @@ export function PdfTool({ tool }: PdfToolProps) {
         if (usesVisualPageGrid || isPdfToJpg) {
           setLoadingThumbnails(true);
           try {
-            const thumbs = await renderPdfThumbnails(pdf, 100, 0.4);
+            const thumbs = await renderPdfThumbnails(pdf, 100, 0.55);
             setThumbnails(thumbs);
           } catch (err) {
             console.warn('Could not generate thumbnails:', err);
@@ -301,6 +329,32 @@ export function PdfTool({ tool }: PdfToolProps) {
     const formatted = formatPageIndicesToRange(even);
     if (isSplit || isExtract) setPageRange(formatted);
     if (isPageDeleter) setDeletePagesStr(formatted);
+  };
+
+  // ─── Inspection & Enlarge Modals ───
+
+  const openInspectPage = async (pageNumber: number) => {
+    if (!singlePdf) return;
+    setInspectPageNumber(pageNumber);
+    setInspectPageData(null);
+    setLoadingInspectPage(true);
+    setInspectZoom(100);
+    try {
+      const data = await renderSinglePdfPage(singlePdf, pageNumber, 2.0);
+      setInspectPageData(data);
+    } catch (err) {
+      console.warn('Failed to render inspect page:', err);
+    } finally {
+      setLoadingInspectPage(false);
+    }
+  };
+
+  const navigateInspectPage = (direction: 'prev' | 'next') => {
+    if (!inspectPageNumber || !pdfInfo) return;
+    const target = direction === 'prev' ? inspectPageNumber - 1 : inspectPageNumber + 1;
+    if (target >= 1 && target <= pdfInfo.pageCount) {
+      openInspectPage(target);
+    }
   };
 
   // Reorder visual card shift
@@ -634,6 +688,8 @@ export function PdfTool({ tool }: PdfToolProps) {
                     setPdfPassword('');
                     setUnlockPassword('');
                     setIsFileEncrypted(null);
+                    setInspectPageNumber(null);
+                    setShowFullDocModal(false);
                   }}
                   className="text-xs text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 underline font-medium"
                 >
@@ -984,7 +1040,7 @@ export function PdfTool({ tool }: PdfToolProps) {
                     {showAdvancedCrypto && (
                       <div className="p-3.5 rounded-[12px] bg-stone-50 dark:bg-stone-800/40 border space-y-3 mt-2 text-xs" style={{ borderColor: 'var(--border)' }}>
                         <div className="space-y-1">
-                          <label className="text-[11px] font-bold text-stone-600 dark:text-stone-300 uppercase tracking-wider">
+                          <label className="text-[11px] font-bold text-stone-600 dark:text-stone-300 uppercase tracking-wider block">
                             Encryption Algorithm
                           </label>
                           <div className="flex gap-2">
@@ -1096,83 +1152,96 @@ export function PdfTool({ tool }: PdfToolProps) {
                   ───────────────────────────────────────────────────────────── */}
               {usesVisualPageGrid && (
                 <div className="space-y-3 pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                     <div className="flex items-center gap-2">
                       <Grid size={15} className="text-emerald-600 dark:text-emerald-400" />
                       <span className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-                        {isViewer ? 'Document Pages Preview' : 'Interactive Page Selector'}
+                        {isViewer ? 'Document Pages' : 'Interactive Page Selector'}
                       </span>
                     </div>
 
-                    {!isViewer && (
-                      <div className="flex flex-wrap items-center gap-1.5 text-xs">
-                        <button
-                          type="button"
-                          onClick={selectAllPages}
-                          className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          Select All
-                        </button>
-                        <button
-                          type="button"
-                          onClick={clearSelection}
-                          className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          Clear
-                        </button>
-                        <button
-                          type="button"
-                          onClick={selectOddPages}
-                          className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          Odd Pages
-                        </button>
-                        <button
-                          type="button"
-                          onClick={selectEvenPages}
-                          className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          Even Pages
-                        </button>
-                      </div>
-                    )}
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                      {/* View Full Document Modal Button */}
+                      <button
+                        type="button"
+                        onClick={() => setShowFullDocModal(true)}
+                        className="flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] border text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 border-emerald-600/40 hover:bg-emerald-500/20 transition-all"
+                        title="Open full document reader dialog"
+                      >
+                        <Eye size={13} />
+                        <span>View Full Document</span>
+                      </button>
 
-                    {isViewer && (
-                      <div className="flex items-center gap-2 text-xs">
-                        <button
-                          type="button"
-                          onClick={() => setViewerZoom((z) => Math.max(50, z - 25))}
-                          className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          <ZoomOut size={13} />
-                        </button>
-                        <span className="font-mono font-bold text-[11px]">{viewerZoom}%</span>
-                        <button
-                          type="button"
-                          onClick={() => setViewerZoom((z) => Math.min(200, z + 25))}
-                          className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300"
-                          style={{ borderColor: 'var(--border)' }}
-                        >
-                          <ZoomIn size={13} />
-                        </button>
-                      </div>
-                    )}
+                      {!isViewer && (
+                        <>
+                          <button
+                            type="button"
+                            onClick={selectAllPages}
+                            className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            Select All
+                          </button>
+                          <button
+                            type="button"
+                            onClick={clearSelection}
+                            className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            Clear
+                          </button>
+                          <button
+                            type="button"
+                            onClick={selectOddPages}
+                            className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            Odd Pages
+                          </button>
+                          <button
+                            type="button"
+                            onClick={selectEvenPages}
+                            className="px-2 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            Even Pages
+                          </button>
+                        </>
+                      )}
+
+                      {isViewer && (
+                        <div className="flex items-center gap-2 text-xs">
+                          <button
+                            type="button"
+                            onClick={() => setViewerZoom((z) => Math.max(50, z - 25))}
+                            className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            <ZoomOut size={13} />
+                          </button>
+                          <span className="font-mono font-bold text-[11px]">{viewerZoom}%</span>
+                          <button
+                            type="button"
+                            onClick={() => setViewerZoom((z) => Math.min(200, z + 25))}
+                            className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300"
+                            style={{ borderColor: 'var(--border)' }}
+                          >
+                            <ZoomIn size={13} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   {/* Thumbnail Cards Container */}
                   {loadingThumbnails ? (
                     <div className="p-8 text-center rounded-[12px] bg-stone-50 dark:bg-stone-800/40 border space-y-2" style={{ borderColor: 'var(--border)' }}>
                       <RefreshCw size={24} className="animate-spin text-emerald-600 mx-auto" />
-                      <p className="text-xs text-stone-500 font-medium">Generating interactive page thumbnails...</p>
+                      <p className="text-xs text-stone-500 font-medium">Generating high-clarity page thumbnails...</p>
                     </div>
                   ) : thumbnails.length > 0 ? (
                     <div
-                      className={`grid gap-3 pt-1 max-h-[460px] overflow-y-auto pr-1 ${
+                      className={`grid gap-3 pt-1 max-h-[480px] overflow-y-auto pr-1 ${
                         isViewer
                           ? 'grid-cols-1 sm:grid-cols-2'
                           : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'
@@ -1181,7 +1250,12 @@ export function PdfTool({ tool }: PdfToolProps) {
                       {thumbnails.map((thumb, idx) => {
                         const isSelected = selectedIndices.includes(idx);
                         const isDeleterMode = isPageDeleter;
-                        const pageRot = individualRotations[idx] || (globalRotationAngle && !Object.values(individualRotations).some((r) => r > 0) ? globalRotationAngle : 0);
+                        // Keep original orientation (0deg) for non-rotator tools!
+                        const pageRot = isRotate
+                          ? individualRotations[idx] !== undefined
+                            ? individualRotations[idx]
+                            : globalRotationAngle
+                          : 0;
 
                         return (
                           <div
@@ -1189,7 +1263,7 @@ export function PdfTool({ tool }: PdfToolProps) {
                             onClick={() => {
                               if (!isViewer) togglePageSelection(idx);
                             }}
-                            className={`group relative flex flex-col justify-between overflow-hidden rounded-[12px] border p-2 transition-all cursor-pointer ${
+                            className={`group relative flex flex-col justify-between overflow-hidden rounded-[12px] border p-2.5 transition-all cursor-pointer ${
                               isDeleterMode
                                 ? isSelected
                                   ? 'border-red-500 bg-red-500/10 shadow-sm ring-1 ring-red-500'
@@ -1199,37 +1273,59 @@ export function PdfTool({ tool }: PdfToolProps) {
                                 : 'border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-900/40 hover:border-stone-300'
                             }`}
                           >
-                            {/* Card Top Header: Checkbox & Page Badge */}
-                            <div className="flex items-center justify-between mb-1.5 z-10">
+                            {/* Card Top Header: Page Badge + Zoom Inspect + Checkbox */}
+                            <div className="flex items-center justify-between mb-2 z-10">
                               <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-[4px] bg-stone-200/80 dark:bg-stone-800 text-stone-700 dark:text-stone-300">
                                 #{thumb.pageNumber}
                               </span>
 
-                              {!isViewer && (
-                                <div className="flex items-center gap-1">
-                                  {isDeleterMode ? (
-                                    <span
-                                      className={`h-4 w-4 rounded-[4px] flex items-center justify-center transition-all ${
-                                        isSelected ? 'bg-red-600 text-white' : 'border border-stone-400 bg-white dark:bg-stone-800'
-                                      }`}
-                                    >
-                                      {isSelected ? <Trash2 size={10} /> : null}
-                                    </span>
-                                  ) : (
-                                    <span
-                                      className={`h-4 w-4 rounded-[4px] flex items-center justify-center transition-all ${
-                                        isSelected ? 'bg-emerald-600 text-white' : 'border border-stone-400 bg-white dark:bg-stone-800'
-                                      }`}
-                                    >
-                                      {isSelected ? <Check size={11} className="stroke-[3]" /> : null}
-                                    </span>
-                                  )}
-                                </div>
-                              )}
+                              <div className="flex items-center gap-1.5">
+                                {/* Enlarge Specific Page Button */}
+                                <button
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openInspectPage(thumb.pageNumber);
+                                  }}
+                                  title="Enlarge & Inspect this page"
+                                  className="p-1 rounded-[4px] text-stone-400 hover:text-emerald-700 dark:hover:text-emerald-400 hover:bg-stone-200/70 dark:hover:bg-stone-800 transition-colors"
+                                >
+                                  <Maximize2 size={12} />
+                                </button>
+
+                                {!isViewer && (
+                                  <div>
+                                    {isDeleterMode ? (
+                                      <span
+                                        className={`h-4 w-4 rounded-[4px] flex items-center justify-center transition-all ${
+                                          isSelected ? 'bg-red-600 text-white' : 'border border-stone-400 bg-white dark:bg-stone-800'
+                                        }`}
+                                      >
+                                        {isSelected ? <Trash2 size={10} /> : null}
+                                      </span>
+                                    ) : (
+                                      <span
+                                        className={`h-4 w-4 rounded-[4px] flex items-center justify-center transition-all ${
+                                          isSelected ? 'bg-emerald-600 text-white' : 'border border-stone-400 bg-white dark:bg-stone-800'
+                                        }`}
+                                      >
+                                        {isSelected ? <Check size={11} className="stroke-[3]" /> : null}
+                                      </span>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
                             </div>
 
-                            {/* Page Canvas Thumbnail with CSS Rotation */}
-                            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[8px] bg-white border flex items-center justify-center p-1">
+                            {/* Page Canvas Thumbnail with Natural Aspect Ratio & Rotation */}
+                            <div
+                              className="relative w-full overflow-hidden rounded-[8px] bg-white border flex items-center justify-center p-1 shadow-sm"
+                              style={{
+                                aspectRatio: `${thumb.width} / ${thumb.height}`,
+                                minHeight: '140px',
+                                maxHeight: '240px',
+                              }}
+                            >
                               <img
                                 src={thumb.dataUrl}
                                 alt={`Page ${thumb.pageNumber}`}
@@ -1251,7 +1347,7 @@ export function PdfTool({ tool }: PdfToolProps) {
 
                             {/* Card Footer Controls for Specialized Tools */}
                             {isRotate && (
-                              <div className="mt-1.5 pt-1 border-t flex items-center justify-between text-[11px]" style={{ borderColor: 'var(--border)' }}>
+                              <div className="mt-2 pt-1 border-t flex items-center justify-between text-[11px]" style={{ borderColor: 'var(--border)' }}>
                                 <button
                                   type="button"
                                   onClick={(e) => {
@@ -1261,13 +1357,13 @@ export function PdfTool({ tool }: PdfToolProps) {
                                   className="flex items-center gap-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-400 hover:underline"
                                 >
                                   <RotateCw size={11} />
-                                  <span>{pageRot > 0 ? `${pageRot}°` : 'Rotate'}</span>
+                                  <span>{pageRot > 0 ? `${pageRot}°` : 'Rotate 90°'}</span>
                                 </button>
                               </div>
                             )}
 
                             {isReorder && (
-                              <div className="mt-1.5 pt-1 border-t flex items-center justify-between text-[11px]" style={{ borderColor: 'var(--border)' }}>
+                              <div className="mt-2 pt-1 border-t flex items-center justify-between text-[11px]" style={{ borderColor: 'var(--border)' }}>
                                 <button
                                   type="button"
                                   disabled={idx === 0}
@@ -1339,6 +1435,246 @@ export function PdfTool({ tool }: PdfToolProps) {
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          C. MODAL 1: ENLARGE & INSPECT SPECIFIC PAGE
+          ───────────────────────────────────────────────────────────── */}
+      {inspectPageNumber && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in">
+          <div className="relative flex flex-col w-full max-w-4xl max-h-[92vh] rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-bold text-stone-900 dark:text-stone-100">
+                  Page {inspectPageNumber} of {pdfInfo?.pageCount || 1}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => togglePageSelection(inspectPageNumber - 1)}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-[6px] text-xs font-semibold border transition-all ${
+                    selectedIndices.includes(inspectPageNumber - 1)
+                      ? 'bg-emerald-600 text-white border-emerald-600'
+                      : 'border-stone-300 dark:border-stone-700 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800'
+                  }`}
+                >
+                  {selectedIndices.includes(inspectPageNumber - 1) ? (
+                    <>
+                      <Check size={13} className="stroke-[3]" />
+                      <span>Selected</span>
+                    </>
+                  ) : (
+                    <span>Select this page</span>
+                  )}
+                </button>
+              </div>
+
+              {/* Stepper + Zoom + Close */}
+              <div className="flex items-center gap-2">
+                {/* Stepper */}
+                <div className="flex items-center border rounded-[8px] overflow-hidden border-stone-200 dark:border-stone-700">
+                  <button
+                    type="button"
+                    disabled={inspectPageNumber <= 1}
+                    onClick={() => navigateInspectPage('prev')}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 text-stone-600 dark:text-stone-300"
+                    title="Previous Page (Left Arrow)"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+                  <button
+                    type="button"
+                    disabled={!pdfInfo || inspectPageNumber >= pdfInfo.pageCount}
+                    onClick={() => navigateInspectPage('next')}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 text-stone-600 dark:text-stone-300"
+                    title="Next Page (Right Arrow)"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+
+                {/* Zoom */}
+                <div className="flex items-center border rounded-[8px] overflow-hidden border-stone-200 dark:border-stone-700 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setInspectZoom((z) => Math.max(50, z - 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom Out"
+                  >
+                    <ZoomOut size={15} />
+                  </button>
+                  <span className="px-2 font-mono font-bold text-[11px] text-stone-600 dark:text-stone-300">{inspectZoom}%</span>
+                  <button
+                    type="button"
+                    onClick={() => setInspectZoom((z) => Math.min(250, z + 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom In"
+                  >
+                    <ZoomIn size={15} />
+                  </button>
+                </div>
+
+                {/* Close */}
+                <button
+                  type="button"
+                  onClick={() => setInspectPageNumber(null)}
+                  className="p-1.5 rounded-[8px] text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 ml-1"
+                  title="Close (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Image Body */}
+            <div className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-stone-100 dark:bg-stone-950/80">
+              {loadingInspectPage ? (
+                <div className="flex flex-col items-center gap-3 py-16 text-stone-500">
+                  <RefreshCw size={28} className="animate-spin text-emerald-600" />
+                  <span className="text-xs font-semibold">Rendering high-resolution readable page view...</span>
+                </div>
+              ) : inspectPageData ? (
+                <div
+                  className="transition-transform duration-150 origin-center bg-white shadow-2xl rounded-lg p-2 max-w-full"
+                  style={{
+                    width: `${(inspectZoom / 100) * 100}%`,
+                    maxWidth: inspectZoom === 100 ? '780px' : 'none',
+                  }}
+                >
+                  <img
+                    src={inspectPageData.dataUrl}
+                    alt={`Page ${inspectPageNumber}`}
+                    className="w-full h-auto object-contain rounded"
+                  />
+                </div>
+              ) : (
+                <div className="text-xs text-stone-500">Failed to render page preview.</div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          D. MODAL 2: VIEW FULL DOCUMENT IN ONE POPUP DIALOG
+          ───────────────────────────────────────────────────────────── */}
+      {showFullDocModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in">
+          <div className="relative flex flex-col w-full max-w-5xl max-h-[94vh] rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+              <div className="flex items-center gap-2 truncate max-w-md">
+                <FileText size={18} className="text-emerald-600 shrink-0" />
+                <span className="text-sm font-bold text-stone-900 dark:text-stone-100 truncate">
+                  {singlePdf?.name}
+                </span>
+                <span className="text-xs text-stone-500 shrink-0 font-medium">
+                  ({pdfInfo?.pageCount || thumbnails.length} Pages)
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1.5 text-xs">
+                  <button
+                    type="button"
+                    onClick={selectAllPages}
+                    className="px-2.5 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                    style={{ borderColor: 'var(--border)' }}
+                  >
+                    Select All
+                  </button>
+                  <button
+                    type="button"
+                    onClick={clearSelection}
+                    className="px-2.5 py-1 rounded-[6px] border text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800"
+                    style={{ borderColor: 'var(--border)' }}
+                  >
+                    Clear
+                  </button>
+                </div>
+
+                <div className="flex items-center border rounded-[8px] overflow-hidden border-stone-200 dark:border-stone-700 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setFullDocZoom((z) => Math.max(50, z - 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom Out"
+                  >
+                    <ZoomOut size={15} />
+                  </button>
+                  <span className="px-2 font-mono font-bold text-[11px] text-stone-600 dark:text-stone-300">{fullDocZoom}%</span>
+                  <button
+                    type="button"
+                    onClick={() => setFullDocZoom((z) => Math.min(200, z + 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom In"
+                  >
+                    <ZoomIn size={15} />
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowFullDocModal(false)}
+                  className="p-1.5 rounded-[8px] text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800"
+                  title="Close (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Body: Vertical Scroll of all Document Pages */}
+            <div className="flex-1 overflow-auto p-4 sm:p-8 space-y-8 bg-stone-100 dark:bg-stone-950/80">
+              {thumbnails.map((thumb, idx) => {
+                const isSelected = selectedIndices.includes(idx);
+                return (
+                  <div
+                    key={thumb.pageNumber}
+                    className="mx-auto flex flex-col items-center"
+                    style={{
+                      width: `${(fullDocZoom / 100) * 100}%`,
+                      maxWidth: fullDocZoom === 100 ? '780px' : 'none',
+                    }}
+                  >
+                    {/* Page header bar */}
+                    <div className="w-full flex items-center justify-between pb-1.5 px-1 text-xs text-stone-600 dark:text-stone-400 font-semibold">
+                      <span>Page {thumb.pageNumber}</span>
+                      <button
+                        type="button"
+                        onClick={() => togglePageSelection(idx)}
+                        className={`flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
+                          isSelected
+                            ? 'bg-emerald-600 text-white'
+                            : 'bg-white dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-300 dark:border-stone-700'
+                        }`}
+                      >
+                        {isSelected ? <Check size={12} className="stroke-[3]" /> : null}
+                        <span>{isSelected ? 'Selected' : 'Click to Select'}</span>
+                      </button>
+                    </div>
+
+                    {/* Page Canvas Container in Natural Aspect Ratio */}
+                    <div
+                      onClick={() => togglePageSelection(idx)}
+                      className={`w-full bg-white shadow-xl rounded-lg border p-2.5 cursor-pointer transition-all ${
+                        isSelected
+                          ? 'ring-2 ring-emerald-600 border-emerald-600'
+                          : 'border-stone-200 dark:border-stone-800 hover:border-stone-400'
+                      }`}
+                    >
+                      <img
+                        src={thumb.dataUrl}
+                        alt={`Page ${thumb.pageNumber}`}
+                        className="w-full h-auto object-contain rounded"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       )}
 

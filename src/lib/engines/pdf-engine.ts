@@ -569,7 +569,7 @@ export interface PdfThumbnail {
 export async function renderPdfThumbnails(
   file: File,
   maxPages: number = 100,
-  scale: number = 0.4
+  scale: number = 0.55
 ): Promise<PdfThumbnail[]> {
   const pdfjsLib = await import('pdfjs-dist');
   if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
@@ -596,13 +596,49 @@ export async function renderPdfThumbnails(
 
     thumbnails.push({
       pageNumber: i,
-      dataUrl: canvas.toDataURL('image/jpeg', 0.8),
+      dataUrl: canvas.toDataURL('image/jpeg', 0.85),
       width: canvas.width,
       height: canvas.height,
     });
   }
   return thumbnails;
 }
+
+/**
+ * Render a single high-resolution PDF page for the enlargement modal inspection
+ */
+export async function renderSinglePdfPage(
+  file: File,
+  pageNumber: number,
+  scale: number = 1.8
+): Promise<PdfThumbnail> {
+  const pdfjsLib = await import('pdfjs-dist');
+  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+  }
+  const arrayBuffer = await file.arrayBuffer();
+  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  const pdfDoc = await loadingTask.promise;
+  const page = await pdfDoc.getPage(pageNumber);
+  const viewport = page.getViewport({ scale });
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(viewport.width);
+  canvas.height = Math.round(viewport.height);
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('Could not create canvas context');
+
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  await page.render({ canvasContext: ctx, viewport }).promise;
+
+  return {
+    pageNumber,
+    dataUrl: canvas.toDataURL('image/jpeg', 0.92),
+    width: canvas.width,
+    height: canvas.height,
+  };
+}
+
 
 export interface SplitPageResult {
   pageNumber: number;
