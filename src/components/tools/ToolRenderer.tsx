@@ -77,7 +77,7 @@ export function ToolRenderer({ tool, locale }: ToolRendererProps) {
 
   // 1. PDF tools (Merge, Split, Images-to-PDF, Rotate, Watermark, etc.)
   if (category === 'pdf-toolkit' || slug.includes('pdf')) {
-    return <PdfTool tool={tool} />;
+    return <PdfTool tool={tool} locale={locale} />;
   }
 
   // 2. Specific Image Calculators & Specialized Utilities

@@ -73,12 +73,14 @@ import {
   type SplitPageResult,
 } from '@/lib/engines/pdf-engine';
 import type { Tool } from '@/lib/tool-registry';
+import type { Locale } from '@/lib/i18n';
 
 interface PdfToolProps {
   tool: Tool;
+  locale?: Locale;
 }
 
-export function PdfTool({ tool }: PdfToolProps) {
+export function PdfTool({ tool, locale }: PdfToolProps) {
   const slug = tool.slug;
 
   // Distinct tool modes
@@ -132,6 +134,7 @@ export function PdfTool({ tool }: PdfToolProps) {
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
   const [pageOrder, setPageOrder] = useState<number[]>([]); // 1-indexed page ordering for reorder
   const [individualRotations, setIndividualRotations] = useState<Record<number, number>>({}); // 0-indexed page -> degrees
+  const [activePreviewPage, setActivePreviewPage] = useState<number>(0);
 
   // Inspection modal states (Enlarge specific page & View full document)
   const [inspectPageNumber, setInspectPageNumber] = useState<number | null>(null);
@@ -213,6 +216,7 @@ export function PdfTool({ tool }: PdfToolProps) {
         setIndividualRotations({});
         setGlobalRotationAngle(0);
         setPdfInfo(null);
+        setActivePreviewPage(0);
 
         // Check if PDF is encrypted
         try {
@@ -243,7 +247,7 @@ export function PdfTool({ tool }: PdfToolProps) {
         }
 
         // Render thumbnails in background if applicable
-        if (usesVisualPageGrid || isPdfToJpg) {
+        if (usesVisualPageGrid || isPdfToJpg || isPrintOptimizer || isWatermark) {
           setLoadingThumbnails(true);
           try {
             const thumbs = await renderPdfThumbnails(pdf, 100, 0.55);
@@ -690,6 +694,7 @@ export function PdfTool({ tool }: PdfToolProps) {
                     setIsFileEncrypted(null);
                     setInspectPageNumber(null);
                     setShowFullDocModal(false);
+                    setActivePreviewPage(0);
                   }}
                   className="text-xs text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 underline font-medium"
                 >
@@ -897,65 +902,368 @@ export function PdfTool({ tool }: PdfToolProps) {
                 </div>
               )}
 
-              {/* PDF Print Optimizer Controls */}
+              {/* PDF Print Optimizer Controls & Real-Time Preview */}
               {isPrintOptimizer && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Print Margins</label>
-                    <select
-                      value={printMargin}
-                      onChange={(e) => setPrintMargin(parseInt(e.target.value, 10))}
-                      className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
-                      style={{ borderColor: 'var(--border)' }}
-                    >
-                      <option value="0">Zero Margins (Full Bleed)</option>
-                      <option value="16">Narrow (16 pt / ~6 mm)</option>
-                      <option value="24">Standard (24 pt / ~8.5 mm)</option>
-                      <option value="40">Wide (40 pt / ~14 mm)</option>
-                    </select>
+                <div className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Print Margins</label>
+                        <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                          {printMargin === 0 ? 'Full Bleed (0 pt)' : `${printMargin} pt (~${(printMargin * 0.352778).toFixed(1)} mm)`}
+                        </span>
+                      </div>
+                      <select
+                        value={printMargin}
+                        onChange={(e) => setPrintMargin(parseInt(e.target.value, 10))}
+                        className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
+                        style={{ borderColor: 'var(--border)' }}
+                      >
+                        <option value="0">Zero Margins (Full Bleed)</option>
+                        <option value="16">Narrow (16 pt / ~6 mm)</option>
+                        <option value="24">Standard (24 pt / ~8.5 mm)</option>
+                        <option value="40">Wide (40 pt / ~14 mm)</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Target Paper Size</label>
+                        <span className="text-[11px] font-semibold text-stone-500">
+                          {pageSize === 'A4' ? 'A4 (210 × 297 mm)' : 'US Letter (8.5 × 11 in)'}
+                        </span>
+                      </div>
+                      <select
+                        value={pageSize}
+                        onChange={(e) => setPageSize(e.target.value as any)}
+                        className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
+                        style={{ borderColor: 'var(--border)' }}
+                      >
+                        <option value="A4">A4 (Standard 210 × 297 mm)</option>
+                        <option value="Letter">US Letter (8.5 × 11 in)</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Target Paper Size</label>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => setPageSize(e.target.value as any)}
-                      className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
-                      style={{ borderColor: 'var(--border)' }}
+
+                  {/* Quick Preset Buttons */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t" style={{ borderColor: 'var(--border)' }}>
+                    <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                      <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider mr-1">
+                        Margin Presets:
+                      </span>
+                      {[
+                        { label: 'Zero (0 pt)', val: 0 },
+                        { label: 'Narrow (16 pt)', val: 16 },
+                        { label: 'Standard (24 pt)', val: 24 },
+                        { label: 'Wide (40 pt)', val: 40 },
+                      ].map((p) => (
+                        <button
+                          key={p.val}
+                          type="button"
+                          onClick={() => setPrintMargin(p.val)}
+                          className={`px-2.5 py-1 text-xs font-semibold rounded-[8px] border transition-all ${
+                            printMargin === p.val
+                              ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                              : 'border-stone-200 dark:border-stone-700 hover:border-emerald-600 text-stone-600 dark:text-stone-300'
+                          }`}
+                        >
+                          {p.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs">
+                      <span className="text-[11px] font-bold text-stone-500 uppercase tracking-wider mr-1">
+                        Paper:
+                      </span>
+                      {(['A4', 'Letter'] as const).map((size) => (
+                        <button
+                          key={size}
+                          type="button"
+                          onClick={() => setPageSize(size)}
+                          className={`px-2.5 py-1 text-xs font-semibold rounded-[8px] border transition-all ${
+                            pageSize === size
+                              ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                              : 'border-stone-200 dark:border-stone-700 hover:border-emerald-600 text-stone-600 dark:text-stone-300'
+                          }`}
+                        >
+                          {size === 'A4' ? 'A4' : 'US Letter'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* ─────────────────────────────────────────────────────────────
+                      REAL-TIME PRINT SHEET PREVIEW
+                      ───────────────────────────────────────────────────────────── */}
+                  <div className="pt-2 space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <Printer size={16} className="text-emerald-600 dark:text-emerald-400" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+                          Real-Time Print Preview
+                        </span>
+                        <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400">
+                          Live
+                        </span>
+                      </div>
+
+                      {/* Multi-page Navigation */}
+                      {thumbnails.length > 1 && (
+                        <div className="flex items-center gap-2 text-xs">
+                          <button
+                            type="button"
+                            disabled={activePreviewPage === 0}
+                            onClick={() => setActivePreviewPage((p) => Math.max(0, p - 1))}
+                            className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-40 disabled:cursor-not-allowed"
+                            style={{ borderColor: 'var(--border)' }}
+                            title="Previous page"
+                          >
+                            <ChevronLeft size={14} />
+                          </button>
+                          <span className="font-semibold text-stone-700 dark:text-stone-300 text-xs">
+                            Page <strong>{activePreviewPage + 1}</strong> of {thumbnails.length}
+                          </span>
+                          <button
+                            type="button"
+                            disabled={activePreviewPage >= thumbnails.length - 1}
+                            onClick={() => setActivePreviewPage((p) => Math.min(thumbnails.length - 1, p + 1))}
+                            className="p-1 rounded-[6px] border text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-40 disabled:cursor-not-allowed"
+                            style={{ borderColor: 'var(--border)' }}
+                            title="Next page"
+                          >
+                            <ChevronRight size={14} />
+                          </button>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Stage Container */}
+                    <div
+                      className="p-5 sm:p-7 rounded-[16px] border flex flex-col items-center justify-center relative overflow-hidden"
+                      style={{
+                        background: 'radial-gradient(ellipse at top, rgba(44,110,89,0.06) 0%, rgba(0,0,0,0.03) 100%)',
+                        borderColor: 'var(--border)',
+                      }}
                     >
-                      <option value="A4">A4 (Standard 210 × 297 mm)</option>
-                      <option value="Letter">US Letter (8.5 × 11 in)</option>
-                    </select>
+                      {loadingThumbnails ? (
+                        <div className="py-16 text-center space-y-3">
+                          <RefreshCw size={26} className="animate-spin text-emerald-600 mx-auto" />
+                          <p className="text-xs font-semibold text-stone-500">
+                            Rendering high-clarity PDF page preview...
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center justify-center w-full">
+                          {/* Simulated Paper Sheet */}
+                          <div
+                            className="relative bg-white shadow-2xl rounded-[3px] transition-all duration-300 border border-stone-300/80 flex items-center justify-center overflow-hidden"
+                            style={{
+                              width: pageSize === 'Letter' ? '280px' : '260px',
+                              height: pageSize === 'Letter' ? '362px' : '368px',
+                              padding: printMargin === 0
+                                ? '0px'
+                                : `${Math.max(4, Math.round(printMargin * 0.4))}px`,
+                            }}
+                          >
+                            {/* Non-printable margin stripe background indicator */}
+                            {printMargin > 0 && (
+                              <div
+                                className="absolute inset-0 pointer-events-none opacity-20"
+                                style={{
+                                  backgroundImage: 'repeating-linear-gradient(45deg, #10b981 0, #10b981 1px, transparent 0, transparent 8px)',
+                                }}
+                              />
+                            )}
+
+                            {/* Printable Boundary Border */}
+                            <div
+                              className={`w-full h-full relative transition-all duration-300 flex items-center justify-center bg-white ${
+                                printMargin > 0
+                                  ? 'border-2 border-dashed border-emerald-500/70 shadow-sm'
+                                  : 'border-0'
+                              }`}
+                            >
+                              {/* Rendered PDF Page Image */}
+                              {thumbnails[activePreviewPage]?.dataUrl ? (
+                                <img
+                                  src={thumbnails[activePreviewPage].dataUrl}
+                                  alt={`Page ${activePreviewPage + 1} Print Preview`}
+                                  className="w-full h-full object-contain pointer-events-none select-none"
+                                />
+                              ) : (
+                                <div className="p-4 text-center text-stone-400 text-xs">
+                                  <FileText size={32} className="mx-auto text-stone-300 mb-1" />
+                                  Page {activePreviewPage + 1}
+                                </div>
+                              )}
+
+                              {/* Margin badge overlay */}
+                              {printMargin > 0 && (
+                                <div className="absolute top-1 right-1 bg-emerald-700/85 text-white text-[9px] font-mono font-bold px-1.5 py-0.5 rounded shadow-sm pointer-events-none">
+                                  {printMargin} pt safe
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Paper Sheet Caption */}
+                          <div className="mt-3 flex items-center gap-2 text-xs text-stone-500 font-medium">
+                            <span className="font-bold text-stone-700 dark:text-stone-300">
+                              {pageSize === 'A4' ? 'A4 Paper (210 × 297 mm)' : 'US Letter (8.5 × 11 in)'}
+                            </span>
+                            <span>•</span>
+                            <span>
+                              {printMargin === 0 ? 'Zero Margins (Full Bleed)' : `${printMargin} pt (~${(printMargin * 0.352778).toFixed(1)} mm) Safe Margins`}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Multi-page Thumbnail Filmstrip */}
+                    {thumbnails.length > 1 && (
+                      <div className="space-y-1.5 pt-1">
+                        <div className="flex items-center justify-between text-[11px] text-stone-500">
+                          <span className="font-bold uppercase tracking-wider">
+                            Page Filmstrip ({thumbnails.length} pages):
+                          </span>
+                          <span>Click to preview page</span>
+                        </div>
+                        <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 max-w-full">
+                          {thumbnails.map((thumb, idx) => (
+                            <button
+                              key={thumb.pageNumber}
+                              type="button"
+                              onClick={() => setActivePreviewPage(idx)}
+                              className={`shrink-0 w-12 h-16 rounded-[6px] border-2 transition-all p-0.5 bg-white relative overflow-hidden ${
+                                activePreviewPage === idx
+                                  ? 'border-emerald-600 shadow-md ring-2 ring-emerald-500/20 scale-105'
+                                  : 'border-stone-200 dark:border-stone-700 opacity-60 hover:opacity-100'
+                              }`}
+                            >
+                              <img
+                                src={thumb.dataUrl}
+                                alt={`Page ${idx + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                              <span className="absolute bottom-0 inset-x-0 bg-black/60 text-white text-[9px] text-center font-bold font-mono">
+                                {idx + 1}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Print Specs Inspection Cards */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center pt-1">
+                      <div className="p-2.5 rounded-[10px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+                        <div className="text-[10px] font-bold text-stone-500 uppercase">Target Sheet</div>
+                        <div className="text-xs font-bold text-stone-800 dark:text-stone-200 mt-0.5">
+                          {pageSize === 'A4' ? 'A4 Standard' : 'US Letter'}
+                        </div>
+                      </div>
+                      <div className="p-2.5 rounded-[10px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+                        <div className="text-[10px] font-bold text-stone-500 uppercase">Print Margin</div>
+                        <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 mt-0.5">
+                          {printMargin} pt ({Math.round(printMargin * 0.352778)} mm)
+                        </div>
+                      </div>
+                      <div className="p-2.5 rounded-[10px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+                        <div className="text-[10px] font-bold text-stone-500 uppercase">Printable Width</div>
+                        <div className="text-xs font-bold text-stone-800 dark:text-stone-200 mt-0.5">
+                          {pageSize === 'Letter' ? Math.round(612 - printMargin * 2) : Math.round(595 - printMargin * 2)} pt
+                        </div>
+                      </div>
+                      <div className="p-2.5 rounded-[10px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+                        <div className="text-[10px] font-bold text-stone-500 uppercase">Printable Height</div>
+                        <div className="text-xs font-bold text-stone-800 dark:text-stone-200 mt-0.5">
+                          {pageSize === 'Letter' ? Math.round(792 - printMargin * 2) : Math.round(842 - printMargin * 2)} pt
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
 
               {/* Watermark Controls */}
               {isWatermark && (
-                <div className="space-y-3">
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Watermark Text</label>
-                    <input
-                      type="text"
-                      value={watermarkText}
-                      onChange={(e) => setWatermarkText(e.target.value)}
-                      className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
-                      style={{ borderColor: 'var(--border)' }}
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-xs font-bold text-stone-700 dark:text-stone-300">
-                      <span>Opacity</span>
-                      <span>{Math.round(watermarkOpacity * 100)}%</span>
+                <div className="space-y-4">
+                  <div className="space-y-3">
+                    <div className="space-y-1">
+                      <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Watermark Text</label>
+                      <input
+                        type="text"
+                        value={watermarkText}
+                        onChange={(e) => setWatermarkText(e.target.value)}
+                        className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
+                        style={{ borderColor: 'var(--border)' }}
+                      />
                     </div>
-                    <input
-                      type="range"
-                      min="0.05"
-                      max="0.8"
-                      step="0.05"
-                      value={watermarkOpacity}
-                      onChange={(e) => setWatermarkOpacity(parseFloat(e.target.value))}
-                      className="w-full accent-emerald-600"
-                    />
+                    <div className="space-y-1">
+                      <div className="flex justify-between text-xs font-bold text-stone-700 dark:text-stone-300">
+                        <span>Opacity</span>
+                        <span>{Math.round(watermarkOpacity * 100)}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0.05"
+                        max="0.8"
+                        step="0.05"
+                        value={watermarkOpacity}
+                        onChange={(e) => setWatermarkOpacity(parseFloat(e.target.value))}
+                        className="w-full accent-emerald-600"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Real-time Watermark Preview */}
+                  <div className="pt-2 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Stamp size={16} className="text-emerald-600 dark:text-emerald-400" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
+                        Real-Time Watermark Preview
+                      </span>
+                    </div>
+
+                    <div
+                      className="p-5 rounded-[16px] border flex flex-col items-center justify-center"
+                      style={{
+                        background: 'radial-gradient(ellipse at top, rgba(44,110,89,0.06) 0%, rgba(0,0,0,0.03) 100%)',
+                        borderColor: 'var(--border)',
+                      }}
+                    >
+                      {loadingThumbnails ? (
+                        <div className="py-12 text-center">
+                          <RefreshCw size={24} className="animate-spin text-emerald-600 mx-auto" />
+                        </div>
+                      ) : thumbnails[activePreviewPage]?.dataUrl ? (
+                        <div className="relative shadow-2xl rounded-[3px] border border-stone-300/80 bg-white overflow-hidden max-w-[240px]">
+                          <img
+                            src={thumbnails[activePreviewPage].dataUrl}
+                            alt="Watermark live preview"
+                            className="w-full h-auto object-contain pointer-events-none select-none"
+                          />
+                          <div
+                            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none px-4"
+                            style={{
+                              transform: 'rotate(-45deg)',
+                              color: '#e11d48',
+                              opacity: watermarkOpacity,
+                              fontWeight: 'bold',
+                              fontSize: '20px',
+                              letterSpacing: '1px',
+                              textShadow: '0 0 1px rgba(0,0,0,0.2)',
+                              textAlign: 'center',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {watermarkText || 'WATERMARK'}
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
                 </div>
               )}
