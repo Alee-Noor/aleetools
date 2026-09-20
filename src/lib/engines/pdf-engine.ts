@@ -481,3 +481,277 @@ export function downloadImageBlob(blob: Blob, fileName: string) {
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }
 
+export interface PdfEncryptionOptions {
+  algorithm?: 'AES-256' | 'RC4';
+  allowPrinting?: boolean;
+  allowModifying?: boolean;
+  allowCopying?: boolean;
+  allowAnnotating?: boolean;
+  allowFillingForms?: boolean;
+}
+
+/**
+ * Encrypt PDF with password protection using AES-256 or RC4
+ */
+export async function protectPdf(
+  file: File,
+  userPassword: string,
+  options?: PdfEncryptionOptions
+): Promise<Uint8Array> {
+  const { encryptPDF } = await import('@pdfsmaller/pdf-encrypt');
+  const arrayBuffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(arrayBuffer);
+  return await encryptPDF(bytes, userPassword, options);
+}
+
+/**
+ * Decrypt/Unlock password-protected PDF
+ */
+export async function unlockPdf(
+  file: File,
+  password: string
+): Promise<Uint8Array> {
+  const { decryptPDF } = await import('@pdfsmaller/pdf-decrypt');
+  const arrayBuffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(arrayBuffer);
+  return await decryptPDF(bytes, password);
+}
+
+/**
+ * Detect whether a PDF is password protected / encrypted
+ */
+export async function checkPdfEncryption(file: File): Promise<{
+  encrypted: boolean;
+  algorithm?: 'AES-256' | 'RC4';
+  version?: number;
+  revision?: number;
+  keyLength?: number;
+}> {
+  const { isEncrypted } = await import('@pdfsmaller/pdf-decrypt');
+  const arrayBuffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(arrayBuffer);
+  return await isEncrypted(bytes);
+}
+
+/**
+ * Format 0-indexed page indices array into human-readable range string (e.g. [0, 1, 2, 4] -> "1-3, 5")
+ */
+export function formatPageIndicesToRange(indices: number[]): string {
+  if (indices.length === 0) return '';
+  const sorted = Array.from(new Set(indices)).sort((a, b) => a - b);
+  const ranges: string[] = [];
+  let start = sorted[0];
+  let end = sorted[0];
+
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i] === end + 1) {
+      end = sorted[i];
+    } else {
+      ranges.push(start === end ? `${start + 1}` : `${start + 1}-${end + 1}`);
+      start = sorted[i];
+      end = sorted[i];
+    }
+  }
+  ranges.push(start === end ? `${start + 1}` : `${start + 1}-${end + 1}`);
+  return ranges.join(', ');
+}
+
+export interface PdfThumbnail {
+  pageNumber: number;
+  dataUrl: string;
+  width: number;
+  height: number;
+}
+
+/**
+ * Fast client-side rendering of PDF page thumbnails for visual selection cards
+ */
+export async function renderPdfThumbnails(
+  file: File,
+  maxPages: number = 100,
+  scale: number = 0.4
+): Promise<PdfThumbnail[]> {
+  const pdfjsLib = await import('pdfjs-dist');
+  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+  }
+  const arrayBuffer = await file.arrayBuffer();
+  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  const pdfDoc = await loadingTask.promise;
+  const total = Math.min(pdfDoc.numPages, maxPages);
+  const thumbnails: PdfThumbnail[] = [];
+
+  for (let i = 1; i <= total; i++) {
+    const page = await pdfDoc.getPage(i);
+    const viewport = page.getViewport({ scale });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) continue;
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    thumbnails.push({
+      pageNumber: i,
+      dataUrl: canvas.toDataURL('image/jpeg', 0.8),
+      width: canvas.width,
+      height: canvas.height,
+    });
+  }
+  return thumbnails;
+}
+
+export interface SplitPageResult {
+  pageNumber: number;
+  bytes: Uint8Array;
+  fileName: string;
+  sizeKb: number;
+}
+
+/**
+ * Split PDF into standalone individual 1-page PDF files
+ */
+export async function splitPdfToIndividualPages(
+  file: File,
+  selectedIndices?: number[]
+): Promise<SplitPageResult[]> {
+  const fileBytes = await file.arrayBuffer();
+  const srcDoc = await PDFDocument.load(fileBytes);
+  const total = srcDoc.getPageCount();
+  const indices = selectedIndices && selectedIndices.length > 0
+    ? selectedIndices.filter((idx) => idx >= 0 && idx < total)
+    : Array.from({ length: total }, (_, i) => i);
+
+  const baseName = file.name.replace(/\.pdf$/i, '');
+  const results: SplitPageResult[] = [];
+
+  for (const idx of indices) {
+    const newDoc = await PDFDocument.create();
+    const [copiedPage] = await newDoc.copyPages(srcDoc, [idx]);
+    newDoc.addPage(copiedPage);
+    const bytes = await newDoc.save();
+    const pageNum = idx + 1;
+    results.push({
+      pageNumber: pageNum,
+      bytes,
+      fileName: `${baseName}-page-${pageNum}.pdf`,
+      sizeKb: Number((bytes.length / 1024).toFixed(1)),
+    });
+  }
+  return results;
+}
+
+/**
+ * Compress PDF by downsampling embedded page bitmaps and optimizing structure
+ */
+export async function compressPdf(
+  file: File,
+  level: 'low' | 'medium' | 'high' = 'medium'
+): Promise<Uint8Array> {
+  const qualityMap = {
+    low: { scale: 1.4, quality: 0.82 },
+    medium: { scale: 1.15, quality: 0.70 },
+    high: { scale: 0.9, quality: 0.55 },
+  };
+  const { scale, quality } = qualityMap[level];
+  const pdfjsLib = await import('pdfjs-dist');
+  if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+  }
+  const arrayBuffer = await file.arrayBuffer();
+  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  const pdfDoc = await loadingTask.promise;
+  const newDoc = await PDFDocument.create();
+
+  for (let i = 1; i <= pdfDoc.numPages; i++) {
+    const page = await pdfDoc.getPage(i);
+    const viewport = page.getViewport({ scale });
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    const ctx = canvas.getContext('2d');
+    if (!ctx) continue;
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, 'image/jpeg', quality));
+    if (!blob) continue;
+    const jpgBytes = await blob.arrayBuffer();
+    const embeddedImage = await newDoc.embedJpg(jpgBytes);
+    const origViewport = page.getViewport({ scale: 1.0 });
+    const newPage = newDoc.addPage([origViewport.width, origViewport.height]);
+    newPage.drawImage(embeddedImage, {
+      x: 0,
+      y: 0,
+      width: origViewport.width,
+      height: origViewport.height,
+    });
+  }
+  return await newDoc.save();
+}
+
+/**
+ * Rotate specific individual PDF pages
+ */
+export async function rotateSpecificPdfPages(
+  file: File,
+  pageRotations: Record<number, number>
+): Promise<Uint8Array> {
+  const fileBytes = await file.arrayBuffer();
+  const doc = await PDFDocument.load(fileBytes);
+  const pages = doc.getPages();
+
+  for (const [idxStr, addDeg] of Object.entries(pageRotations)) {
+    const idx = parseInt(idxStr, 10);
+    if (pages[idx] && addDeg !== 0) {
+      const currentRot = pages[idx].getRotation().angle;
+      pages[idx].setRotation(degrees((currentRot + addDeg) % 360));
+    }
+  }
+  return await doc.save();
+}
+
+/**
+ * Optimize PDF layout and margins for printing
+ */
+export async function optimizeForPrintPdf(
+  file: File,
+  marginPt: number = 24,
+  targetSize: 'A4' | 'Letter' = 'A4'
+): Promise<Uint8Array> {
+  const fileBytes = await file.arrayBuffer();
+  const srcDoc = await PDFDocument.load(fileBytes);
+  const destDoc = await PDFDocument.create();
+  const total = srcDoc.getPageCount();
+
+  const [targetW, targetH] = targetSize === 'Letter' ? PageSizes.Letter : PageSizes.A4;
+
+  for (let i = 0; i < total; i++) {
+    const embeddedPage = await destDoc.embedPage(srcDoc.getPages()[i]);
+    const { width, height } = embeddedPage;
+    const newPage = destDoc.addPage([targetW, targetH]);
+
+    const availW = targetW - marginPt * 2;
+    const availH = targetH - marginPt * 2;
+    const scale = Math.min(availW / width, availH / height, 1);
+    const drawW = width * scale;
+    const drawH = height * scale;
+    const x = (targetW - drawW) / 2;
+    const y = (targetH - drawH) / 2;
+
+    newPage.drawPage(embeddedPage, {
+      x,
+      y,
+      width: drawW,
+      height: drawH,
+    });
+  }
+  return await destDoc.save();
+}
+
+
+
