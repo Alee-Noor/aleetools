@@ -51,7 +51,15 @@
     "relatedTools": "Outils associés",
     "howToUse": "Comment utiliser",
     "faq": "Questions fréquemment posées",
-    "tool": "Outil"
+    "tool": "Outil",
+    "allCategories": "Toutes les catégories",
+    "all": "Tous",
+    "showingCount": "Affichage de {filtered} sur {total} outils",
+    "filteringBy": "Filtré par « {query} »",
+    "clear": "Effacer",
+    "noToolsFound": "Aucun outil trouvé pour « {query} ».",
+    "resetFilters": "Réinitialiser la recherche et les filtres",
+    "specsAndDimensions": "Spécifications & Dimensions Recommandées"
   },
   "breadcrumbs": {
     "home": "Accueil",
@@ -73,5 +81,25 @@
     "homeDescription": "156 outils utilitaires gratuits et instantanés pour créateurs, étudiants et développeurs. Redimensionnement d'images, outils PDF, formateurs JSON, générateurs de QR codes — sans inscription, sans paywall.",
     "toolsTitle": "Les 156 outils gratuits – Répertoire complet | Alee Tools",
     "toolsDescription": "Parcourez 156 outils gratuits côté client. Redimensionneurs d'images, convertisseurs PDF, formateurs pour développeurs, générateurs de QR codes et calculatrices."
+  },
+  "calculator": {
+    "interactiveTab": "Calculateur & Inspecteur Interactif",
+    "specSheetTab": "Fiche Technique Plateformes",
+    "width": "Largeur (px)",
+    "height": "Hauteur (px)",
+    "locked": "Ratio Verrouillé",
+    "unlocked": "Ratio Déverrouillé",
+    "presets": "Préréglages de Ratio Standards :",
+    "scaleResolution": "Mise à l'échelle :",
+    "shape": "Forme",
+    "portrait": "Portrait (Vertical)",
+    "landscape": "Paysage (Horizontal)",
+    "square": "Carré",
+    "calculatedRatio": "Ratio d'Aspect Calculé",
+    "decimalRatio": "Ratio Décimal",
+    "totalMegapixels": "Mégapixels Totaux",
+    "orientation": "Orientation",
+    "copyDimensions": "Copier Dimensions",
+    "copied": "Copié !"
   }
 }

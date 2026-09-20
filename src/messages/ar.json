@@ -51,7 +51,15 @@
     "relatedTools": "أدوات ذات صلة",
     "howToUse": "كيفية الاستخدام",
     "faq": "الأسئلة الشائعة",
-    "tool": "أداة"
+    "tool": "أداة",
+    "allCategories": "جميع الفئات",
+    "all": "الكل",
+    "showingCount": "عرض {filtered} من أصل {total} أداة",
+    "filteringBy": "تصفية حسب \"{query}\"",
+    "clear": "مسح",
+    "noToolsFound": "لم يتم العثور على أدوات تطابق \"{query}\".",
+    "resetFilters": "إعادة ضبط البحث والتصفية",
+    "specsAndDimensions": "المواصفات والأبعاد الموصى بها"
   },
   "breadcrumbs": {
     "home": "الرئيسية",
@@ -73,5 +81,25 @@
     "homeDescription": "156 أداة مساعدة مجانية وفورية للمبدعين والطلاب والمطورين. أدوات تغيير حجم الصور، أدوات PDF، منسقات JSON، مولدات رمز QR — بدون تسجيل، بدون رسوم.",
     "toolsTitle": "جميع الأدوات الـ 156 المجانية – دليل شامل | Alee Tools",
     "toolsDescription": "تصفح 156 أداة مجانية تعمل من جانب العميل. أدوات تغيير حجم الصور، محولات PDF، منسقات للمطورين، مولدات رمز QR وآلات حاسبة."
+  },
+  "calculator": {
+    "interactiveTab": "الحاسبة التفاعلية والفاحص",
+    "specSheetTab": "جدول مواصفات المنصات",
+    "width": "العرض (بكسل)",
+    "height": "الارتفاع (بكسل)",
+    "locked": "النسبة مقفلة",
+    "unlocked": "النسبة مفتوحة",
+    "presets": "نسب العرض إلى الارتفاع القياسية:",
+    "scaleResolution": "مضاعفة الدقة:",
+    "shape": "الشكل",
+    "portrait": "طولي (عمودي)",
+    "landscape": "عرضي (أفقي)",
+    "square": "مربع",
+    "calculatedRatio": "نسبة الأبعاد المحسوبة",
+    "decimalRatio": "النسبة العشرية",
+    "totalMegapixels": "إجمالي الميجابكسل",
+    "orientation": "الاتجاه",
+    "copyDimensions": "نسخ الأبعاد",
+    "copied": "تم النسخ!"
   }
 }

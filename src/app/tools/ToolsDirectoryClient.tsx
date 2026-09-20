@@ -9,9 +9,18 @@ import { getToolUrl, type Tool, type Category } from '@/lib/tool-registry';
 import { DEFAULT_LOCALE, getLocalizedPath, type Locale } from '@/lib/i18n';
 import { t } from '@/lib/translations';
 
+export interface LocalizedCategory extends Category {
+  displayName?: string;
+}
+
+export interface LocalizedTool extends Tool {
+  displayName?: string;
+  displayShortDescription?: string;
+}
+
 interface ToolsDirectoryClientProps {
-  categories: Category[];
-  tools: Tool[];
+  categories: (Category | LocalizedCategory)[];
+  tools: (Tool | LocalizedTool)[];
   locale?: Locale;
 }
 
@@ -26,12 +35,20 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
     }
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
-      list = list.filter(
-        (t) =>
+      list = list.filter((t: Tool | LocalizedTool) => {
+        const name = 'displayName' in t && t.displayName ? t.displayName : t.name;
+        const desc =
+          'displayShortDescription' in t && t.displayShortDescription
+            ? t.displayShortDescription
+            : t.shortDescription;
+        return (
+          name.toLowerCase().includes(q) ||
+          desc.toLowerCase().includes(q) ||
           t.name.toLowerCase().includes(q) ||
           t.shortDescription.toLowerCase().includes(q) ||
           t.keywords.some((k) => k.toLowerCase().includes(q))
-      );
+        );
+      });
     }
     return list;
   }, [tools, selectedCategory, searchQuery]);
@@ -89,7 +106,7 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
                 onClick={() => setSearchQuery('')}
                 className="text-xs text-stone-600 dark:text-stone-400 hover:text-stone-900 px-1 font-semibold"
               >
-                Clear
+                {t(locale, 'tools.clear')}
               </button>
             )}
           </div>
@@ -102,10 +119,11 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
           active={selectedCategory === 'all'}
           onClick={() => setSelectedCategory('all')}
         >
-          All ({tools.length})
+          {t(locale, 'tools.all')} ({tools.length})
         </Chip>
         {categories.map((cat) => {
           const count = tools.filter((t) => t.category === cat.slug).length;
+          const catName = 'displayName' in cat && cat.displayName ? cat.displayName : cat.name;
           return (
             <Chip
               key={cat.slug}
@@ -113,7 +131,7 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
               accentColor={`var(--color-${cat.color})`}
               onClick={() => setSelectedCategory(cat.slug)}
             >
-              {cat.name} ({count})
+              {catName} ({count})
             </Chip>
           );
         })}
@@ -122,10 +140,10 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
       {/* Results Count */}
       <div className="mb-6 flex items-center justify-between text-xs text-stone-600 dark:text-stone-400 font-medium">
         <span>
-          Showing <strong>{filteredTools.length}</strong> of {tools.length} tools
+          {t(locale, 'tools.showingCount', { filtered: filteredTools.length, total: tools.length })}
         </span>
         {searchQuery && (
-          <span>Filtering by &ldquo;{searchQuery}&rdquo;</span>
+          <span>{t(locale, 'tools.filteringBy', { query: searchQuery })}</span>
         )}
       </div>
 
@@ -134,6 +152,17 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {filteredTools.map((tool) => {
             const cat = categories.find((c) => c.slug === tool.category);
+            const toolName = 'displayName' in tool && tool.displayName ? tool.displayName : tool.name;
+            const toolDesc =
+              'displayShortDescription' in tool && tool.displayShortDescription
+                ? tool.displayShortDescription
+                : tool.shortDescription;
+            const catBadge = cat
+              ? 'displayName' in cat && cat.displayName
+                ? cat.displayName.split(' ')[0]
+                : cat.name.split(' ')[0]
+              : t(locale, 'tools.tool');
+
             return (
               <Link
                 key={`${tool.category}-${tool.slug}`}
@@ -160,7 +189,7 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
                         color: cat ? `var(--color-${cat.color})` : 'var(--color-accent-primary)',
                       }}
                     >
-                      {cat?.name.split(' ')[0] || 'Tool'}
+                      {catBadge}
                     </span>
                     <ArrowRight
                       size={14}
@@ -171,10 +200,10 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
                     className="text-base font-bold mb-1.5 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors"
                     style={{ color: 'var(--ink)' }}
                   >
-                    {tool.name}
+                    {toolName}
                   </h2>
                   <p className="text-xs line-clamp-2 leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
-                    {tool.shortDescription}
+                    {toolDesc}
                   </p>
                 </div>
 
@@ -192,7 +221,7 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
           style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}
         >
           <p className="text-base text-stone-600 dark:text-stone-400 mb-4">
-            No tools found matching &ldquo;{searchQuery}&rdquo;.
+            {t(locale, 'tools.noToolsFound', { query: searchQuery })}
           </p>
           <button
             type="button"
@@ -203,7 +232,7 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
             className="text-sm font-semibold hover:underline"
             style={{ color: 'var(--color-accent-primary)' }}
           >
-            Reset search and filters
+            {t(locale, 'tools.resetFilters')}
           </button>
         </div>
       )}

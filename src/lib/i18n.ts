@@ -78,7 +78,17 @@ export function getHtmlLang(locale: Locale): string {
 
 /** Check if a string is a valid locale */
 export function isValidLocale(value: string): value is Locale {
-  return (LOCALES as readonly string[]).includes(value);
+  return (LOCALES as readonly string[]).includes(value as Locale);
+}
+
+/** Extracts the locale from a pathname, returning DEFAULT_LOCALE ('en') if none matches */
+export function getLocaleFromPathname(pathname: string): Locale {
+  if (!pathname) return DEFAULT_LOCALE;
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length > 0 && isValidLocale(segments[0])) {
+    return segments[0];
+  }
+  return DEFAULT_LOCALE;
 }
 
 /** Generate hreflang alternate links for a given path */

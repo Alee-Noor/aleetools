@@ -51,7 +51,15 @@
     "relatedTools": "Verwandte Tools",
     "howToUse": "So verwenden Sie",
     "faq": "Häufig gestellte Fragen",
-    "tool": "Tool"
+    "tool": "Tool",
+    "allCategories": "Alle Kategorien",
+    "all": "Alle",
+    "showingCount": "Zeige {filtered} von {total} Tools",
+    "filteringBy": "Gefiltert nach „{query}“",
+    "clear": "Löschen",
+    "noToolsFound": "Keine Tools gefunden für „{query}“.",
+    "resetFilters": "Suche und Filter zurücksetzen",
+    "specsAndDimensions": "Spezifikationen & Empfohlene Abmessungen"
   },
   "breadcrumbs": {
     "home": "Startseite",
@@ -73,5 +81,25 @@
     "homeDescription": "156 kostenlose, sofortige Utility-Tools für Kreative, Studenten und Entwickler. Bildverkleinerer, PDF-Tools, JSON-Formatierer, QR-Code-Generatoren – ohne Registrierung, ohne Paywall.",
     "toolsTitle": "Alle 156 kostenlosen Tools – Verzeichnis durchsuchen | Alee Tools",
     "toolsDescription": "Durchsuchen Sie 156 kostenlose Client-seitige Tools. Bildverkleinerer, PDF-Konverter, Entwickler-Formatierer, QR-Code-Generatoren und Rechner."
+  },
+  "calculator": {
+    "interactiveTab": "Interaktiver Rechner & Inspektor",
+    "specSheetTab": "Spezifikationstabelle",
+    "width": "Breite (px)",
+    "height": "Höhe (px)",
+    "locked": "Seitenverhältnis gesperrt",
+    "unlocked": "Seitenverhältnis frei",
+    "presets": "Standard-Seitenverhältnisse:",
+    "scaleResolution": "Auflösung skalieren:",
+    "shape": "Form",
+    "portrait": "Hochformat",
+    "landscape": "Querformat",
+    "square": "Quadratisch",
+    "calculatedRatio": "Berechnetes Seitenverhältnis",
+    "decimalRatio": "Dezimalverhältnis",
+    "totalMegapixels": "Gesamt-Megapixel",
+    "orientation": "Ausrichtung",
+    "copyDimensions": "Abmessungen kopieren",
+    "copied": "Kopiert!"
   }
 }

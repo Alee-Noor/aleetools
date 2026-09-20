@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, type ChangeEvent } from 'react';
+import { usePathname } from 'next/navigation';
 import { SOCIAL_SPECS, type PlatformSpec } from '@/lib/engines/calc-engine';
 import { ClayButton } from '@/components/ui/ClayButton';
 import {
@@ -17,10 +18,165 @@ import {
   Sliders,
 } from 'lucide-react';
 import type { Tool } from '@/lib/tool-registry';
+import { DEFAULT_LOCALE, getLocaleFromPathname, type Locale } from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
 interface CalculatorToolProps {
   tool: Tool;
+  locale?: Locale;
 }
+
+const PRESET_NAMES: Record<Locale, Record<string, string>> = {
+  en: {
+    '16:9': 'Widescreen / Video',
+    '9:16': 'Stories / Reels / Shorts',
+    '1:1': 'Square / Feed',
+    '4:5': 'Instagram Portrait',
+    '4:3': 'Standard / Tablet',
+    '3:2': 'Classic 35mm Photo',
+    '21:9': 'Cinematic Ultrawide',
+  },
+  fr: {
+    '16:9': 'Écran large / Vidéo',
+    '9:16': 'Stories / Reels / Shorts',
+    '1:1': 'Carré / Flux',
+    '4:5': 'Portrait Instagram',
+    '4:3': 'Standard / Tablette',
+    '3:2': 'Photo 35mm classique',
+    '21:9': 'Cinématique ultra-large',
+  },
+  es: {
+    '16:9': 'Pantalla ancha / Video',
+    '9:16': 'Historias / Reels / Shorts',
+    '1:1': 'Cuadrado / Feed',
+    '4:5': 'Retrato de Instagram',
+    '4:3': 'Estándar / Tableta',
+    '3:2': 'Foto clásica 35mm',
+    '21:9': 'Ultra ancho cinemático',
+  },
+  de: {
+    '16:9': 'Breitbild / Video',
+    '9:16': 'Storys / Reels / Shorts',
+    '1:1': 'Quadratisch / Feed',
+    '4:5': 'Instagram Hochformat',
+    '4:3': 'Standard / Tablet',
+    '3:2': 'Klassisches 35mm Foto',
+    '21:9': 'Cinematic Ultrawide',
+  },
+  'pt-BR': {
+    '16:9': 'Widescreen / Vídeo',
+    '9:16': 'Stories / Reels / Shorts',
+    '1:1': 'Quadrado / Feed',
+    '4:5': 'Retrato Instagram',
+    '4:3': 'Padrão / Tablet',
+    '3:2': 'Foto clássica 35mm',
+    '21:9': 'Ultrawide cinematográfico',
+  },
+  ar: {
+    '16:9': 'شاشة عريضة / فيديو',
+    '9:16': 'قصص / ريلز / شورتس',
+    '1:1': 'مربع / المنشورات',
+    '4:5': 'بورتريه إنستغرام',
+    '4:3': 'قياسي / جهاز لوحي',
+    '3:2': 'صورة كلاسيكية 35 مم',
+    '21:9': 'شاشة سينمائية فائقة الاتساع',
+  },
+};
+
+const DROPZONE_TEXT: Record<Locale, { title: string; subtitle: string }> = {
+  en: {
+    title: 'Drop an image here to auto-detect its dimensions & aspect ratio',
+    subtitle: 'Supports PNG, JPG, WebP, SVG, and GIF. Instantly reads natural resolution.',
+  },
+  fr: {
+    title: 'Déposez une image ici pour détecter automatiquement ses dimensions et son ratio',
+    subtitle: 'Prend en charge PNG, JPG, WebP, SVG et GIF. Lecture instantanée de la résolution native.',
+  },
+  es: {
+    title: 'Arrastra una imagen aquí para detectar automáticamente sus dimensiones y proporción',
+    subtitle: 'Soporta PNG, JPG, WebP, SVG y GIF. Lee al instante la resolución natural.',
+  },
+  de: {
+    title: 'Ziehen Sie ein Bild hierher, um Maße und Seitenverhältnis automatisch zu erkennen',
+    subtitle: 'Unterstützt PNG, JPG, WebP, SVG und GIF. Liest native Auflösung sofort.',
+  },
+  'pt-BR': {
+    title: 'Arraste uma imagem aqui para detectar automaticamente suas dimensões e proporção',
+    subtitle: 'Suporta PNG, JPG, WebP, SVG e GIF. Lê instantaneamente a resolução nativa.',
+  },
+  ar: {
+    title: 'أفلت صورة هنا للكشف التلقائي عن أبعادها ونسبة العرض إلى الارتفاع',
+    subtitle: 'يدعم PNG و JPG و WebP و SVG و GIF. يقرأ الدقة الأصلية فوراً.',
+  },
+};
+
+const SPEC_LABELS: Record<
+  Locale,
+  {
+    official: string;
+    pixels: string;
+    maxFileSize: string;
+    format: string;
+    aspectRatio: string;
+    safeArea: string;
+    tipsTitle: string;
+  }
+> = {
+  en: {
+    official: 'Official Specification',
+    pixels: 'pixels',
+    maxFileSize: 'Max File Size',
+    format: 'Format',
+    aspectRatio: 'Aspect Ratio',
+    safeArea: 'Safe Area Note:',
+    tipsTitle: 'Best Practices & Optimization Tips',
+  },
+  fr: {
+    official: 'Spécification officielle',
+    pixels: 'pixels',
+    maxFileSize: 'Taille max fichier',
+    format: 'Format',
+    aspectRatio: "Ratio d'aspect",
+    safeArea: 'Remarque zone de sécurité :',
+    tipsTitle: "Meilleures pratiques & conseils d'optimisation",
+  },
+  es: {
+    official: 'Especificación oficial',
+    pixels: 'píxeles',
+    maxFileSize: 'Tamaño máx archivo',
+    format: 'Formato',
+    aspectRatio: 'Relación de aspecto',
+    safeArea: 'Nota de área segura:',
+    tipsTitle: 'Mejores prácticas y consejos de optimización',
+  },
+  de: {
+    official: 'Offizielle Spezifikation',
+    pixels: 'Pixel',
+    maxFileSize: 'Max Dateigröße',
+    format: 'Format',
+    aspectRatio: 'Seitenverhältnis',
+    safeArea: 'Sicherheitsbereich-Hinweis:',
+    tipsTitle: 'Best Practices & Optimierungstipps',
+  },
+  'pt-BR': {
+    official: 'Especificação oficial',
+    pixels: 'pixels',
+    maxFileSize: 'Tamanho máx arquivo',
+    format: 'Formato',
+    aspectRatio: 'Proporção',
+    safeArea: 'Nota sobre área de segurança:',
+    tipsTitle: 'Melhores práticas e dicas de otimização',
+  },
+  ar: {
+    official: 'المواصفات الرسمية',
+    pixels: 'بكسل',
+    maxFileSize: 'أقصى حجم للملف',
+    format: 'الصيغة',
+    aspectRatio: 'نسبة العرض إلى الارتفاع',
+    safeArea: 'ملاحظة المنطقة الآمنة:',
+    tipsTitle: 'أفضل الممارسات ونصائح التحسين',
+  },
+};
 
 function getGcd(a: number, b: number): number {
   return b === 0 ? a : getGcd(b, a % b);
@@ -58,7 +214,19 @@ const COMMON_RATIOS = [
   { label: '21:9', name: 'Cinematic Ultrawide', w: 21, h: 9, defaultDim: [2560, 1080] },
 ];
 
-export function CalculatorTool({ tool }: CalculatorToolProps) {
+export function CalculatorTool({ tool, locale: propsLocale }: CalculatorToolProps) {
+  const pathname = usePathname() || '';
+  const locale: Locale = propsLocale || getLocaleFromPathname(pathname);
+  const specLabels = SPEC_LABELS[locale] || SPEC_LABELS.en;
+  const dropzone = DROPZONE_TEXT[locale] || DROPZONE_TEXT.en;
+  const presetMap = PRESET_NAMES[locale] || PRESET_NAMES.en;
+
+  const getLocalizedOrientation = (orient: 'Landscape' | 'Portrait' | 'Square') => {
+    if (orient === 'Landscape') return t(locale, 'calculator.landscape');
+    if (orient === 'Portrait') return t(locale, 'calculator.portrait');
+    return t(locale, 'calculator.square');
+  };
+
   // Determine relevant platform spec for reference tab
   const slug = tool.slug;
   let defaultSpecKey = 'instagram-post-square';
@@ -198,7 +366,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
           }`}
         >
           <Maximize2 size={16} />
-          <span>Interactive Calculator & Inspector</span>
+          <span>{t(locale, 'calculator.interactiveTab')}</span>
         </button>
 
         <button
@@ -211,7 +379,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
           }`}
         >
           <Sliders size={16} />
-          <span>Social Platform Spec Sheet</span>
+          <span>{t(locale, 'calculator.specSheetTab')}</span>
         </button>
       </div>
 
@@ -225,7 +393,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                 {/* Width input */}
                 <div className="flex-1 min-w-[130px] space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-                    Width (px)
+                    {t(locale, 'calculator.width')}
                   </label>
                   <input
                     type="number"
@@ -241,12 +409,12 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                 {/* Aspect Lock Toggle Button */}
                 <div className="flex flex-col items-center justify-end pb-1">
                   <span className="text-[10px] font-semibold text-stone-500 mb-1">
-                    {ratioLocked ? 'Locked' : 'Free'}
+                    {ratioLocked ? t(locale, 'calculator.locked') : t(locale, 'calculator.unlocked')}
                   </span>
                   <button
                     type="button"
                     onClick={toggleRatioLock}
-                    title={ratioLocked ? 'Aspect Ratio Locked (proportions preserved)' : 'Aspect Ratio Unlocked'}
+                    title={ratioLocked ? 'Aspect Ratio Locked' : 'Aspect Ratio Unlocked'}
                     className={`p-3 rounded-[12px] border transition-all ${
                       ratioLocked
                         ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
@@ -260,7 +428,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                 {/* Height input */}
                 <div className="flex-1 min-w-[130px] space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300">
-                    Height (px)
+                    {t(locale, 'calculator.height')}
                   </label>
                   <input
                     type="number"
@@ -277,11 +445,12 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
               {/* Quick Preset Chips */}
               <div className="space-y-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-400">
-                  Standard Aspect Ratio Presets:
+                  {t(locale, 'calculator.presets')}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {COMMON_RATIOS.map((item) => {
                     const isCurrent = simplifiedRatio === item.label;
+                    const presetName = presetMap[item.label] || item.name;
                     return (
                       <button
                         key={item.label}
@@ -293,7 +462,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                             : 'bg-surface border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-300 hover:border-emerald-600'
                         }`}
                       >
-                        <strong>{item.label}</strong> ({item.name})
+                        <strong>{item.label}</strong> ({presetName})
                       </button>
                     );
                   })}
@@ -302,7 +471,9 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
 
               {/* Scaling Multipliers */}
               <div className="flex items-center gap-2 pt-1 text-xs">
-                <span className="font-bold text-stone-600 dark:text-stone-400">Scale resolution:</span>
+                <span className="font-bold text-stone-600 dark:text-stone-400">
+                  {t(locale, 'calculator.scaleResolution')}
+                </span>
                 {[0.5, 1.5, 2, 3].map((factor) => (
                   <button
                     key={factor}
@@ -358,7 +529,9 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
 
               <div className="mt-3 text-center space-y-1">
                 <div className="text-xs font-semibold text-stone-600 dark:text-stone-300">
-                  {imageInfo ? `Image: ${imageInfo.name}` : `Shape: ${orientation}`}
+                  {imageInfo
+                    ? `${t(locale, 'common.image')}: ${imageInfo.name}`
+                    : `${t(locale, 'calculator.shape')}: ${getLocalizedOrientation(orientation)}`}
                 </div>
                 <div className="flex items-center gap-2">
                   <ClayButton
@@ -367,7 +540,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                     size="sm"
                     icon={copiedDim ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
                   >
-                    {copiedDim ? 'Copied Dimensions' : `${width} × ${height} px`}
+                    {copiedDim ? t(locale, 'calculator.copied') : `${width} × ${height} px`}
                   </ClayButton>
 
                   <ClayButton
@@ -376,7 +549,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                     size="sm"
                     icon={copiedRatio ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
                   >
-                    {copiedRatio ? 'Copied Ratio' : `Ratio: ${simplifiedRatio}`}
+                    {copiedRatio ? t(locale, 'calculator.copied') : `Ratio: ${simplifiedRatio}`}
                   </ClayButton>
                 </div>
               </div>
@@ -386,30 +559,30 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
           {/* 2. Detected Ratio Summary Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-4 rounded-[14px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
-              <div className="text-xs font-semibold text-stone-500">Calculated Aspect Ratio</div>
+              <div className="text-xs font-semibold text-stone-500">{t(locale, 'calculator.calculatedRatio')}</div>
               <div className="text-xl font-bold font-mono text-emerald-700 dark:text-emerald-400 mt-1">
                 {simplifiedRatio}
               </div>
             </div>
 
             <div className="p-4 rounded-[14px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
-              <div className="text-xs font-semibold text-stone-500">Decimal Ratio</div>
+              <div className="text-xs font-semibold text-stone-500">{t(locale, 'calculator.decimalRatio')}</div>
               <div className="text-xl font-bold font-mono text-stone-800 dark:text-stone-200 mt-1">
                 {decimalRatio}
               </div>
             </div>
 
             <div className="p-4 rounded-[14px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
-              <div className="text-xs font-semibold text-stone-500">Total Megapixels</div>
+              <div className="text-xs font-semibold text-stone-500">{t(locale, 'calculator.totalMegapixels')}</div>
               <div className="text-xl font-bold font-mono text-stone-800 dark:text-stone-200 mt-1">
                 {megapixels} MP
               </div>
             </div>
 
             <div className="p-4 rounded-[14px] border shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
-              <div className="text-xs font-semibold text-stone-500">Orientation</div>
+              <div className="text-xs font-semibold text-stone-500">{t(locale, 'calculator.orientation')}</div>
               <div className="text-xl font-bold text-stone-800 dark:text-stone-200 mt-1">
-                {orientation}
+                {getLocalizedOrientation(orientation)}
               </div>
             </div>
           </div>
@@ -433,10 +606,10 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
               <UploadCloud size={28} />
             </div>
             <h4 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>
-              Drop an image here to auto-detect its dimensions & aspect ratio
+              {dropzone.title}
             </h4>
             <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-              Supports PNG, JPG, WebP, SVG, and GIF. Instantly reads natural resolution.
+              {dropzone.subtitle}
             </p>
           </div>
         </div>
@@ -458,7 +631,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                 {currentSpec.aspectRatio}
               </div>
               <span className="mt-3 text-xs font-semibold text-stone-600 dark:text-stone-300">
-                Aspect Ratio: {currentSpec.aspectRatio}
+                {specLabels.aspectRatio}: {currentSpec.aspectRatio}
               </span>
             </div>
 
@@ -467,10 +640,10 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-                    Official {currentSpec.category} Specification
+                    {specLabels.official}
                   </span>
                   <h3 className="text-2xl font-bold" style={{ color: 'var(--ink)' }}>
-                    {currentSpec.width} × {currentSpec.height} <span className="text-sm font-normal text-stone-500">pixels</span>
+                    {currentSpec.width} × {currentSpec.height} <span className="text-sm font-normal text-stone-500">{specLabels.pixels}</span>
                   </h3>
                 </div>
 
@@ -480,21 +653,21 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                   size="sm"
                   icon={copiedDim ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
                 >
-                  {copiedDim ? 'Copied' : 'Copy Dimensions'}
+                  {copiedDim ? t(locale, 'calculator.copied') : t(locale, 'calculator.copyDimensions')}
                 </ClayButton>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <div className="p-3 rounded-[10px] border shadow-sm" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
-                  <div className="text-[11px] font-medium text-stone-500">Max File Size</div>
+                  <div className="text-[11px] font-medium text-stone-500">{specLabels.maxFileSize}</div>
                   <div className="text-sm font-bold mt-0.5">{currentSpec.maxFileSize}</div>
                 </div>
                 <div className="p-3 rounded-[10px] border shadow-sm" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
-                  <div className="text-[11px] font-medium text-stone-500">Format</div>
+                  <div className="text-[11px] font-medium text-stone-500">{specLabels.format}</div>
                   <div className="text-sm font-bold mt-0.5">{currentSpec.recommendedFormat}</div>
                 </div>
                 <div className="p-3 rounded-[10px] border shadow-sm" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
-                  <div className="text-[11px] font-medium text-stone-500">Aspect Ratio</div>
+                  <div className="text-[11px] font-medium text-stone-500">{specLabels.aspectRatio}</div>
                   <div className="text-sm font-bold mt-0.5">{currentSpec.aspectRatio}</div>
                 </div>
               </div>
@@ -503,7 +676,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
                 <div className="flex items-start gap-2 p-3 rounded-[10px] text-xs bg-amber-50 dark:bg-amber-950/30 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-900">
                   <Info size={16} className="shrink-0 mt-0.5 text-amber-600" />
                   <span>
-                    <strong>Safe Area Note:</strong> {currentSpec.safeArea}
+                    <strong>{specLabels.safeArea}</strong> {currentSpec.safeArea}
                   </span>
                 </div>
               )}
@@ -513,7 +686,7 @@ export function CalculatorTool({ tool }: CalculatorToolProps) {
           {/* Creator Tips */}
           <div className="p-5 rounded-[14px] border space-y-2.5 shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
             <h4 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>
-              Best Practices & Optimization Tips
+              {specLabels.tipsTitle}
             </h4>
             <ul className="space-y-1.5 text-xs text-stone-700 dark:text-stone-300 list-disc list-inside font-medium">
               {currentSpec.tips.map((tip, i) => (

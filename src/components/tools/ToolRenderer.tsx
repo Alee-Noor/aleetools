@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import type { Tool } from '@/lib/tool-registry';
+import type { Locale } from '@/lib/i18n';
 
 // Dynamically import tool engines with ssr: false per performance requirements
 const ImageTool = dynamic(
@@ -67,9 +68,10 @@ const DefaultToolFallback = dynamic(
 
 interface ToolRendererProps {
   tool: Tool;
+  locale?: Locale;
 }
 
-export function ToolRenderer({ tool }: ToolRendererProps) {
+export function ToolRenderer({ tool, locale }: ToolRendererProps) {
   const slug = tool.slug;
   const category = tool.category;
 
@@ -150,7 +152,7 @@ export function ToolRenderer({ tool }: ToolRendererProps) {
     slug.includes('size-calculator') ||
     slug.includes('size-checker')
   ) {
-    return <CalculatorTool tool={tool} />;
+    return <CalculatorTool tool={tool} locale={locale} />;
   }
 
   // 7. JSON tools

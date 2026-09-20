@@ -43,6 +43,16 @@ export async function ToolPageShell({
     ? getSubcategoryBySlug(tool.category, tool.subcategory)
     : undefined;
   const relatedTools = getRelatedTools(tool);
+  const localizedRelatedTools = await Promise.all(
+    relatedTools.map(async (rel) => {
+      const relSeo = await getToolSeoTranslation(locale, rel.slug);
+      return {
+        ...rel,
+        displayName: relSeo?.name || rel.name,
+        displayShortDescription: relSeo?.shortDescription || rel.shortDescription,
+      };
+    })
+  );
 
   // Multilingual SEO overrides
   const seo = await getToolSeoTranslation(locale, tool.slug);
@@ -151,7 +161,7 @@ export async function ToolPageShell({
         {referenceTable && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--ink)' }}>
-              Specifications & Recommended Dimensions
+              {t(locale, 'tools.specsAndDimensions')}
             </h2>
             <div className="overflow-hidden rounded-[14px] border" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
               {referenceTable}
@@ -223,7 +233,7 @@ export async function ToolPageShell({
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {relatedTools.map((rel) => (
+              {localizedRelatedTools.map((rel) => (
                 <Link
                   key={rel.slug}
                   href={getLocalizedPath(locale, getToolUrl(rel))}
@@ -237,10 +247,10 @@ export async function ToolPageShell({
                     className="text-base font-semibold mb-1 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors"
                     style={{ color: 'var(--ink)' }}
                   >
-                    {rel.name}
+                    {rel.displayName}
                   </h3>
                   <p className="text-xs text-stone-500 dark:text-stone-400 line-clamp-2 leading-relaxed">
-                    {rel.shortDescription}
+                    {rel.displayShortDescription}
                   </p>
                 </Link>
               ))}

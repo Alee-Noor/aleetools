@@ -12,7 +12,7 @@ import {
   OG_LOCALES,
   type Locale,
 } from '@/lib/i18n';
-import { t } from '@/lib/translations';
+import { t, getCategorySeoTranslation, getToolSeoTranslation } from '@/lib/translations';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -63,6 +63,27 @@ export default async function LocalizedToolsDirectoryPage({ params }: Props) {
   }
   const loc = locale as Locale;
 
+  const localizedCategories = await Promise.all(
+    categories.map(async (cat) => {
+      const seo = await getCategorySeoTranslation(loc, cat.slug);
+      return {
+        ...cat,
+        displayName: seo?.name || cat.name,
+      };
+    })
+  );
+
+  const localizedTools = await Promise.all(
+    tools.map(async (item) => {
+      const seo = await getToolSeoTranslation(loc, item.slug);
+      return {
+        ...item,
+        displayName: seo?.name || item.name,
+        displayShortDescription: seo?.shortDescription || item.shortDescription,
+      };
+    })
+  );
+
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: t(loc, 'breadcrumbs.home'), url: getLocalizedPath(loc, '/') },
     { name: t(loc, 'breadcrumbs.tools'), url: getLocalizedPath(loc, '/tools') },
@@ -72,8 +93,8 @@ export default async function LocalizedToolsDirectoryPage({ params }: Props) {
     t(loc, 'header.browseTools'),
     t(loc, 'home.heroSubtitle'),
     getLocalizedPath(loc, '/tools'),
-    tools.map((item) => ({
-      name: item.name,
+    localizedTools.map((item) => ({
+      name: item.displayName,
       url: getLocalizedPath(loc, item.subcategory ? `/tools/${item.category}/${item.subcategory}/${item.slug}` : `/tools/${item.category}/${item.slug}`),
     }))
   );
@@ -82,7 +103,7 @@ export default async function LocalizedToolsDirectoryPage({ params }: Props) {
     <>
       <JsonLd data={breadcrumbJsonLd} />
       <JsonLd data={collectionJsonLd} />
-      <ToolsDirectoryClient categories={categories} tools={tools} locale={loc} />
+      <ToolsDirectoryClient categories={localizedCategories} tools={localizedTools} locale={loc} />
     </>
   );
 }

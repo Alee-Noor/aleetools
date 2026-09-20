@@ -13,7 +13,12 @@ import {
 } from '@/lib/tool-registry';
 import { buildCollectionPageJsonLd, buildBreadcrumbJsonLd } from '@/lib/seo';
 import { DEFAULT_LOCALE, getLocalizedPath, type Locale } from '@/lib/i18n';
-import { t, getCategorySeoTranslation, getSubcategorySeoTranslation } from '@/lib/translations';
+import {
+  t,
+  getCategorySeoTranslation,
+  getSubcategorySeoTranslation,
+  getToolSeoTranslation,
+} from '@/lib/translations';
 
 interface CategoryViewProps {
   categorySlug: string;
@@ -44,6 +49,23 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
     })
   );
 
+  const localizedCategoryTools = await Promise.all(
+    categoryTools.map(async (tool) => {
+      const seo = await getToolSeoTranslation(locale, tool.slug);
+      let subName = tool.subcategory;
+      if (tool.subcategory) {
+        const subSeo = await getSubcategorySeoTranslation(locale, tool.subcategory);
+        if (subSeo?.name) subName = subSeo.name;
+      }
+      return {
+        ...tool,
+        displayName: seo?.name || tool.name,
+        displayShortDescription: seo?.shortDescription || tool.shortDescription,
+        displaySubcategory: subName || t(locale, 'tools.tool'),
+      };
+    })
+  );
+
   const breadcrumbs = [
     { label: t(locale, 'breadcrumbs.home'), href: getLocalizedPath(locale, '/') },
     { label: t(locale, 'breadcrumbs.tools'), href: getLocalizedPath(locale, '/tools') },
@@ -60,8 +82,8 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
     catDisplayName,
     catDisplayDescription,
     getLocalizedPath(locale, getCategoryUrl(category)),
-    categoryTools.map((tool) => ({
-      name: tool.name,
+    localizedCategoryTools.map((tool) => ({
+      name: tool.displayName,
       url: getLocalizedPath(locale, getToolUrl(tool)),
     }))
   );
@@ -156,7 +178,7 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-            {categoryTools.map((tool) => (
+            {localizedCategoryTools.map((tool) => (
               <Link
                 key={tool.slug}
                 href={getLocalizedPath(locale, getToolUrl(tool))}
@@ -182,7 +204,7 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
                         color: `var(--color-${category.color})`,
                       }}
                     >
-                      {tool.subcategory || 'Tool'}
+                      {tool.displaySubcategory}
                     </span>
                     <ArrowRight
                       size={14}
@@ -193,10 +215,10 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
                     className="text-base font-semibold mb-1.5 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors"
                     style={{ color: 'var(--ink)' }}
                   >
-                    {tool.name}
+                    {tool.displayName}
                   </h3>
                   <p className="text-xs line-clamp-2 leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
-                    {tool.shortDescription}
+                    {tool.displayShortDescription}
                   </p>
                 </div>
 

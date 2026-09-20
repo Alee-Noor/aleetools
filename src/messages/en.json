@@ -51,7 +51,15 @@
     "relatedTools": "Related Tools",
     "howToUse": "How to Use",
     "faq": "Frequently Asked Questions",
-    "tool": "Tool"
+    "tool": "Tool",
+    "allCategories": "All Categories",
+    "all": "All",
+    "showingCount": "Showing {filtered} of {total} tools",
+    "filteringBy": "Filtering by \"{query}\"",
+    "clear": "Clear",
+    "noToolsFound": "No tools found matching \"{query}\".",
+    "resetFilters": "Reset search and filters",
+    "specsAndDimensions": "Specifications & Recommended Dimensions"
   },
   "breadcrumbs": {
     "home": "Home",
@@ -73,5 +81,25 @@
     "homeDescription": "156 free, instant utility tools for creators, students, and developers. Image resizers, PDF tools, JSON formatters, QR code generators with zero paywalls and zero sign-ups.",
     "toolsTitle": "All 156 Free Utility Tools – Search & Browse Directory | Alee Tools",
     "toolsDescription": "Browse all 156 free, private client-side utilities. Image resizers, PDF converters, developer formatters, QR code generators, and calculators."
+  },
+  "calculator": {
+    "interactiveTab": "Interactive Calculator & Inspector",
+    "specSheetTab": "Social Platform Spec Sheet",
+    "width": "Width (px)",
+    "height": "Height (px)",
+    "locked": "Ratio Locked",
+    "unlocked": "Ratio Unlocked",
+    "presets": "Standard Aspect Ratio Presets:",
+    "scaleResolution": "Scale resolution:",
+    "shape": "Shape",
+    "portrait": "Portrait",
+    "landscape": "Landscape",
+    "square": "Square",
+    "calculatedRatio": "Calculated Aspect Ratio",
+    "decimalRatio": "Decimal Ratio",
+    "totalMegapixels": "Total Megapixels",
+    "orientation": "Orientation",
+    "copyDimensions": "Copy Dimensions",
+    "copied": "Copied!"
   }
 }

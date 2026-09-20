@@ -54,6 +54,17 @@ export async function DynamicToolOrSubcategoryView({
       const subDisplayName = subSeo?.name || subcategory.name;
       const subDisplayDescription = subSeo?.description || subcategory.description;
 
+      const localizedSubcategoryTools = await Promise.all(
+        subcategoryTools.map(async (tool) => {
+          const seo = await getToolSeoTranslation(locale, tool.slug);
+          return {
+            ...tool,
+            displayName: seo?.name || tool.name,
+            displayShortDescription: seo?.shortDescription || tool.shortDescription,
+          };
+        })
+      );
+
       const subPath = getSubcategoryUrl(subcategory);
 
       const breadcrumbs = [
@@ -74,8 +85,8 @@ export async function DynamicToolOrSubcategoryView({
         subDisplayName,
         subDisplayDescription,
         getLocalizedPath(locale, subPath),
-        subcategoryTools.map((tool) => ({
-          name: tool.name,
+        localizedSubcategoryTools.map((tool) => ({
+          name: tool.displayName,
           url: getLocalizedPath(locale, getToolUrl(tool)),
         }))
       );
@@ -116,7 +127,7 @@ export async function DynamicToolOrSubcategoryView({
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-                {subcategoryTools.map((tool) => (
+                {localizedSubcategoryTools.map((tool) => (
                   <Link
                     key={tool.slug}
                     href={getLocalizedPath(locale, getToolUrl(tool))}
@@ -153,10 +164,10 @@ export async function DynamicToolOrSubcategoryView({
                         className="text-base font-semibold mb-1.5 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors"
                         style={{ color: 'var(--ink)' }}
                       >
-                        {tool.name}
+                        {tool.displayName}
                       </h3>
                       <p className="text-xs line-clamp-2 leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
-                        {tool.shortDescription}
+                        {tool.displayShortDescription}
                       </p>
                     </div>
 
@@ -178,7 +189,7 @@ export async function DynamicToolOrSubcategoryView({
     if (flatTool) {
       return (
         <ToolPageShell tool={flatTool} locale={locale}>
-          <ToolRenderer tool={flatTool} />
+          <ToolRenderer tool={flatTool} locale={locale} />
         </ToolPageShell>
       );
     }
@@ -190,7 +201,7 @@ export async function DynamicToolOrSubcategoryView({
     if (nestedTool) {
       return (
         <ToolPageShell tool={nestedTool} locale={locale}>
-          <ToolRenderer tool={nestedTool} />
+          <ToolRenderer tool={nestedTool} locale={locale} />
         </ToolPageShell>
       );
     }
