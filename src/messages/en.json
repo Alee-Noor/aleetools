@@ -1,0 +1,77 @@
+{
+  "header": {
+    "browseTools": "Browse Tools",
+    "about": "About",
+    "searchPlaceholder": "Search 156 tools...",
+    "noResults": "No tools found for"
+  },
+  "footer": {
+    "copyright": "© {year} Alee Tools. Fast, reliable, and free online utility tools.",
+    "disclaimer": "Alee is independent and not affiliated with Instagram, YouTube, TikTok, or any other platform mentioned."
+  },
+  "home": {
+    "badge": "Instant & High-Performance • Free Digital Workshop",
+    "heroTitle": "A digital workshop of small, fast tools that get the job done.",
+    "heroSubtitle": "156 single-purpose utility tools for images, PDFs, code, QR codes, and social media. Instant results, no accounts, no paywalls, and no subscriptions.",
+    "searchPlaceholder": "Search 156 free utility tools (e.g. \"resize\", \"pdf\", \"json\")...",
+    "exploreByCategory": "Explore by category:",
+    "popularTools": "Popular Hand Tools",
+    "viewAllTools": "View all 156 tools",
+    "fiveWorkbenches": "Five Specialized Workbenches",
+    "workbenchSubtitle": "Pick up the exact utility you need, get your output in seconds, and get back to work.",
+    "builtForSpeed": "Built For Speed & Simplicity",
+    "builtForSpeedSubtitle": "Why Alee delivers a faster, cleaner, and more reliable experience.",
+    "threeSteps": "Three Simple Steps",
+    "threeStepsSubtitle": "No installers, no account verifications, no wait times.",
+    "step1Title": "Choose Your Tool",
+    "step1Desc": "Search or browse from 156 specialized tools organized into five intuitive categories.",
+    "step2Title": "Drop File or Enter Data",
+    "step2Desc": "Select your image, PDF, or paste text. Automated processing transforms your files in seconds.",
+    "step3Title": "Download Your Result",
+    "step3Desc": "Copy or download your finalized files instantly without any rate limits or watermarks."
+  },
+  "features": {
+    "instantExecution": "Instant Execution",
+    "instantExecutionDesc": "Hardware-accelerated processing delivers results in milliseconds with zero queue delays.",
+    "noAccounts": "No Accounts, No Friction",
+    "noAccountsDesc": "Never enter an email, sign up for a newsletter, or wait in line. Immediate access to every tool.",
+    "zeroWatermarks": "Zero Watermarks",
+    "zeroWatermarksDesc": "Your creations and documents remain clean and professional. We never overlay logos or restrict exports.",
+    "freeForever": "Free Forever",
+    "freeForeverDesc": "All 156 tools are freely accessible with no subscription nag screens or hidden paywalls."
+  },
+  "tools": {
+    "instantAccess": "Instant Access",
+    "toolsAvailable": "{count} Tools Available",
+    "browseBySubcategory": "Browse by Subcategory",
+    "allToolsIn": "All {name} Tools",
+    "totalTools": "{count} total tools",
+    "toolsInSection": "Tools in this section",
+    "openWorkbench": "Open Workbench",
+    "relatedTools": "Related Tools",
+    "howToUse": "How to Use",
+    "faq": "Frequently Asked Questions",
+    "tool": "Tool"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "tools": "Tools"
+  },
+  "common": {
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About",
+    "privacy": "Privacy",
+    "contact": "Contact",
+    "image": "Image",
+    "pdf": "PDF",
+    "developer": "Developer",
+    "qr": "QR"
+  },
+  "meta": {
+    "homeTitle": "Alee Tools – 156 Free, Fast Online Utility Tools",
+    "homeDescription": "156 free, instant utility tools for creators, students, and developers. Image resizers, PDF tools, JSON formatters, QR code generators with zero paywalls and zero sign-ups.",
+    "toolsTitle": "All 156 Free Utility Tools – Search & Browse Directory | Alee Tools",
+    "toolsDescription": "Browse all 156 free, private client-side utilities. Image resizers, PDF converters, developer formatters, QR code generators, and calculators."
+  }
+}

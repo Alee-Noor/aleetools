@@ -1,0 +1,2928 @@
+{
+  "categories": {
+    "image-social-media-hub": {
+      "name": "Centro de Utilidades de Imagen y Redes Sociales",
+      "description": "Redimensiona, comprime, recorta y optimiza imágenes para Instagram, YouTube, TikTok y más. Obtén las medidas exactas sin subir archivos a servidores externos.",
+      "title": "Herramientas de Imagen y Redes Sociales – Gratis Online | Alee Tools",
+      "metaDescription": "Redimensiona, comprime y recorta imágenes para Instagram, YouTube, TikTok y la web. Rápido, gratuito y 100% privado en tu navegador."
+    },
+    "pdf-toolkit": {
+      "name": "Caja de Herramientas PDF para Estudiantes y Oficina",
+      "description": "Une, divide, comprime, convierte y administra archivos PDF al instante. Diseñado para estudiantes y profesionales que necesitan rapidez sin instalar programas.",
+      "title": "Herramientas PDF Gratis Online – Unir, Comprimir y Convertir | Alee Tools",
+      "metaDescription": "Une, divide, comprime y convierte archivos PDF al instante en tu navegador. 100% gratis, sin registro, sin marcas de agua y totalmente seguro."
+    },
+    "developer-tools": {
+      "name": "Herramientas para Desarrolladores",
+      "description": "Formateadores JSON, codificadores, decodificadores, probadores de expresiones regulares, conversores de color, generadores CSS y utilidades de red.",
+      "title": "Herramientas de Desarrollo Online Gratis – JSON, Codificación, Regex | Alee Tools",
+      "metaDescription": "Formateadores JSON, codificadores Base64/URL, probadores Regex, conversores de colores y utilidades de red para desarrolladores web. Rápido y gratis."
+    },
+    "image-converter-toolkit": {
+      "name": "Convertidor Universal de Imágenes",
+      "description": "Convierte imágenes entre formatos JPG, PNG, WebP, HEIC, SVG, BMP y GIF, comprime sin perder calidad y edita con rotación, recorte, filtros y marcas de agua.",
+      "title": "Convertidor de Imágenes Online Gratis – JPG, PNG, WebP, HEIC | Alee Tools",
+      "metaDescription": "Convierte imágenes entre todos los formatos principales (JPG, PNG, WebP, HEIC, SVG, BMP, GIF) y edítalas sin perder calidad en tu propio navegador."
+    },
+    "qr-barcode-tools": {
+      "name": "Herramientas de Códigos QR y Códigos de Barras",
+      "description": "Genera y escanea códigos QR para enlaces web, redes Wi-Fi, contactos vCard, correos y crea códigos de barras en formatos EAN, UPC, Code 128 e ISBN.",
+      "title": "Generador y Escáner de Códigos QR y Barras Gratis Online | Alee Tools",
+      "metaDescription": "Crea y escanea códigos QR y códigos de barras (EAN, UPC, Code 128, ISBN) online de forma rápida, gratuita y lista para imprimir."
+    }
+  },
+  "subcategories": {
+    "instagram": {
+      "name": "Herramientas para Instagram",
+      "description": "Calculadoras de tamaño, redimensionadores, compresores y cuadrículas para publicaciones, stories, reels y fotos de perfil."
+    },
+    "youtube": {
+      "name": "Herramientas para YouTube",
+      "description": "Redimensionadores de miniaturas, creadores de banners y generadores de marcas de tiempo para creadores de YouTube."
+    },
+    "tiktok": {
+      "name": "Herramientas para TikTok",
+      "description": "Comprobadores de tamaño de video, redimensionadores de fotos de perfil y creadores de miniaturas para TikTok."
+    },
+    "general": {
+      "name": "Herramientas Generales de Imagen",
+      "description": "Comprime, redimensiona, recorta y convierte imágenes para cualquier proyecto con vista previa instantánea."
+    },
+    "json": {
+      "name": "Herramientas JSON",
+      "description": "Formatea, valida, minifica, compara y convierte datos JSON de manera rápida y segura en tu navegador."
+    },
+    "web": {
+      "name": "Herramientas de Codificación Web",
+      "description": "Codificadores y decodificadores URL, HTML, Base64, junto con minificadores y formateadores HTML, CSS y JS."
+    },
+    "developer": {
+      "name": "Utilidades para Desarrolladores",
+      "description": "Generadores UUID, decodificadores JWT, probadores Regex, generadores Cron y conversores de tiempo y color."
+    },
+    "networking": {
+      "name": "Herramientas de Redes",
+      "description": "Calculadoras IPv4/IPv6, herramientas CIDR y de subred, conversor de IP a binario y generador de MAC."
+    },
+    "conversion": {
+      "name": "Conversión de Imágenes",
+      "description": "Convierte imágenes entre JPG, PNG, WebP, HEIC, SVG, BMP y GIF sin subir archivos a ningún servidor."
+    },
+    "compression": {
+      "name": "Compresión de Imágenes",
+      "description": "Reduce el peso de archivos JPG, PNG, WebP y HEIC manteniendo la máxima calidad visual."
+    },
+    "editing": {
+      "name": "Edición de Imágenes",
+      "description": "Redimensiona, recorta, rota, desenfoca, ajusta brillo y contraste y añade marcas de agua fácilmente."
+    },
+    "qr-codes": {
+      "name": "Herramientas de Códigos QR",
+      "description": "Genera códigos QR para enlaces web, Wi-Fi, contactos vCard, correos y escanea códigos desde imágenes o cámara."
+    },
+    "barcodes": {
+      "name": "Herramientas de Códigos de Barras",
+      "description": "Genera y escanea códigos de barras EAN, UPC, Code 128, Code 39 e ISBN para productos e inventarios."
+    }
+  },
+  "tools": {
+    "instagram-post-size-calculator": {
+      "name": "Calculadora de Tamaño de Post de Instagram",
+      "h1": "Calculadora de Tamaño de Post de Instagram – Gratis Online",
+      "title": "Calculadora de Tamaño de Post de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de tamaño de post de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de tamaño de post de instagram.",
+      "keywords": [
+        "calculadora de tamaño de post de instagram",
+        "calculadora de tamaño de post de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de Tamaño de Post de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-story-size-calculator": {
+      "name": "Calculadora de Tamaño de Story de Instagram",
+      "h1": "Calculadora de Tamaño de Story de Instagram – Gratis Online",
+      "title": "Calculadora de Tamaño de Story de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de tamaño de story de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de tamaño de story de instagram.",
+      "keywords": [
+        "calculadora de tamaño de story de instagram",
+        "calculadora de tamaño de story de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de Tamaño de Story de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-reel-size-checker": {
+      "name": "Comprobador de Tamaño de Reels de Instagram",
+      "h1": "Comprobador de Tamaño de Reels de Instagram – Gratis Online",
+      "title": "Comprobador de Tamaño de Reels de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de comprobador de tamaño de reels de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para comprobador de tamaño de reels de instagram.",
+      "keywords": [
+        "comprobador de tamaño de reels de instagram",
+        "comprobador de tamaño de reels de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Comprobador de Tamaño de Reels de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-profile-picture-resizer": {
+      "name": "Redimensionador de Foto de Perfil de Instagram",
+      "h1": "Redimensionador de Foto de Perfil de Instagram – Gratis Online",
+      "title": "Redimensionador de Foto de Perfil de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de redimensionador de foto de perfil de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para redimensionador de foto de perfil de instagram.",
+      "keywords": [
+        "redimensionador de foto de perfil de instagram",
+        "redimensionador de foto de perfil de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Redimensionador de Foto de Perfil de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-image-compressor": {
+      "name": "Compresor de Imágenes para Instagram",
+      "h1": "Compresor de Imágenes para Instagram – Gratis Online",
+      "title": "Compresor de Imágenes para Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor de imágenes para instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para compresor de imágenes para instagram.",
+      "keywords": [
+        "compresor de imágenes para instagram",
+        "compresor de imágenes para instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor de Imágenes para Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-thumbnail-downloader": {
+      "name": "Descargador de Miniaturas de Instagram",
+      "h1": "Descargador de Miniaturas de Instagram – Gratis Online",
+      "title": "Descargador de Miniaturas de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de descargador de miniaturas de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para descargador de miniaturas de instagram.",
+      "keywords": [
+        "descargador de miniaturas de instagram",
+        "descargador de miniaturas de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Descargador de Miniaturas de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-grid-maker": {
+      "name": "Creador de Cuadrículas de Instagram",
+      "h1": "Creador de Cuadrículas de Instagram – Gratis Online",
+      "title": "Creador de Cuadrículas de Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de creador de cuadrículas de instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para creador de cuadrículas de instagram.",
+      "keywords": [
+        "creador de cuadrículas de instagram",
+        "creador de cuadrículas de instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Creador de Cuadrículas de Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-3x3-grid-splitter": {
+      "name": "Divisor de Cuadrícula 3x3 para Instagram",
+      "h1": "Divisor de Cuadrícula 3x3 para Instagram – Gratis Online",
+      "title": "Divisor de Cuadrícula 3x3 para Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de divisor de cuadrícula 3x3 para instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para divisor de cuadrícula 3x3 para instagram.",
+      "keywords": [
+        "divisor de cuadrícula 3x3 para instagram",
+        "divisor de cuadrícula 3x3 para instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Divisor de Cuadrícula 3x3 para Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "instagram-916-cropper": {
+      "name": "Recortador de Formato 9:16 para Instagram",
+      "h1": "Recortador de Formato 9:16 para Instagram – Gratis Online",
+      "title": "Recortador de Formato 9:16 para Instagram online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de recortador de formato 9:16 para instagram directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para recortador de formato 9:16 para instagram.",
+      "keywords": [
+        "recortador de formato 9:16 para instagram",
+        "recortador de formato 9:16 para instagram gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Recortador de Formato 9:16 para Instagram?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-thumbnail-resizer": {
+      "name": "Redimensionador de Miniaturas de YouTube",
+      "h1": "Redimensionador de Miniaturas de YouTube – Gratis Online",
+      "title": "Redimensionador de Miniaturas de YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de redimensionador de miniaturas de youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para redimensionador de miniaturas de youtube.",
+      "keywords": [
+        "redimensionador de miniaturas de youtube",
+        "redimensionador de miniaturas de youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Redimensionador de Miniaturas de YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-thumbnail-compressor": {
+      "name": "Compresor de Miniaturas de YouTube",
+      "h1": "Compresor de Miniaturas de YouTube – Gratis Online",
+      "title": "Compresor de Miniaturas de YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor de miniaturas de youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para compresor de miniaturas de youtube.",
+      "keywords": [
+        "compresor de miniaturas de youtube",
+        "compresor de miniaturas de youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor de Miniaturas de YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-banner-maker": {
+      "name": "Creador de Banner para YouTube",
+      "h1": "Creador de Banner para YouTube – Gratis Online",
+      "title": "Creador de Banner para YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de creador de banner para youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para creador de banner para youtube.",
+      "keywords": [
+        "creador de banner para youtube",
+        "creador de banner para youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Creador de Banner para YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-profile-picture-resizer": {
+      "name": "Redimensionador de Foto de Perfil de YouTube",
+      "h1": "Redimensionador de Foto de Perfil de YouTube – Gratis Online",
+      "title": "Redimensionador de Foto de Perfil de YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de redimensionador de foto de perfil de youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para redimensionador de foto de perfil de youtube.",
+      "keywords": [
+        "redimensionador de foto de perfil de youtube",
+        "redimensionador de foto de perfil de youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Redimensionador de Foto de Perfil de YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-shorts-size-calculator": {
+      "name": "Calculadora de Tamaño de YouTube Shorts",
+      "h1": "Calculadora de Tamaño de YouTube Shorts – Gratis Online",
+      "title": "Calculadora de Tamaño de YouTube Shorts online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de tamaño de youtube shorts directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de tamaño de youtube shorts.",
+      "keywords": [
+        "calculadora de tamaño de youtube shorts",
+        "calculadora de tamaño de youtube shorts gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de Tamaño de YouTube Shorts?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-thumbnail-preview": {
+      "name": "Previsualizador de Miniaturas de YouTube",
+      "h1": "Previsualizador de Miniaturas de YouTube – Gratis Online",
+      "title": "Previsualizador de Miniaturas de YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de previsualizador de miniaturas de youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para previsualizador de miniaturas de youtube.",
+      "keywords": [
+        "previsualizador de miniaturas de youtube",
+        "previsualizador de miniaturas de youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Previsualizador de Miniaturas de YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "youtube-timestamp-generator": {
+      "name": "Generador de Marcas de Tiempo para YouTube",
+      "h1": "Generador de Marcas de Tiempo para YouTube – Gratis Online",
+      "title": "Generador de Marcas de Tiempo para YouTube online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de generador de marcas de tiempo para youtube directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para generador de marcas de tiempo para youtube.",
+      "keywords": [
+        "generador de marcas de tiempo para youtube",
+        "generador de marcas de tiempo para youtube gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Generador de Marcas de Tiempo para YouTube?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "tiktok-video-size-checker": {
+      "name": "Comprobador de Tamaño de Video TikTok",
+      "h1": "Comprobador de Tamaño de Video TikTok – Gratis Online",
+      "title": "Comprobador de Tamaño de Video TikTok online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de comprobador de tamaño de video tiktok directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para comprobador de tamaño de video tiktok.",
+      "keywords": [
+        "comprobador de tamaño de video tiktok",
+        "comprobador de tamaño de video tiktok gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Comprobador de Tamaño de Video TikTok?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "tiktok-profile-picture-resizer": {
+      "name": "Redimensionador de Foto de Perfil de TikTok",
+      "h1": "Redimensionador de Foto de Perfil de TikTok – Gratis Online",
+      "title": "Redimensionador de Foto de Perfil de TikTok online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de redimensionador de foto de perfil de tiktok directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para redimensionador de foto de perfil de tiktok.",
+      "keywords": [
+        "redimensionador de foto de perfil de tiktok",
+        "redimensionador de foto de perfil de tiktok gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Redimensionador de Foto de Perfil de TikTok?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "tiktok-thumbnail-maker": {
+      "name": "Creador de Miniaturas para TikTok",
+      "h1": "Creador de Miniaturas para TikTok – Gratis Online",
+      "title": "Creador de Miniaturas para TikTok online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de creador de miniaturas para tiktok directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para creador de miniaturas para tiktok.",
+      "keywords": [
+        "creador de miniaturas para tiktok",
+        "creador de miniaturas para tiktok gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Creador de Miniaturas para TikTok?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "tiktok-video-compressor": {
+      "name": "Compresor de Video para TikTok",
+      "h1": "Compresor de Video para TikTok – Gratis Online",
+      "title": "Compresor de Video para TikTok online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor de video para tiktok directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para compresor de video para tiktok.",
+      "keywords": [
+        "compresor de video para tiktok",
+        "compresor de video para tiktok gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor de Video para TikTok?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-compressor": {
+      "name": "Compresor de Imágenes",
+      "h1": "Compresor de Imágenes – Gratis Online",
+      "title": "Compresor de Imágenes online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor de imágenes directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para compresor de imágenes.",
+      "keywords": [
+        "compresor de imágenes",
+        "compresor de imágenes gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor de Imágenes?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-resizer": {
+      "name": "Redimensionar Imagen",
+      "h1": "Redimensionar Imagen – Gratis Online",
+      "title": "Redimensionar Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de redimensionar imagen directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para redimensionar imagen.",
+      "keywords": [
+        "redimensionar imagen",
+        "redimensionar imagen gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Redimensionar Imagen?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-cropper": {
+      "name": "Recortar Imagen",
+      "h1": "Recortar Imagen – Gratis Online",
+      "title": "Recortar Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de recortar imagen directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para recortar imagen.",
+      "keywords": [
+        "recortar imagen",
+        "recortar imagen gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Recortar Imagen?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "jpg-to-png": {
+      "name": "Convertir JPG a PNG",
+      "h1": "Convertir JPG a PNG – Gratis Online",
+      "title": "Convertir JPG a PNG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir jpg a png directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para convertir jpg a png.",
+      "keywords": [
+        "convertir jpg a png",
+        "convertir jpg a png gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir JPG a PNG?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "png-to-jpg": {
+      "name": "Convertir PNG a JPG",
+      "h1": "Convertir PNG a JPG – Gratis Online",
+      "title": "Convertir PNG a JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir png a jpg directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para convertir png a jpg.",
+      "keywords": [
+        "convertir png a jpg",
+        "convertir png a jpg gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir PNG a JPG?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "webp-to-jpg": {
+      "name": "Convertir WebP a JPG",
+      "h1": "Convertir WebP a JPG – Gratis Online",
+      "title": "Convertir WebP a JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir webp a jpg directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para convertir webp a jpg.",
+      "keywords": [
+        "convertir webp a jpg",
+        "convertir webp a jpg gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir WebP a JPG?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "webp-to-png": {
+      "name": "Convertir WebP a PNG",
+      "h1": "Convertir WebP a PNG – Gratis Online",
+      "title": "Convertir WebP a PNG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir webp a png directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para convertir webp a png.",
+      "keywords": [
+        "convertir webp a png",
+        "convertir webp a png gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir WebP a PNG?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-to-webp": {
+      "name": "Convertir Imagen a WebP",
+      "h1": "Convertir Imagen a WebP – Gratis Online",
+      "title": "Convertir Imagen a WebP online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir imagen a webp directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para convertir imagen a webp.",
+      "keywords": [
+        "convertir imagen a webp",
+        "convertir imagen a webp gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir Imagen a WebP?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-metadata-viewer": {
+      "name": "Visor de Metadatos EXIF de Imagen",
+      "h1": "Visor de Metadatos EXIF de Imagen – Gratis Online",
+      "title": "Visor de Metadatos EXIF de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de visor de metadatos exif de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para visor de metadatos exif de imagen.",
+      "keywords": [
+        "visor de metadatos exif de imagen",
+        "visor de metadatos exif de imagen gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Visor de Metadatos EXIF de Imagen?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "exif-remover": {
+      "name": "Eliminar Datos EXIF de Imagen",
+      "h1": "Eliminar Datos EXIF de Imagen – Gratis Online",
+      "title": "Eliminar Datos EXIF de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de eliminar datos exif de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para eliminar datos exif de imagen.",
+      "keywords": [
+        "eliminar datos exif de imagen",
+        "eliminar datos exif de imagen gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Eliminar Datos EXIF de Imagen?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-dpi-calculator": {
+      "name": "Calculadora de DPI de Imagen",
+      "h1": "Calculadora de DPI de Imagen – Gratis Online",
+      "title": "Calculadora de DPI de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de dpi de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de dpi de imagen.",
+      "keywords": [
+        "calculadora de dpi de imagen",
+        "calculadora de dpi de imagen gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de DPI de Imagen?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "aspect-ratio-calculator": {
+      "name": "Calculadora de Relación de Aspecto",
+      "h1": "Calculadora de Relación de Aspecto – Gratis Online",
+      "title": "Calculadora de Relación de Aspecto online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de relación de aspecto directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de relación de aspecto.",
+      "keywords": [
+        "calculadora de relación de aspecto",
+        "calculadora de relación de aspecto gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de Relación de Aspecto?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-pixel-calculator": {
+      "name": "Calculadora de Píxeles y Resolución",
+      "h1": "Calculadora de Píxeles y Resolución – Gratis Online",
+      "title": "Calculadora de Píxeles y Resolución online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de calculadora de píxeles y resolución directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para calculadora de píxeles y resolución.",
+      "keywords": [
+        "calculadora de píxeles y resolución",
+        "calculadora de píxeles y resolución gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Calculadora de Píxeles y Resolución?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "image-color-picker": {
+      "name": "Selector de Color en Imagen (Color Picker)",
+      "h1": "Selector de Color en Imagen (Color Picker) – Gratis Online",
+      "title": "Selector de Color en Imagen (Color Picker) online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de selector de color en imagen (color picker) directamente en tu navegador. Rápido, seguro, gratuito y sin registros.",
+      "shortDescription": "Herramienta rápida y precisa para selector de color en imagen (color picker).",
+      "keywords": [
+        "selector de color en imagen (color picker)",
+        "selector de color en imagen (color picker) gratis",
+        "herramientas redes sociales",
+        "dimensiones imagen online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Selector de Color en Imagen (Color Picker)?",
+          "a": "Sube tu archivo o ingresa los valores, personaliza a tu gusto y descarga el resultado al instante."
+        }
+      ]
+    },
+    "merge-pdf": {
+      "name": "Unir PDF",
+      "h1": "Unir Archivos PDF Online – Gratis y Rápido",
+      "title": "Unir PDF online gratis – Combinar varios PDF en uno | Alee Tools",
+      "metaDescription": "Une varios archivos PDF en un solo documento al instante. Gratis, sin límites y 100% privado en tu navegador, sin subir archivos a servidores externos.",
+      "shortDescription": "Combina varios documentos PDF en un solo archivo ordenado.",
+      "keywords": [
+        "unir pdf",
+        "juntar pdf gratis",
+        "combinar pdf online",
+        "fusionar pdf",
+        "unir pdf en linea"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo unir archivos PDF gratis?",
+          "a": "Arrastra y suelta tus archivos PDF, ordénalos en la secuencia deseada y haz clic en Unir PDF para descargarlo."
+        },
+        {
+          "q": "¿Se suben mis archivos a internet?",
+          "a": "No. Todo el procesamiento se realiza localmente en tu propio dispositivo para máxima privacidad."
+        },
+        {
+          "q": "¿Tiene marcas de agua o límites?",
+          "a": "Completamente gratis, sin marcas de agua ni restricciones de uso."
+        }
+      ]
+    },
+    "split-pdf": {
+      "name": "Dividir PDF",
+      "h1": "Dividir Archivos PDF Online – Gratis",
+      "title": "Dividir PDF online gratis – Separar páginas de PDF | Alee Tools",
+      "metaDescription": "Separa páginas de un documento PDF o divídelo en varios archivos rápidamente. 100% gratis y privado en tu navegador.",
+      "shortDescription": "Extrae páginas o divide tu archivo PDF en documentos individuales.",
+      "keywords": [
+        "dividir pdf",
+        "separar paginas pdf",
+        "partir pdf gratis",
+        "cortar pdf online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo dividir un archivo PDF?",
+          "a": "Sube tu PDF, selecciona los rangos de páginas que quieres separar y descarga los archivos resultantes."
+        }
+      ]
+    },
+    "pdf-page-extractor": {
+      "name": "Extraer Páginas PDF",
+      "h1": "Extraer Páginas PDF – Herramienta Online Gratis",
+      "title": "Extraer Páginas PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de extraer páginas pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para extraer páginas pdf fácilmente.",
+      "keywords": [
+        "extraer páginas pdf",
+        "extraer páginas pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Extraer Páginas PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-page-deleter": {
+      "name": "Eliminar Páginas PDF",
+      "h1": "Eliminar Páginas PDF – Herramienta Online Gratis",
+      "title": "Eliminar Páginas PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de eliminar páginas pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para eliminar páginas pdf fácilmente.",
+      "keywords": [
+        "eliminar páginas pdf",
+        "eliminar páginas pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Eliminar Páginas PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-rotator": {
+      "name": "Rotar PDF",
+      "h1": "Rotar PDF – Herramienta Online Gratis",
+      "title": "Rotar PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de rotar pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para rotar pdf fácilmente.",
+      "keywords": [
+        "rotar pdf",
+        "rotar pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Rotar PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-reorder": {
+      "name": "Reordenar Páginas PDF",
+      "h1": "Reordenar Páginas PDF – Herramienta Online Gratis",
+      "title": "Reordenar Páginas PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de reordenar páginas pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para reordenar páginas pdf fácilmente.",
+      "keywords": [
+        "reordenar páginas pdf",
+        "reordenar páginas pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Reordenar Páginas PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-compressor": {
+      "name": "Comprimir PDF",
+      "h1": "Comprimir Archivos PDF Online – Gratis",
+      "title": "Comprimir PDF online gratis – Reducir peso de PDF | Alee Tools",
+      "metaDescription": "Reduce el tamaño de tus archivos PDF manteniendo la calidad de texto e imágenes. 100% gratis, rápido y privado en tu navegador.",
+      "shortDescription": "Reduce el peso de tus documentos PDF sin perder calidad visible.",
+      "keywords": [
+        "comprimir pdf",
+        "reducir tamaño pdf",
+        "bajar peso pdf online",
+        "comprimir pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo comprimir un PDF sin perder calidad?",
+          "a": "Carga tu PDF en la herramienta, escoge el nivel de compresión y obtén un archivo ligero al instante."
+        }
+      ]
+    },
+    "pdf-to-jpg": {
+      "name": "PDF a JPG",
+      "h1": "Convertir PDF a JPG Online – Gratis",
+      "title": "Convertir PDF a JPG online gratis | Alee Tools",
+      "metaDescription": "Convierte páginas de PDF a imágenes JPG de alta calidad de forma rápida y gratuita sin instalar programas.",
+      "shortDescription": "Transforma páginas de tus documentos PDF en imágenes JPG de alta resolución.",
+      "keywords": [
+        "pdf a jpg",
+        "convertir pdf a jpg",
+        "pasar pdf a imagen",
+        "pdf a jpg online gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo convertir PDF a imágenes?",
+          "a": "Sube tu PDF y descarga cada página como imagen JPG al instante."
+        }
+      ]
+    },
+    "jpg-to-pdf": {
+      "name": "JPG a PDF",
+      "h1": "Convertir JPG a PDF Online – Gratis",
+      "title": "Convertir JPG a PDF online gratis | Alee Tools",
+      "metaDescription": "Convierte imágenes JPG a formato PDF con opciones de diseño de página y márgenes. Gratis y 100% en el navegador.",
+      "shortDescription": "Convierte fotos JPG en un archivo PDF listo para imprimir.",
+      "keywords": [
+        "jpg a pdf",
+        "convertir jpg a pdf",
+        "pasar foto a pdf",
+        "unir fotos en pdf"
+      ],
+      "faqs": [
+        {
+          "q": "¿Puedo unir varias imágenes?",
+          "a": "Sí, puedes seleccionar múltiples fotos y agruparlas en un PDF."
+        }
+      ]
+    },
+    "png-to-pdf": {
+      "name": "PNG a PDF",
+      "h1": "PNG a PDF – Herramienta Online Gratis",
+      "title": "PNG a PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de png a pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para png a pdf fácilmente.",
+      "keywords": [
+        "png a pdf",
+        "png a pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona PNG a PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "images-to-pdf": {
+      "name": "Imágenes a PDF",
+      "h1": "Imágenes a PDF – Herramienta Online Gratis",
+      "title": "Imágenes a PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de imágenes a pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para imágenes a pdf fácilmente.",
+      "keywords": [
+        "imágenes a pdf",
+        "imágenes a pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Imágenes a PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-metadata-viewer": {
+      "name": "Visor Metadatos PDF",
+      "h1": "Visor Metadatos PDF – Herramienta Online Gratis",
+      "title": "Visor Metadatos PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de visor metadatos pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para visor metadatos pdf fácilmente.",
+      "keywords": [
+        "visor metadatos pdf",
+        "visor metadatos pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Visor Metadatos PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-password-generator": {
+      "name": "Proteger PDF con Contraseña",
+      "h1": "Proteger PDF con Contraseña – Herramienta Online Gratis",
+      "title": "Proteger PDF con Contraseña online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de proteger pdf con contraseña directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para proteger pdf con contraseña fácilmente.",
+      "keywords": [
+        "proteger pdf con contraseña",
+        "proteger pdf con contraseña online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Proteger PDF con Contraseña?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-unlocker": {
+      "name": "Desbloquear PDF",
+      "h1": "Desbloquear PDF – Herramienta Online Gratis",
+      "title": "Desbloquear PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de desbloquear pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para desbloquear pdf fácilmente.",
+      "keywords": [
+        "desbloquear pdf",
+        "desbloquear pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Desbloquear PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-page-numberer": {
+      "name": "Numerar Páginas PDF",
+      "h1": "Numerar Páginas PDF – Herramienta Online Gratis",
+      "title": "Numerar Páginas PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de numerar páginas pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para numerar páginas pdf fácilmente.",
+      "keywords": [
+        "numerar páginas pdf",
+        "numerar páginas pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Numerar Páginas PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-watermark": {
+      "name": "Añadir Marca de Agua a PDF",
+      "h1": "Añadir Marca de Agua a PDF – Herramienta Online Gratis",
+      "title": "Añadir Marca de Agua a PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de añadir marca de agua a pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para añadir marca de agua a pdf fácilmente.",
+      "keywords": [
+        "añadir marca de agua a pdf",
+        "añadir marca de agua a pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Añadir Marca de Agua a PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-text-extractor": {
+      "name": "Extraer Texto de PDF",
+      "h1": "Extraer Texto de PDF – Herramienta Online Gratis",
+      "title": "Extraer Texto de PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de extraer texto de pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para extraer texto de pdf fácilmente.",
+      "keywords": [
+        "extraer texto de pdf",
+        "extraer texto de pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Extraer Texto de PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-viewer": {
+      "name": "Visor PDF Online",
+      "h1": "Visor PDF Online – Herramienta Online Gratis",
+      "title": "Visor PDF Online online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de visor pdf online directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para visor pdf online fácilmente.",
+      "keywords": [
+        "visor pdf online",
+        "visor pdf online online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Visor PDF Online?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "pdf-print-optimizer": {
+      "name": "Optimizar PDF para Impresión",
+      "h1": "Optimizar PDF para Impresión – Herramienta Online Gratis",
+      "title": "Optimizar PDF para Impresión online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de optimizar pdf para impresión directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para optimizar pdf para impresión fácilmente.",
+      "keywords": [
+        "optimizar pdf para impresión",
+        "optimizar pdf para impresión online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Optimizar PDF para Impresión?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "a4-pdf-maker": {
+      "name": "Crear PDF Formato A4",
+      "h1": "Crear PDF Formato A4 – Herramienta Online Gratis",
+      "title": "Crear PDF Formato A4 online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de crear pdf formato a4 directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para crear pdf formato a4 fácilmente.",
+      "keywords": [
+        "crear pdf formato a4",
+        "crear pdf formato a4 online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Crear PDF Formato A4?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "letter-pdf-maker": {
+      "name": "Crear PDF Formato Carta",
+      "h1": "Crear PDF Formato Carta – Herramienta Online Gratis",
+      "title": "Crear PDF Formato Carta online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de crear pdf formato carta directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para crear pdf formato carta fácilmente.",
+      "keywords": [
+        "crear pdf formato carta",
+        "crear pdf formato carta online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Crear PDF Formato Carta?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "resume-pdf-maker": {
+      "name": "Creador de CV en PDF",
+      "h1": "Creador de CV en PDF – Herramienta Online Gratis",
+      "title": "Creador de CV en PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de creador de cv en pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para creador de cv en pdf fácilmente.",
+      "keywords": [
+        "creador de cv en pdf",
+        "creador de cv en pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Creador de CV en PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "assignment-pdf-maker": {
+      "name": "Creador de Tareas en PDF",
+      "h1": "Creador de Tareas en PDF – Herramienta Online Gratis",
+      "title": "Creador de Tareas en PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de creador de tareas en pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para creador de tareas en pdf fácilmente.",
+      "keywords": [
+        "creador de tareas en pdf",
+        "creador de tareas en pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Creador de Tareas en PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "notes-to-pdf": {
+      "name": "Convertir Notas a PDF",
+      "h1": "Convertir Notas a PDF – Herramienta Online Gratis",
+      "title": "Convertir Notas a PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de convertir notas a pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para convertir notas a pdf fácilmente.",
+      "keywords": [
+        "convertir notas a pdf",
+        "convertir notas a pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Convertir Notas a PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "images-to-a4-pdf": {
+      "name": "Imágenes a PDF A4",
+      "h1": "Imágenes a PDF A4 – Herramienta Online Gratis",
+      "title": "Imágenes a PDF A4 online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de imágenes a pdf a4 directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para imágenes a pdf a4 fácilmente.",
+      "keywords": [
+        "imágenes a pdf a4",
+        "imágenes a pdf a4 online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Imágenes a PDF A4?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "scan-to-pdf": {
+      "name": "Escanear a PDF",
+      "h1": "Escanear a PDF – Herramienta Online Gratis",
+      "title": "Escanear a PDF online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra utilidad de escanear a pdf directamente en tu navegador. Rápido, seguro, gratuito y sin marcas de agua.",
+      "shortDescription": "Herramienta rápida para escanear a pdf fácilmente.",
+      "keywords": [
+        "escanear a pdf",
+        "escanear a pdf online",
+        "herramientas pdf gratis"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Escanear a PDF?",
+          "a": "Abre la herramienta, carga tu archivo y obtén el resultado listo para descargar al instante."
+        }
+      ]
+    },
+    "json-formatter": {
+      "name": "Formateador JSON Online",
+      "h1": "Formateador JSON Online – Gratis Online",
+      "title": "Formateador JSON Online online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro formateador json online directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: formateador json online al instante.",
+      "keywords": [
+        "formateador json online",
+        "formateador json online gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Formateador JSON Online?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-minifier": {
+      "name": "Minificador JSON",
+      "h1": "Minificador JSON – Gratis Online",
+      "title": "Minificador JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro minificador json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: minificador json al instante.",
+      "keywords": [
+        "minificador json",
+        "minificador json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Minificador JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-validator": {
+      "name": "Validador JSON",
+      "h1": "Validador JSON – Gratis Online",
+      "title": "Validador JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro validador json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: validador json al instante.",
+      "keywords": [
+        "validador json",
+        "validador json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Validador JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-viewer": {
+      "name": "Visor de JSON",
+      "h1": "Visor de JSON – Gratis Online",
+      "title": "Visor de JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro visor de json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: visor de json al instante.",
+      "keywords": [
+        "visor de json",
+        "visor de json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Visor de JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-tree-viewer": {
+      "name": "Visor de Árbol JSON",
+      "h1": "Visor de Árbol JSON – Gratis Online",
+      "title": "Visor de Árbol JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro visor de árbol json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: visor de árbol json al instante.",
+      "keywords": [
+        "visor de árbol json",
+        "visor de árbol json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Visor de Árbol JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-to-csv": {
+      "name": "Convertidor de JSON a CSV",
+      "h1": "Convertidor de JSON a CSV – Gratis Online",
+      "title": "Convertidor de JSON a CSV online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro convertidor de json a csv directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: convertidor de json a csv al instante.",
+      "keywords": [
+        "convertidor de json a csv",
+        "convertidor de json a csv gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Convertidor de JSON a CSV?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "csv-to-json": {
+      "name": "Convertidor de CSV a JSON",
+      "h1": "Convertidor de CSV a JSON – Gratis Online",
+      "title": "Convertidor de CSV a JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro convertidor de csv a json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: convertidor de csv a json al instante.",
+      "keywords": [
+        "convertidor de csv a json",
+        "convertidor de csv a json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Convertidor de CSV a JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-to-yaml": {
+      "name": "Convertidor de JSON a YAML",
+      "h1": "Convertidor de JSON a YAML – Gratis Online",
+      "title": "Convertidor de JSON a YAML online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro convertidor de json a yaml directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: convertidor de json a yaml al instante.",
+      "keywords": [
+        "convertidor de json a yaml",
+        "convertidor de json a yaml gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Convertidor de JSON a YAML?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "yaml-to-json": {
+      "name": "Convertidor de YAML a JSON",
+      "h1": "Convertidor de YAML a JSON – Gratis Online",
+      "title": "Convertidor de YAML a JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro convertidor de yaml a json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: convertidor de yaml a json al instante.",
+      "keywords": [
+        "convertidor de yaml a json",
+        "convertidor de yaml a json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Convertidor de YAML a JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-diff": {
+      "name": "Comparador de Diferencias JSON (Diff)",
+      "h1": "Comparador de Diferencias JSON (Diff) – Gratis Online",
+      "title": "Comparador de Diferencias JSON (Diff) online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro comparador de diferencias json (diff) directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: comparador de diferencias json (diff) al instante.",
+      "keywords": [
+        "comparador de diferencias json (diff)",
+        "comparador de diferencias json (diff) gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Comparador de Diferencias JSON (Diff)?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-escape": {
+      "name": "Escapador de Caracteres JSON",
+      "h1": "Escapador de Caracteres JSON – Gratis Online",
+      "title": "Escapador de Caracteres JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro escapador de caracteres json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: escapador de caracteres json al instante.",
+      "keywords": [
+        "escapador de caracteres json",
+        "escapador de caracteres json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Escapador de Caracteres JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "json-unescape": {
+      "name": "Desescapador de Strings JSON",
+      "h1": "Desescapador de Strings JSON – Gratis Online",
+      "title": "Desescapador de Strings JSON online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro desescapador de strings json directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: desescapador de strings json al instante.",
+      "keywords": [
+        "desescapador de strings json",
+        "desescapador de strings json gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Desescapador de Strings JSON?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "url-encoder": {
+      "name": "Codificador URL",
+      "h1": "Codificador URL – Gratis Online",
+      "title": "Codificador URL online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro codificador url directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: codificador url al instante.",
+      "keywords": [
+        "codificador url",
+        "codificador url gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Codificador URL?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "url-decoder": {
+      "name": "Decodificador URL",
+      "h1": "Decodificador URL – Gratis Online",
+      "title": "Decodificador URL online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro decodificador url directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: decodificador url al instante.",
+      "keywords": [
+        "decodificador url",
+        "decodificador url gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Decodificador URL?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "html-encoder": {
+      "name": "Codificador HTML",
+      "h1": "Codificador HTML – Gratis Online",
+      "title": "Codificador HTML online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro codificador html directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: codificador html al instante.",
+      "keywords": [
+        "codificador html",
+        "codificador html gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Codificador HTML?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "html-decoder": {
+      "name": "Decodificador HTML",
+      "h1": "Decodificador HTML – Gratis Online",
+      "title": "Decodificador HTML online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro decodificador html directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: decodificador html al instante.",
+      "keywords": [
+        "decodificador html",
+        "decodificador html gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Decodificador HTML?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "base64-encoder": {
+      "name": "Codificador Base64",
+      "h1": "Codificador Base64 – Gratis Online",
+      "title": "Codificador Base64 online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro codificador base64 directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: codificador base64 al instante.",
+      "keywords": [
+        "codificador base64",
+        "codificador base64 gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Codificador Base64?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "base64-decoder": {
+      "name": "Decodificador Base64 Online",
+      "h1": "Decodificador Base64 Online – Gratis Online",
+      "title": "Decodificador Base64 Online online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro decodificador base64 online directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: decodificador base64 online al instante.",
+      "keywords": [
+        "decodificador base64 online",
+        "decodificador base64 online gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Decodificador Base64 Online?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "html-minifier": {
+      "name": "Minificador HTML",
+      "h1": "Minificador HTML – Gratis Online",
+      "title": "Minificador HTML online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro minificador html directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: minificador html al instante.",
+      "keywords": [
+        "minificador html",
+        "minificador html gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Minificador HTML?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "css-minifier": {
+      "name": "Minificador CSS",
+      "h1": "Minificador CSS – Gratis Online",
+      "title": "Minificador CSS online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro minificador css directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: minificador css al instante.",
+      "keywords": [
+        "minificador css",
+        "minificador css gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Minificador CSS?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "js-minifier": {
+      "name": "Minificador JavaScript",
+      "h1": "Minificador JavaScript – Gratis Online",
+      "title": "Minificador JavaScript online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro minificador javascript directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: minificador javascript al instante.",
+      "keywords": [
+        "minificador javascript",
+        "minificador javascript gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Minificador JavaScript?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "css-formatter": {
+      "name": "Formateador y Embellecedor CSS",
+      "h1": "Formateador y Embellecedor CSS – Gratis Online",
+      "title": "Formateador y Embellecedor CSS online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro formateador y embellecedor css directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: formateador y embellecedor css al instante.",
+      "keywords": [
+        "formateador y embellecedor css",
+        "formateador y embellecedor css gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Formateador y Embellecedor CSS?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "html-formatter": {
+      "name": "Formateador de Código HTML",
+      "h1": "Formateador de Código HTML – Gratis Online",
+      "title": "Formateador de Código HTML online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro formateador de código html directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: formateador de código html al instante.",
+      "keywords": [
+        "formateador de código html",
+        "formateador de código html gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Formateador de Código HTML?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "js-formatter": {
+      "name": "Formateador de Código JavaScript",
+      "h1": "Formateador de Código JavaScript – Gratis Online",
+      "title": "Formateador de Código JavaScript online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro formateador de código javascript directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: formateador de código javascript al instante.",
+      "keywords": [
+        "formateador de código javascript",
+        "formateador de código javascript gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Formateador de Código JavaScript?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "uuid-generator": {
+      "name": "Generador de UUID v4 Online",
+      "h1": "Generador de UUID v4 Online – Gratis Online",
+      "title": "Generador de UUID v4 Online online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de uuid v4 online directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de uuid v4 online al instante.",
+      "keywords": [
+        "generador de uuid v4 online",
+        "generador de uuid v4 online gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de UUID v4 Online?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "guid-generator": {
+      "name": "Generador de GUID",
+      "h1": "Generador de GUID – Gratis Online",
+      "title": "Generador de GUID online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de guid directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de guid al instante.",
+      "keywords": [
+        "generador de guid",
+        "generador de guid gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de GUID?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "password-generator": {
+      "name": "Generador de Contraseñas Seguras",
+      "h1": "Generador de Contraseñas Seguras – Gratis Online",
+      "title": "Generador de Contraseñas Seguras online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de contraseñas seguras directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de contraseñas seguras al instante.",
+      "keywords": [
+        "generador de contraseñas seguras",
+        "generador de contraseñas seguras gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Contraseñas Seguras?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "jwt-decoder": {
+      "name": "Decodificador de Tokens JWT Online",
+      "h1": "Decodificador de Tokens JWT Online – Gratis Online",
+      "title": "Decodificador de Tokens JWT Online online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro decodificador de tokens jwt online directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: decodificador de tokens jwt online al instante.",
+      "keywords": [
+        "decodificador de tokens jwt online",
+        "decodificador de tokens jwt online gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Decodificador de Tokens JWT Online?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "jwt-generator": {
+      "name": "Generador de Tokens JWT",
+      "h1": "Generador de Tokens JWT – Gratis Online",
+      "title": "Generador de Tokens JWT online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de tokens jwt directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de tokens jwt al instante.",
+      "keywords": [
+        "generador de tokens jwt",
+        "generador de tokens jwt gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Tokens JWT?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "regex-tester": {
+      "name": "Probador de Expresiones Regulares (Regex)",
+      "h1": "Probador de Expresiones Regulares (Regex) – Gratis Online",
+      "title": "Probador de Expresiones Regulares (Regex) online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro probador de expresiones regulares (regex) directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: probador de expresiones regulares (regex) al instante.",
+      "keywords": [
+        "probador de expresiones regulares (regex)",
+        "probador de expresiones regulares (regex) gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Probador de Expresiones Regulares (Regex)?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "regex-generator": {
+      "name": "Generador de Expresiones Regulares",
+      "h1": "Generador de Expresiones Regulares – Gratis Online",
+      "title": "Generador de Expresiones Regulares online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de expresiones regulares directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de expresiones regulares al instante.",
+      "keywords": [
+        "generador de expresiones regulares",
+        "generador de expresiones regulares gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Expresiones Regulares?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "cron-expression-generator": {
+      "name": "Generador de Expresiones Cron",
+      "h1": "Generador de Expresiones Cron – Gratis Online",
+      "title": "Generador de Expresiones Cron online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de expresiones cron directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de expresiones cron al instante.",
+      "keywords": [
+        "generador de expresiones cron",
+        "generador de expresiones cron gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Expresiones Cron?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "cron-expression-translator": {
+      "name": "Traductor de Expresiones Cron",
+      "h1": "Traductor de Expresiones Cron – Gratis Online",
+      "title": "Traductor de Expresiones Cron online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro traductor de expresiones cron directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: traductor de expresiones cron al instante.",
+      "keywords": [
+        "traductor de expresiones cron",
+        "traductor de expresiones cron gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Traductor de Expresiones Cron?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "unix-timestamp-converter": {
+      "name": "Conversor de Timestamp Unix a Fecha",
+      "h1": "Conversor de Timestamp Unix a Fecha – Gratis Online",
+      "title": "Conversor de Timestamp Unix a Fecha online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de timestamp unix a fecha directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de timestamp unix a fecha al instante.",
+      "keywords": [
+        "conversor de timestamp unix a fecha",
+        "conversor de timestamp unix a fecha gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de Timestamp Unix a Fecha?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "unix-timestamp-generator": {
+      "name": "Generador de Timestamp Unix Actual",
+      "h1": "Generador de Timestamp Unix Actual – Gratis Online",
+      "title": "Generador de Timestamp Unix Actual online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de timestamp unix actual directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de timestamp unix actual al instante.",
+      "keywords": [
+        "generador de timestamp unix actual",
+        "generador de timestamp unix actual gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Timestamp Unix Actual?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "timestamp-to-date": {
+      "name": "Conversor de Timestamp a Fecha",
+      "h1": "Conversor de Timestamp a Fecha – Gratis Online",
+      "title": "Conversor de Timestamp a Fecha online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de timestamp a fecha directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de timestamp a fecha al instante.",
+      "keywords": [
+        "conversor de timestamp a fecha",
+        "conversor de timestamp a fecha gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de Timestamp a Fecha?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "color-converter": {
+      "name": "Conversor de Colores HEX RGB HSL",
+      "h1": "Conversor de Colores HEX RGB HSL – Gratis Online",
+      "title": "Conversor de Colores HEX RGB HSL online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de colores hex rgb hsl directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de colores hex rgb hsl al instante.",
+      "keywords": [
+        "conversor de colores hex rgb hsl",
+        "conversor de colores hex rgb hsl gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de Colores HEX RGB HSL?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "hex-to-rgb": {
+      "name": "Conversor de HEX a RGB",
+      "h1": "Conversor de HEX a RGB – Gratis Online",
+      "title": "Conversor de HEX a RGB online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de hex a rgb directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de hex a rgb al instante.",
+      "keywords": [
+        "conversor de hex a rgb",
+        "conversor de hex a rgb gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de HEX a RGB?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "rgb-to-hex": {
+      "name": "Conversor de RGB a HEX",
+      "h1": "Conversor de RGB a HEX – Gratis Online",
+      "title": "Conversor de RGB a HEX online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de rgb a hex directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de rgb a hex al instante.",
+      "keywords": [
+        "conversor de rgb a hex",
+        "conversor de rgb a hex gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de RGB a HEX?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "hex-to-hsl": {
+      "name": "Conversor de HEX a HSL",
+      "h1": "Conversor de HEX a HSL – Gratis Online",
+      "title": "Conversor de HEX a HSL online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de hex a hsl directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de hex a hsl al instante.",
+      "keywords": [
+        "conversor de hex a hsl",
+        "conversor de hex a hsl gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de HEX a HSL?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "css-gradient-generator": {
+      "name": "Generador de Gradientes CSS",
+      "h1": "Generador de Gradientes CSS – Gratis Online",
+      "title": "Generador de Gradientes CSS online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de gradientes css directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de gradientes css al instante.",
+      "keywords": [
+        "generador de gradientes css",
+        "generador de gradientes css gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Gradientes CSS?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "css-box-shadow-generator": {
+      "name": "Generador de Sombras Box Shadow CSS",
+      "h1": "Generador de Sombras Box Shadow CSS – Gratis Online",
+      "title": "Generador de Sombras Box Shadow CSS online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de sombras box shadow css directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de sombras box shadow css al instante.",
+      "keywords": [
+        "generador de sombras box shadow css",
+        "generador de sombras box shadow css gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Sombras Box Shadow CSS?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "css-border-radius-generator": {
+      "name": "Generador de Border Radius CSS",
+      "h1": "Generador de Border Radius CSS – Gratis Online",
+      "title": "Generador de Border Radius CSS online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de border radius css directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de border radius css al instante.",
+      "keywords": [
+        "generador de border radius css",
+        "generador de border radius css gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Border Radius CSS?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "ipv4-calculator": {
+      "name": "Calculadora de Subredes IPv4",
+      "h1": "Calculadora de Subredes IPv4 – Gratis Online",
+      "title": "Calculadora de Subredes IPv4 online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro calculadora de subredes ipv4 directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: calculadora de subredes ipv4 al instante.",
+      "keywords": [
+        "calculadora de subredes ipv4",
+        "calculadora de subredes ipv4 gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Calculadora de Subredes IPv4?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "ipv6-calculator": {
+      "name": "Calculadora de Direcciones IPv6",
+      "h1": "Calculadora de Direcciones IPv6 – Gratis Online",
+      "title": "Calculadora de Direcciones IPv6 online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro calculadora de direcciones ipv6 directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: calculadora de direcciones ipv6 al instante.",
+      "keywords": [
+        "calculadora de direcciones ipv6",
+        "calculadora de direcciones ipv6 gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Calculadora de Direcciones IPv6?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "cidr-calculator": {
+      "name": "Calculadora de Notación CIDR",
+      "h1": "Calculadora de Notación CIDR – Gratis Online",
+      "title": "Calculadora de Notación CIDR online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro calculadora de notación cidr directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: calculadora de notación cidr al instante.",
+      "keywords": [
+        "calculadora de notación cidr",
+        "calculadora de notación cidr gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Calculadora de Notación CIDR?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "subnet-calculator": {
+      "name": "Calculadora de Máscara de Subred",
+      "h1": "Calculadora de Máscara de Subred – Gratis Online",
+      "title": "Calculadora de Máscara de Subred online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro calculadora de máscara de subred directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: calculadora de máscara de subred al instante.",
+      "keywords": [
+        "calculadora de máscara de subred",
+        "calculadora de máscara de subred gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Calculadora de Máscara de Subred?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "ip-to-binary": {
+      "name": "Conversor de IP a Binario",
+      "h1": "Conversor de IP a Binario – Gratis Online",
+      "title": "Conversor de IP a Binario online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de ip a binario directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de ip a binario al instante.",
+      "keywords": [
+        "conversor de ip a binario",
+        "conversor de ip a binario gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de IP a Binario?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "binary-to-decimal": {
+      "name": "Conversor de Binario a Decimal",
+      "h1": "Conversor de Binario a Decimal – Gratis Online",
+      "title": "Conversor de Binario a Decimal online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro conversor de binario a decimal directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: conversor de binario a decimal al instante.",
+      "keywords": [
+        "conversor de binario a decimal",
+        "conversor de binario a decimal gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Conversor de Binario a Decimal?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "mac-address-generator": {
+      "name": "Generador de Direcciones MAC",
+      "h1": "Generador de Direcciones MAC – Gratis Online",
+      "title": "Generador de Direcciones MAC online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro generador de direcciones mac directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: generador de direcciones mac al instante.",
+      "keywords": [
+        "generador de direcciones mac",
+        "generador de direcciones mac gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Direcciones MAC?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "user-agent-parser": {
+      "name": "Analizador de User-Agent",
+      "h1": "Analizador de User-Agent – Gratis Online",
+      "title": "Analizador de User-Agent online gratis | Alee Tools",
+      "metaDescription": "Usa nuestro analizador de user-agent directamente en tu navegador. Herramienta gratuita, rápida y privada para desarrolladores de software.",
+      "shortDescription": "Herramienta de desarrollo: analizador de user-agent al instante.",
+      "keywords": [
+        "analizador de user-agent",
+        "analizador de user-agent gratis",
+        "herramientas para programadores",
+        "utilidades web"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Analizador de User-Agent?",
+          "a": "Pega tus datos en el campo de texto y obtendrás la salida procesada al instante."
+        }
+      ]
+    },
+    "jpg-to-webp": {
+      "name": "Convertir JPG a WebP",
+      "h1": "Convertir JPG a WebP – Gratis Online",
+      "title": "Convertir JPG a WebP online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir jpg a webp directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir jpg a webp en segundos.",
+      "keywords": [
+        "convertir jpg a webp",
+        "convertir jpg a webp online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir JPG a WebP?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "png-to-webp": {
+      "name": "Convertir PNG a WebP",
+      "h1": "Convertir PNG a WebP – Gratis Online",
+      "title": "Convertir PNG a WebP online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir png a webp directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir png a webp en segundos.",
+      "keywords": [
+        "convertir png a webp",
+        "convertir png a webp online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir PNG a WebP?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "heic-to-jpg": {
+      "name": "Convertir HEIC a JPG",
+      "h1": "Convertir HEIC a JPG – Gratis Online",
+      "title": "Convertir HEIC a JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir heic a jpg directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir heic a jpg en segundos.",
+      "keywords": [
+        "convertir heic a jpg",
+        "convertir heic a jpg online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir HEIC a JPG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "heic-to-png": {
+      "name": "Convertir HEIC a PNG",
+      "h1": "Convertir HEIC a PNG – Gratis Online",
+      "title": "Convertir HEIC a PNG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir heic a png directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir heic a png en segundos.",
+      "keywords": [
+        "convertir heic a png",
+        "convertir heic a png online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir HEIC a PNG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "svg-to-png": {
+      "name": "Convertir SVG a PNG",
+      "h1": "Convertir SVG a PNG – Gratis Online",
+      "title": "Convertir SVG a PNG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir svg a png directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir svg a png en segundos.",
+      "keywords": [
+        "convertir svg a png",
+        "convertir svg a png online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir SVG a PNG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "bmp-to-jpg": {
+      "name": "Convertir BMP a JPG",
+      "h1": "Convertir BMP a JPG – Gratis Online",
+      "title": "Convertir BMP a JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir bmp a jpg directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir bmp a jpg en segundos.",
+      "keywords": [
+        "convertir bmp a jpg",
+        "convertir bmp a jpg online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir BMP a JPG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "gif-to-jpg": {
+      "name": "Convertir GIF a JPG",
+      "h1": "Convertir GIF a JPG – Gratis Online",
+      "title": "Convertir GIF a JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir gif a jpg directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir gif a jpg en segundos.",
+      "keywords": [
+        "convertir gif a jpg",
+        "convertir gif a jpg online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir GIF a JPG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "jpg-compressor": {
+      "name": "Compresor JPG",
+      "h1": "Compresor JPG – Gratis Online",
+      "title": "Compresor JPG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor jpg directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para compresor jpg en segundos.",
+      "keywords": [
+        "compresor jpg",
+        "compresor jpg online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor JPG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "png-compressor": {
+      "name": "Compresor PNG",
+      "h1": "Compresor PNG – Gratis Online",
+      "title": "Compresor PNG online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor png directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para compresor png en segundos.",
+      "keywords": [
+        "compresor png",
+        "compresor png online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor PNG?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "webp-compressor": {
+      "name": "Compresor WebP",
+      "h1": "Compresor WebP – Gratis Online",
+      "title": "Compresor WebP online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor webp directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para compresor webp en segundos.",
+      "keywords": [
+        "compresor webp",
+        "compresor webp online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor WebP?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "heic-compressor": {
+      "name": "Compresor HEIC",
+      "h1": "Compresor HEIC – Gratis Online",
+      "title": "Compresor HEIC online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de compresor heic directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para compresor heic en segundos.",
+      "keywords": [
+        "compresor heic",
+        "compresor heic online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Compresor HEIC?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-rotator": {
+      "name": "Rotar Imagen",
+      "h1": "Rotar Imagen – Gratis Online",
+      "title": "Rotar Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de rotar imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para rotar imagen en segundos.",
+      "keywords": [
+        "rotar imagen",
+        "rotar imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Rotar Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-flipper": {
+      "name": "Voltear Imagen (Espejo)",
+      "h1": "Voltear Imagen (Espejo) – Gratis Online",
+      "title": "Voltear Imagen (Espejo) online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de voltear imagen (espejo) directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para voltear imagen (espejo) en segundos.",
+      "keywords": [
+        "voltear imagen (espejo)",
+        "voltear imagen (espejo) online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Voltear Imagen (Espejo)?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-background-blur": {
+      "name": "Desenfocar Fondo de Imagen",
+      "h1": "Desenfocar Fondo de Imagen – Gratis Online",
+      "title": "Desenfocar Fondo de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de desenfocar fondo de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para desenfocar fondo de imagen en segundos.",
+      "keywords": [
+        "desenfocar fondo de imagen",
+        "desenfocar fondo de imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Desenfocar Fondo de Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-pixelate": {
+      "name": "Pixelar Imagen",
+      "h1": "Pixelar Imagen – Gratis Online",
+      "title": "Pixelar Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de pixelar imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para pixelar imagen en segundos.",
+      "keywords": [
+        "pixelar imagen",
+        "pixelar imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Pixelar Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-grayscale": {
+      "name": "Convertir Imagen a Blanco y Negro",
+      "h1": "Convertir Imagen a Blanco y Negro – Gratis Online",
+      "title": "Convertir Imagen a Blanco y Negro online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de convertir imagen a blanco y negro directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para convertir imagen a blanco y negro en segundos.",
+      "keywords": [
+        "convertir imagen a blanco y negro",
+        "convertir imagen a blanco y negro online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Convertir Imagen a Blanco y Negro?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-brightness": {
+      "name": "Ajustar Brillo de Imagen",
+      "h1": "Ajustar Brillo de Imagen – Gratis Online",
+      "title": "Ajustar Brillo de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de ajustar brillo de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para ajustar brillo de imagen en segundos.",
+      "keywords": [
+        "ajustar brillo de imagen",
+        "ajustar brillo de imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Ajustar Brillo de Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-contrast": {
+      "name": "Ajustar Contraste de Imagen",
+      "h1": "Ajustar Contraste de Imagen – Gratis Online",
+      "title": "Ajustar Contraste de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de ajustar contraste de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para ajustar contraste de imagen en segundos.",
+      "keywords": [
+        "ajustar contraste de imagen",
+        "ajustar contraste de imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Ajustar Contraste de Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-sharpen": {
+      "name": "Enfocar y Mejorar Nitidez de Imagen",
+      "h1": "Enfocar y Mejorar Nitidez de Imagen – Gratis Online",
+      "title": "Enfocar y Mejorar Nitidez de Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de enfocar y mejorar nitidez de imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para enfocar y mejorar nitidez de imagen en segundos.",
+      "keywords": [
+        "enfocar y mejorar nitidez de imagen",
+        "enfocar y mejorar nitidez de imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Enfocar y Mejorar Nitidez de Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "image-watermark": {
+      "name": "Añadir Marca de Agua a Imagen",
+      "h1": "Añadir Marca de Agua a Imagen – Gratis Online",
+      "title": "Añadir Marca de Agua a Imagen online gratis | Alee Tools",
+      "metaDescription": "Usa nuestra herramienta de añadir marca de agua a imagen directamente en tu navegador. Rápido, seguro, gratuito y sin pérdida visible de calidad.",
+      "shortDescription": "Herramienta rápida para añadir marca de agua a imagen en segundos.",
+      "keywords": [
+        "añadir marca de agua a imagen",
+        "añadir marca de agua a imagen online",
+        "convertir imagenes gratis",
+        "editar fotos online"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo usar Añadir Marca de Agua a Imagen?",
+          "a": "Carga tu imagen, ajusta las opciones deseadas y descarga el resultado de inmediato."
+        }
+      ]
+    },
+    "qr-code-generator": {
+      "name": "Generador de Códigos QR Gratis",
+      "h1": "Generador de Códigos QR Gratis – Rápido y Listo para Imprimir",
+      "title": "Generador de Códigos QR Gratis online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de códigos qr gratis en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de códigos qr gratis.",
+      "keywords": [
+        "generador de códigos qr gratis",
+        "generador de códigos qr gratis online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Códigos QR Gratis?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "qr-code-scanner": {
+      "name": "Lector y Escáner de Códigos QR Online",
+      "h1": "Lector y Escáner de Códigos QR Online – Rápido y Listo para Imprimir",
+      "title": "Lector y Escáner de Códigos QR Online online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro lector y escáner de códigos qr online en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para lector y escáner de códigos qr online.",
+      "keywords": [
+        "lector y escáner de códigos qr online",
+        "lector y escáner de códigos qr online online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Lector y Escáner de Códigos QR Online?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "url-qr": {
+      "name": "Generador de QR para Enlaces Web",
+      "h1": "Generador de QR para Enlaces Web – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Enlaces Web online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para enlaces web en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para enlaces web.",
+      "keywords": [
+        "generador de qr para enlaces web",
+        "generador de qr para enlaces web online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Enlaces Web?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "wi-fi-qr": {
+      "name": "Generador de QR para Redes Wi-Fi",
+      "h1": "Generador de QR para Redes Wi-Fi – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Redes Wi-Fi online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para redes wi-fi en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para redes wi-fi.",
+      "keywords": [
+        "generador de qr para redes wi-fi",
+        "generador de qr para redes wi-fi online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Redes Wi-Fi?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "text-qr": {
+      "name": "Generador de QR para Texto Libre",
+      "h1": "Generador de QR para Texto Libre – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Texto Libre online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para texto libre en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para texto libre.",
+      "keywords": [
+        "generador de qr para texto libre",
+        "generador de qr para texto libre online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Texto Libre?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "email-qr": {
+      "name": "Generador de QR para Correo Electrónico",
+      "h1": "Generador de QR para Correo Electrónico – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Correo Electrónico online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para correo electrónico en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para correo electrónico.",
+      "keywords": [
+        "generador de qr para correo electrónico",
+        "generador de qr para correo electrónico online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Correo Electrónico?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "phone-qr": {
+      "name": "Generador de QR para Teléfono",
+      "h1": "Generador de QR para Teléfono – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Teléfono online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para teléfono en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para teléfono.",
+      "keywords": [
+        "generador de qr para teléfono",
+        "generador de qr para teléfono online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Teléfono?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "whatsapp-qr": {
+      "name": "Generador de QR para WhatsApp",
+      "h1": "Generador de QR para WhatsApp – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para WhatsApp online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para whatsapp en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para whatsapp.",
+      "keywords": [
+        "generador de qr para whatsapp",
+        "generador de qr para whatsapp online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para WhatsApp?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "vcard-qr": {
+      "name": "Generador de QR para Tarjetas vCard",
+      "h1": "Generador de QR para Tarjetas vCard – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Tarjetas vCard online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para tarjetas vcard en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para tarjetas vcard.",
+      "keywords": [
+        "generador de qr para tarjetas vcard",
+        "generador de qr para tarjetas vcard online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Tarjetas vCard?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "location-qr": {
+      "name": "Generador de QR para Ubicación GPS",
+      "h1": "Generador de QR para Ubicación GPS – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Ubicación GPS online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para ubicación gps en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para ubicación gps.",
+      "keywords": [
+        "generador de qr para ubicación gps",
+        "generador de qr para ubicación gps online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Ubicación GPS?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "sms-qr": {
+      "name": "Generador de QR para Mensajes SMS",
+      "h1": "Generador de QR para Mensajes SMS – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Mensajes SMS online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para mensajes sms en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para mensajes sms.",
+      "keywords": [
+        "generador de qr para mensajes sms",
+        "generador de qr para mensajes sms online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Mensajes SMS?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "bitcoin-qr": {
+      "name": "Generador de QR para Criptomonedas Bitcoin",
+      "h1": "Generador de QR para Criptomonedas Bitcoin – Rápido y Listo para Imprimir",
+      "title": "Generador de QR para Criptomonedas Bitcoin online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de qr para criptomonedas bitcoin en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de qr para criptomonedas bitcoin.",
+      "keywords": [
+        "generador de qr para criptomonedas bitcoin",
+        "generador de qr para criptomonedas bitcoin online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de QR para Criptomonedas Bitcoin?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "barcode-generator": {
+      "name": "Generador de Códigos de Barras Gratis",
+      "h1": "Generador de Códigos de Barras Gratis – Rápido y Listo para Imprimir",
+      "title": "Generador de Códigos de Barras Gratis online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de códigos de barras gratis en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de códigos de barras gratis.",
+      "keywords": [
+        "generador de códigos de barras gratis",
+        "generador de códigos de barras gratis online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Códigos de Barras Gratis?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "ean-generator": {
+      "name": "Generador de Códigos EAN-13 y EAN-8",
+      "h1": "Generador de Códigos EAN-13 y EAN-8 – Rápido y Listo para Imprimir",
+      "title": "Generador de Códigos EAN-13 y EAN-8 online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de códigos ean-13 y ean-8 en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de códigos ean-13 y ean-8.",
+      "keywords": [
+        "generador de códigos ean-13 y ean-8",
+        "generador de códigos ean-13 y ean-8 online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Códigos EAN-13 y EAN-8?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "upc-generator": {
+      "name": "Generador de Códigos de Barras UPC-A",
+      "h1": "Generador de Códigos de Barras UPC-A – Rápido y Listo para Imprimir",
+      "title": "Generador de Códigos de Barras UPC-A online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de códigos de barras upc-a en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de códigos de barras upc-a.",
+      "keywords": [
+        "generador de códigos de barras upc-a",
+        "generador de códigos de barras upc-a online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Códigos de Barras UPC-A?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "code-128-generator": {
+      "name": "Generador de Código 128 para Logística",
+      "h1": "Generador de Código 128 para Logística – Rápido y Listo para Imprimir",
+      "title": "Generador de Código 128 para Logística online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de código 128 para logística en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de código 128 para logística.",
+      "keywords": [
+        "generador de código 128 para logística",
+        "generador de código 128 para logística online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Código 128 para Logística?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "code-39-generator": {
+      "name": "Generador de Código 39 Alfanumérico",
+      "h1": "Generador de Código 39 Alfanumérico – Rápido y Listo para Imprimir",
+      "title": "Generador de Código 39 Alfanumérico online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de código 39 alfanumérico en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de código 39 alfanumérico.",
+      "keywords": [
+        "generador de código 39 alfanumérico",
+        "generador de código 39 alfanumérico online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Código 39 Alfanumérico?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "isbn-barcode": {
+      "name": "Generador de Códigos de Barras ISBN para Libros",
+      "h1": "Generador de Códigos de Barras ISBN para Libros – Rápido y Listo para Imprimir",
+      "title": "Generador de Códigos de Barras ISBN para Libros online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro generador de códigos de barras isbn para libros en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para generador de códigos de barras isbn para libros.",
+      "keywords": [
+        "generador de códigos de barras isbn para libros",
+        "generador de códigos de barras isbn para libros online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Generador de Códigos de Barras ISBN para Libros?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    },
+    "barcode-scanner": {
+      "name": "Lector y Escáner de Códigos de Barras Online",
+      "h1": "Lector y Escáner de Códigos de Barras Online – Rápido y Listo para Imprimir",
+      "title": "Lector y Escáner de Códigos de Barras Online online gratis | Alee Tools",
+      "metaDescription": "Crea o escanea con nuestro lector y escáner de códigos de barras online en alta resolución. Herramienta 100% gratuita, instantánea y lista para impresión o pantallas.",
+      "shortDescription": "Herramienta rápida y precisa para lector y escáner de códigos de barras online.",
+      "keywords": [
+        "lector y escáner de códigos de barras online",
+        "lector y escáner de códigos de barras online online",
+        "crear codigo qr gratis",
+        "generador de codigos de barra"
+      ],
+      "faqs": [
+        {
+          "q": "¿Cómo funciona Lector y Escáner de Códigos de Barras Online?",
+          "a": "Introduce tus datos en el formulario, previsualiza el resultado y descarga el código en alta definición."
+        }
+      ]
+    }
+  }
+}

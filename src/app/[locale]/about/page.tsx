@@ -1,26 +1,68 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Wrench, Shield, Zap, Sparkles } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildHreflangAlternates } from '@/lib/i18n';
+import {
+  NON_DEFAULT_LOCALES,
+  isValidLocale,
+  getLocalizedPath,
+  buildHreflangAlternates,
+  OG_LOCALES,
+  type Locale,
+} from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
-export const metadata: Metadata = {
-  title: 'About Alee Tools – Handcrafted Micro-Tools for Creators & Developers',
-  description:
-    'Alee Tools is an independent digital workshop of 156 free micro-tools built to deliver instant results with zero subscriptions and zero paywalls.',
-  alternates: {
-    canonical: 'https://alee.software/about',
-    languages: buildHreflangAlternates('/about'),
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function AboutPage() {
+export async function generateStaticParams() {
+  return NON_DEFAULT_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  const loc = locale as Locale;
+
+  const canonicalUrl = `https://alee.software${getLocalizedPath(loc, '/about')}`;
+  const title = `${t(loc, 'header.about')} – Alee Tools`;
+  const description = t(loc, 'home.heroSubtitle');
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates('/about'),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: 'Alee Tools',
+      type: 'website',
+      locale: OG_LOCALES[loc] || 'en_US',
+    },
+  };
+}
+
+export default async function LocalizedAboutPage({ params }: Props) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+  const loc = locale as Locale;
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'About', href: '/about' },
+            { label: t(loc, 'breadcrumbs.home'), href: getLocalizedPath(loc, '/') },
+            { label: t(loc, 'header.about'), href: getLocalizedPath(loc, '/about') },
           ]}
         />
       </div>
@@ -34,59 +76,56 @@ export default function AboutPage() {
           }}
         >
           <Wrench size={14} />
-          <span>About Alee Tools</span>
+          <span>{t(loc, 'header.about')} • Alee Tools</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>
-          A Physical Workshop for the Modern Web
+          {t(loc, 'home.badge')}
         </h1>
         <p className="text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed font-medium">
-          We built Alee Tools to solve a universal annoyance: why do you need to upload a confidential document or private photo to someone else&apos;s server just to resize an image, format a JSON snippet, or merge two PDF files?
+          {t(loc, 'home.heroSubtitle')}
         </p>
       </header>
 
       <div className="space-y-8 text-sm sm:text-base leading-relaxed text-stone-700 dark:text-stone-300">
         <div className="p-6 sm:p-8 rounded-[18px] border space-y-4 shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
           <h2 className="text-xl font-bold" style={{ color: 'var(--ink)' }}>
-            The Problem With Cloud Tools
+            {t(loc, 'home.builtForSpeed')}
           </h2>
           <p>
-            Most online conversion and utility websites operate on outdated architectures: you upload your file to their cloud server, wait in a processing queue, hope they don&apos;t store or leak your file, and often face watermarks, paywalls, or file size limits designed to force a monthly subscription.
-          </p>
-          <p>
-            Modern web technologies and efficient architectures provide instant execution without costly server queues. There is simply no technical reason to wait in line or pay subscriptions for routine digital operations.
+            {t(loc, 'home.builtForSpeedSubtitle')}
           </p>
         </div>
 
         <div className="p-6 sm:p-8 rounded-[18px] border space-y-4 shadow-sm" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
           <h2 className="text-xl font-bold" style={{ color: 'var(--ink)' }}>
-            Our Guiding Philosophy
+            {t(loc, 'features.freeForever')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
             <div className="space-y-2">
               <div className="flex items-center gap-2 font-bold" style={{ color: 'var(--ink)' }}>
                 <Zap size={18} className="text-emerald-600" />
-                <span>Lightning Fast</span>
+                <span>{t(loc, 'features.instantExecution')}</span>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
-                Processing runs on hardware-accelerated browser engines without network latency.
+                {t(loc, 'features.instantExecutionDesc')}
               </p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 font-bold" style={{ color: 'var(--ink)' }}>
                 <Shield size={18} className="text-emerald-600" />
-                <span>100% Private</span>
+                <span>{t(loc, 'features.noAccounts')}</span>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
-                Your data stays strictly on your computer or mobile device.
+                {t(loc, 'features.noAccountsDesc')}
               </p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 font-bold" style={{ color: 'var(--ink)' }}>
                 <Sparkles size={18} className="text-emerald-600" />
-                <span>Free Forever</span>
+                <span>{t(loc, 'features.zeroWatermarks')}</span>
               </div>
               <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400">
-                Zero paywalls, zero accounts, and zero watermarks on any exports.
+                {t(loc, 'features.zeroWatermarksDesc')}
               </p>
             </div>
           </div>

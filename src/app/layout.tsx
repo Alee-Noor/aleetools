@@ -38,6 +38,8 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+import { DirectionManager } from "@/components/layout/DirectionManager";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,6 +52,7 @@ export default function RootLayout({
         style={{ background: "var(--bg)", color: "var(--ink)" }}
       >
         <ThemeProvider>
+          <DirectionManager />
           <AnimatedBackground />
           <Header />
           <main className="flex-1 relative z-10">{children}</main>

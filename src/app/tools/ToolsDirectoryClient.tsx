@@ -6,13 +6,16 @@ import { Search, ArrowRight, Layers, Sparkles } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Chip } from '@/components/ui/Chip';
 import { getToolUrl, type Tool, type Category } from '@/lib/tool-registry';
+import { DEFAULT_LOCALE, getLocalizedPath, type Locale } from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
 interface ToolsDirectoryClientProps {
   categories: Category[];
   tools: Tool[];
+  locale?: Locale;
 }
 
-export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClientProps) {
+export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCALE }: ToolsDirectoryClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -38,8 +41,8 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Tools', href: '/tools' },
+            { label: t(locale, 'breadcrumbs.home'), href: getLocalizedPath(locale, '/') },
+            { label: t(locale, 'breadcrumbs.tools'), href: getLocalizedPath(locale, '/tools') },
           ]}
         />
       </div>
@@ -53,13 +56,13 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
           }}
         >
           <Layers size={14} />
-          <span>Full Catalog • 156 Handcrafted Tools</span>
+          <span>{t(locale, 'tools.toolsAvailable', { count: tools.length })}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>
-          Browse All Tools
+          {t(locale, 'header.browseTools')}
         </h1>
         <p className="text-base sm:text-lg leading-relaxed font-semibold" style={{ color: 'var(--ink-soft)' }}>
-          Fast, versatile utility tools ready for immediate use. No email required, no subscriptions.
+          {t(locale, 'home.heroSubtitle')}
         </p>
 
         {/* Search Bar */}
@@ -76,7 +79,7 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by tool name, format, or keyword (e.g. 'merge', 'instagram', 'json')..."
+              placeholder={t(locale, 'home.searchPlaceholder')}
               className="w-full bg-transparent text-sm sm:text-base outline-none placeholder:text-stone-500 dark:placeholder:text-stone-400 font-medium"
               style={{ color: 'var(--ink)' }}
             />
@@ -99,7 +102,7 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
           active={selectedCategory === 'all'}
           onClick={() => setSelectedCategory('all')}
         >
-          All Categories ({tools.length})
+          All ({tools.length})
         </Chip>
         {categories.map((cat) => {
           const count = tools.filter((t) => t.category === cat.slug).length;
@@ -134,14 +137,13 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
             return (
               <Link
                 key={`${tool.category}-${tool.slug}`}
-                href={getToolUrl(tool)}
+                href={getLocalizedPath(locale, getToolUrl(tool))}
                 className="group relative flex flex-col justify-between overflow-hidden p-5 rounded-[16px] border transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 no-underline"
                 style={{
                   background: 'var(--surface)',
                   borderColor: 'var(--border)',
                 }}
               >
-                {/* Replicated Glowing Dot Matrix Pattern Backdrop */}
                 <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
                   <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-emerald-500/10 dark:bg-emerald-400/15 blur-xl transition-all group-hover:scale-125" />
                   <div className="absolute -bottom-10 -left-10 h-28 w-28 rounded-full bg-amber-500/10 dark:bg-violet-500/15 blur-xl transition-all group-hover:scale-125" />
@@ -178,7 +180,7 @@ export function ToolsDirectoryClient({ categories, tools }: ToolsDirectoryClient
 
                 <div className="relative z-10 mt-4 pt-3 border-t flex items-center gap-1.5 text-[11px] font-semibold" style={{ borderColor: 'var(--border)', color: 'var(--ink-soft)' }}>
                   <Sparkles size={12} className="text-emerald-600 dark:text-emerald-400" />
-                  <span>Instant Access</span>
+                  <span>{t(locale, 'tools.instantAccess')}</span>
                 </div>
               </Link>
             );

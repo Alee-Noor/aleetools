@@ -1,26 +1,68 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { ShieldCheck, ServerOff } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildHreflangAlternates } from '@/lib/i18n';
+import {
+  NON_DEFAULT_LOCALES,
+  isValidLocale,
+  getLocalizedPath,
+  buildHreflangAlternates,
+  OG_LOCALES,
+  type Locale,
+} from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy – 100% Client-Side Processing | Alee Tools',
-  description:
-    'Our ironclad privacy guarantee: all 156 tools operate privately and securely. No files, documents, or data are ever uploaded to a server.',
-  alternates: {
-    canonical: 'https://alee.software/privacy',
-    languages: buildHreflangAlternates('/privacy'),
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function PrivacyPage() {
+export async function generateStaticParams() {
+  return NON_DEFAULT_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  const loc = locale as Locale;
+
+  const canonicalUrl = `https://alee.software${getLocalizedPath(loc, '/privacy')}`;
+  const title = `${t(loc, 'common.privacy')} – Alee Tools`;
+  const description = t(loc, 'home.heroSubtitle');
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates('/privacy'),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: 'Alee Tools',
+      type: 'website',
+      locale: OG_LOCALES[loc] || 'en_US',
+    },
+  };
+}
+
+export default async function LocalizedPrivacyPage({ params }: Props) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+  const loc = locale as Locale;
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Privacy Policy', href: '/privacy' },
+            { label: t(loc, 'breadcrumbs.home'), href: getLocalizedPath(loc, '/') },
+            { label: t(loc, 'common.privacy'), href: getLocalizedPath(loc, '/privacy') },
           ]}
         />
       </div>
@@ -31,13 +73,13 @@ export default function PrivacyPage() {
           style={{ background: 'var(--color-accent-primary-soft)' }}
         >
           <ShieldCheck size={14} />
-          <span>Zero Server Upload Guarantee</span>
+          <span>{t(loc, 'features.instantExecution')}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>
-          Privacy Policy
+          {t(loc, 'common.privacy')}
         </h1>
         <p className="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed">
-          At Alee Tools, privacy is an architectural guarantee, not merely a legal statement. We built this platform so that we literally cannot view your files.
+          {t(loc, 'home.heroSubtitle')}
         </p>
       </header>
 
@@ -52,14 +94,11 @@ export default function PrivacyPage() {
           <div className="flex items-center gap-3">
             <ServerOff size={24} className="text-emerald-600" />
             <h2 className="text-xl font-bold" style={{ color: 'var(--ink)' }}>
-              1. Your Files Never Leave Your Device
+              {t(loc, 'features.noAccounts')}
             </h2>
           </div>
           <p>
-            When you select an image, PDF, or text file in any tool on Alee Tools, the file is read directly into your web browser&apos;s local memory using modern client-side APIs (such as HTML5 Canvas, the File API, and WebAssembly).
-          </p>
-          <p>
-            The byte data of your files never transmits over the internet to our servers or any third-party infrastructure. All transformation, parsing, compression, and rendering occurs entirely inside your machine&apos;s CPU and GPU.
+            {t(loc, 'features.noAccountsDesc')}
           </p>
         </div>
 
@@ -71,10 +110,10 @@ export default function PrivacyPage() {
           }}
         >
           <h2 className="text-xl font-bold" style={{ color: 'var(--ink)' }}>
-            2. Zero Tracking & No Accounts
+            {t(loc, 'features.zeroWatermarks')}
           </h2>
           <p>
-            We do not require user accounts, email registration, passwords, or personal profile data. You can access every single tool freely and anonymously.
+            {t(loc, 'features.zeroWatermarksDesc')}
           </p>
         </div>
       </div>

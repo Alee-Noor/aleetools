@@ -1,84 +1,157 @@
 // lib/seo.ts — Centralized SEO metadata and JSON-LD builders
-// Driven entirely by tool-registry.ts — never hand-write metadata per page.
+// Driven entirely by tool-registry.ts & i18n translations — never hand-write metadata per page.
 
 import type { Metadata } from 'next';
 import { type Tool, type Category, type Subcategory, getToolUrl, getCategoryUrl, getSubcategoryUrl } from './tool-registry';
+import {
+  type Locale,
+  DEFAULT_LOCALE,
+  OG_LOCALES,
+  getLocalizedPath,
+  buildHreflangAlternates,
+} from './i18n';
+import {
+  getToolSeoTranslation,
+  getCategorySeoTranslation,
+  getSubcategorySeoTranslation,
+  t,
+} from './translations';
 
 const BASE_URL = 'https://alee.software';
 const SITE_NAME = 'Alee Tools';
 
+function formatTitle(title: string): { absolute: string } {
+  const clean = title.trim();
+  const withSite = clean.includes(SITE_NAME) ? clean : `${clean} | ${SITE_NAME}`;
+  return { absolute: withSite };
+}
+
 // ─── METADATA BUILDERS ─────────────────────────────────────────
 
-export function buildToolMetadata(tool: Tool): Metadata {
-  const url = `${BASE_URL}${getToolUrl(tool)}`;
-  return {
-    title: tool.title,
-    description: tool.metaDescription,
-    keywords: tool.keywords,
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: tool.title,
-      description: tool.metaDescription,
-      url,
-      siteName: SITE_NAME,
-      type: 'website',
-      locale: 'en_US',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: tool.title,
-      description: tool.metaDescription,
-    },
-  };
-}
+export async function buildHomeMetadata(locale: Locale = DEFAULT_LOCALE): Promise<Metadata> {
+  const canonicalUrl = `${BASE_URL}${getLocalizedPath(locale, '')}`;
+  const titleString = locale === 'en'
+    ? 'Alee Tools – 156 Free, Private Utility Tools'
+    : `${t(locale, 'common.appName')} – ${t(locale, 'home.badge')} | ${SITE_NAME}`;
+  const description = t(locale, 'home.heroSubtitle');
 
-export function buildCategoryMetadata(category: Category): Metadata {
-  const url = `${BASE_URL}${getCategoryUrl(category)}`;
-  const title = `${category.name} – Free Online Tools | ${SITE_NAME}`;
-  const description = category.description;
   return {
-    title,
+    title: formatTitle(titleString),
     description,
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates(''),
     },
     openGraph: {
-      title,
+      title: titleString,
       description,
-      url,
+      url: canonicalUrl,
       siteName: SITE_NAME,
       type: 'website',
+      locale: OG_LOCALES[locale] || 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: titleString,
       description,
     },
   };
 }
 
-export function buildSubcategoryMetadata(subcategory: Subcategory, category: Category): Metadata {
-  const url = `${BASE_URL}${getSubcategoryUrl(subcategory)}`;
-  const title = `${subcategory.name} – Free Online | ${SITE_NAME}`;
-  const description = subcategory.description;
+export async function buildToolMetadata(tool: Tool, locale: Locale = DEFAULT_LOCALE): Promise<Metadata> {
+  const toolPath = getToolUrl(tool);
+  const canonicalUrl = `${BASE_URL}${getLocalizedPath(locale, toolPath)}`;
+  const seo = await getToolSeoTranslation(locale, tool.slug);
+
+  const titleString = seo?.title || tool.title;
+  const description = seo?.metaDescription || tool.metaDescription;
+  const keywords = seo?.keywords || tool.keywords;
+
   return {
-    title,
+    title: formatTitle(titleString),
     description,
+    keywords,
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates(toolPath),
     },
     openGraph: {
-      title,
+      title: titleString,
       description,
-      url,
+      url: canonicalUrl,
       siteName: SITE_NAME,
       type: 'website',
+      locale: OG_LOCALES[locale] || 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: titleString,
+      description,
+    },
+  };
+}
+
+export async function buildCategoryMetadata(category: Category, locale: Locale = DEFAULT_LOCALE): Promise<Metadata> {
+  const catPath = getCategoryUrl(category);
+  const canonicalUrl = `${BASE_URL}${getLocalizedPath(locale, catPath)}`;
+  const seo = await getCategorySeoTranslation(locale, category.slug);
+
+  const titleString = seo?.title || `${category.name} – Free Online Tools | ${SITE_NAME}`;
+  const description = seo?.metaDescription || category.description;
+
+  return {
+    title: formatTitle(titleString),
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates(catPath),
+    },
+    openGraph: {
+      title: titleString,
+      description,
+      url: canonicalUrl,
+      siteName: SITE_NAME,
+      type: 'website',
+      locale: OG_LOCALES[locale] || 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titleString,
+      description,
+    },
+  };
+}
+
+export async function buildSubcategoryMetadata(
+  subcategory: Subcategory,
+  category: Category,
+  locale: Locale = DEFAULT_LOCALE
+): Promise<Metadata> {
+  const subPath = getSubcategoryUrl(subcategory);
+  const canonicalUrl = `${BASE_URL}${getLocalizedPath(locale, subPath)}`;
+  const seo = await getSubcategorySeoTranslation(locale, subcategory.slug);
+
+  const titleString = seo?.name ? `${seo.name} – Free Online | ${SITE_NAME}` : `${subcategory.name} – Free Online | ${SITE_NAME}`;
+  const description = seo?.description || subcategory.description;
+
+  return {
+    title: formatTitle(titleString),
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates(subPath),
+    },
+    openGraph: {
+      title: titleString,
+      description,
+      url: canonicalUrl,
+      siteName: SITE_NAME,
+      type: 'website',
+      locale: OG_LOCALES[locale] || 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titleString,
       description,
     },
   };
@@ -86,28 +159,35 @@ export function buildSubcategoryMetadata(subcategory: Subcategory, category: Cat
 
 // ─── JSON-LD BUILDERS ───────────────────────────────────────────
 
-export function buildToolJsonLd(tool: Tool) {
-  const url = `${BASE_URL}${getToolUrl(tool)}`;
-  
+export async function buildToolJsonLd(tool: Tool, locale: Locale = DEFAULT_LOCALE) {
+  const toolPath = getToolUrl(tool);
+  const url = `${BASE_URL}${getLocalizedPath(locale, toolPath)}`;
+  const seo = await getToolSeoTranslation(locale, tool.slug);
+
+  const name = seo?.name || tool.name;
+  const description = seo?.metaDescription || tool.metaDescription;
+  const faqs = (seo?.faqs && seo.faqs.length > 0) ? seo.faqs : tool.faqs;
+
   const softwareApp = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: tool.name,
+    name,
     url,
     applicationCategory: 'UtilitiesApplication',
+    inLanguage: locale,
     operatingSystem: 'Any (runs in browser)',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
     },
-    description: tool.metaDescription,
+    description,
   };
 
-  const faqPage = tool.faqs.length > 0 ? {
+  const faqPage = faqs && faqs.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: tool.faqs.map((faq) => ({
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.q,
       acceptedAnswer: {
@@ -139,7 +219,7 @@ export function buildWebsiteJsonLd() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: BASE_URL,
-    description: 'Free, private, private, client-side tools for creators, students, and developers — nothing you upload ever leaves your device.',
+    description: 'Free, private, client-side tools for creators, students, and developers — nothing you upload ever leaves your device.',
     potentialAction: {
       '@type': 'SearchAction',
       target: {

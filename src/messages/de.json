@@ -1,0 +1,77 @@
+{
+  "header": {
+    "browseTools": "Tools durchsuchen",
+    "about": "Über uns",
+    "searchPlaceholder": "156 Tools durchsuchen...",
+    "noResults": "Keine Tools gefunden für"
+  },
+  "footer": {
+    "copyright": "© {year} Alee Tools. Schnelle, zuverlässige und kostenlose Online-Tools.",
+    "disclaimer": "Alee ist unabhängig und nicht mit den genannten Plattformen verbunden."
+  },
+  "home": {
+    "badge": "Sofort & Hochleistung • Kostenlose digitale Werkstatt",
+    "heroTitle": "Eine digitale Werkstatt mit kleinen, schnellen Tools, die die Arbeit erledigen.",
+    "heroSubtitle": "156 Einzelzweck-Tools für Bilder, PDFs, Code, QR-Codes und soziale Medien. Sofortige Ergebnisse, keine Konten, keine Abonnements.",
+    "searchPlaceholder": "156 kostenlose Tools durchsuchen (z.B. „verkleinern“, „pdf“, „json“)...",
+    "exploreByCategory": "Nach Kategorie erkunden:",
+    "popularTools": "Beliebte Werkzeuge",
+    "viewAllTools": "Alle 156 Tools anzeigen",
+    "fiveWorkbenches": "Fünf spezialisierte Werkbänke",
+    "workbenchSubtitle": "Wählen Sie das richtige Tool, erhalten Sie Ihr Ergebnis in Sekunden.",
+    "builtForSpeed": "Gebaut für Geschwindigkeit & Einfachheit",
+    "builtForSpeedSubtitle": "Warum Alee eine schnellere, sauberere und zuverlässigere Erfahrung bietet.",
+    "threeSteps": "Drei einfache Schritte",
+    "threeStepsSubtitle": "Keine Installer, keine Kontoprüfungen, keine Wartezeiten.",
+    "step1Title": "Wählen Sie Ihr Tool",
+    "step1Desc": "Suchen oder durchsuchen Sie 156 spezialisierte Tools, organisiert in fünf intuitiven Kategorien.",
+    "step2Title": "Datei ablegen oder Daten eingeben",
+    "step2Desc": "Wählen Sie Ihr Bild, PDF oder fügen Sie Text ein. Die automatisierte Verarbeitung transformiert Ihre Dateien in Sekunden.",
+    "step3Title": "Ergebnis herunterladen",
+    "step3Desc": "Kopieren oder laden Sie Ihre fertigen Dateien sofort herunter – ohne Limits oder Wasserzeichen."
+  },
+  "features": {
+    "instantExecution": "Sofortige Ausführung",
+    "instantExecutionDesc": "Hardwarebeschleunigte Verarbeitung liefert Ergebnisse in Millisekunden ohne Warteschlangen.",
+    "noAccounts": "Keine Konten, keine Hindernisse",
+    "noAccountsDesc": "Keine E-Mail, keine Registrierung, kein Warten. Sofortiger Zugang zu jedem Tool.",
+    "zeroWatermarks": "Keine Wasserzeichen",
+    "zeroWatermarksDesc": "Ihre Kreationen und Dokumente bleiben sauber und professionell. Wir fügen niemals Logos hinzu.",
+    "freeForever": "Für immer kostenlos",
+    "freeForeverDesc": "Alle 156 Tools sind kostenlos zugänglich – ohne Abo-Nörgeleien oder versteckte Paywalls."
+  },
+  "tools": {
+    "instantAccess": "Sofortiger Zugang",
+    "toolsAvailable": "{count} Tools verfügbar",
+    "browseBySubcategory": "Nach Unterkategorie durchsuchen",
+    "allToolsIn": "Alle {name} Tools",
+    "totalTools": "{count} Tools insgesamt",
+    "toolsInSection": "Tools in diesem Bereich",
+    "openWorkbench": "Werkbank öffnen",
+    "relatedTools": "Verwandte Tools",
+    "howToUse": "So verwenden Sie",
+    "faq": "Häufig gestellte Fragen",
+    "tool": "Tool"
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "tools": "Tools"
+  },
+  "common": {
+    "home": "Startseite",
+    "tools": "Tools",
+    "about": "Über uns",
+    "privacy": "Datenschutz",
+    "contact": "Kontakt",
+    "image": "Bild",
+    "pdf": "PDF",
+    "developer": "Entwickler",
+    "qr": "QR"
+  },
+  "meta": {
+    "homeTitle": "Alee Tools – 156 kostenlose, schnelle Online-Tools",
+    "homeDescription": "156 kostenlose, sofortige Utility-Tools für Kreative, Studenten und Entwickler. Bildverkleinerer, PDF-Tools, JSON-Formatierer, QR-Code-Generatoren – ohne Registrierung, ohne Paywall.",
+    "toolsTitle": "Alle 156 kostenlosen Tools – Verzeichnis durchsuchen | Alee Tools",
+    "toolsDescription": "Durchsuchen Sie 156 kostenlose Client-seitige Tools. Bildverkleinerer, PDF-Konverter, Entwickler-Formatierer, QR-Code-Generatoren und Rechner."
+  }
+}

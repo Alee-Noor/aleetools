@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { type ReactNode } from 'react';
-import { Shield, Sparkles, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
+import { Sparkles, ArrowRight, Zap } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Accordion } from '@/components/ui/Accordion';
 import { ClayCard } from '@/components/ui/ClayCard';
@@ -15,54 +15,78 @@ import {
   getSubcategoryUrl,
 } from '@/lib/tool-registry';
 import { buildToolJsonLd } from '@/lib/seo';
+import { type Locale, DEFAULT_LOCALE, getLocalizedPath } from '@/lib/i18n';
+import {
+  getToolSeoTranslation,
+  getCategorySeoTranslation,
+  getSubcategorySeoTranslation,
+  t,
+} from '@/lib/translations';
 
 interface ToolPageShellProps {
   tool: Tool;
   children: ReactNode;
   howToSteps?: string[];
   referenceTable?: ReactNode;
+  locale?: Locale;
 }
 
-export function ToolPageShell({
+export async function ToolPageShell({
   tool,
   children,
   howToSteps,
   referenceTable,
+  locale = DEFAULT_LOCALE,
 }: ToolPageShellProps) {
   const category = getCategoryBySlug(tool.category);
   const subcategory = tool.subcategory
     ? getSubcategoryBySlug(tool.category, tool.subcategory)
     : undefined;
   const relatedTools = getRelatedTools(tool);
-  const { softwareApp, faqPage } = buildToolJsonLd(tool);
 
-  // Build breadcrumb items
+  // Multilingual SEO overrides
+  const seo = await getToolSeoTranslation(locale, tool.slug);
+  const categorySeo = await getCategorySeoTranslation(locale, tool.category);
+  const subcategorySeo = tool.subcategory
+    ? await getSubcategorySeoTranslation(locale, tool.subcategory)
+    : null;
+
+  const toolName = seo?.name || tool.name;
+  const toolH1 = seo?.h1 || tool.h1;
+  const toolMetaDesc = seo?.metaDescription || tool.metaDescription;
+  const categoryName = categorySeo?.name || category?.name || 'Tool';
+  const subcategoryName = subcategorySeo?.name || subcategory?.name;
+  const faqsToDisplay = (seo?.faqs && seo.faqs.length > 0) ? seo.faqs : tool.faqs;
+
+  const { softwareApp, faqPage } = await buildToolJsonLd(tool, locale);
+
+  // Build localized breadcrumb items
   const breadcrumbItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Tools', href: '/tools' },
+    { label: t(locale, 'breadcrumbs.home'), href: getLocalizedPath(locale, '/') },
+    { label: t(locale, 'breadcrumbs.tools'), href: getLocalizedPath(locale, '/tools') },
   ];
   if (category) {
     breadcrumbItems.push({
-      label: category.name,
-      href: getCategoryUrl(category),
+      label: categoryName,
+      href: getLocalizedPath(locale, getCategoryUrl(category)),
     });
   }
   if (subcategory && category) {
     breadcrumbItems.push({
-      label: subcategory.name,
-      href: getSubcategoryUrl(subcategory),
+      label: subcategoryName || subcategory.name,
+      href: getLocalizedPath(locale, getSubcategoryUrl(subcategory)),
     });
   }
   breadcrumbItems.push({
-    label: tool.name,
-    href: getToolUrl(tool),
+    label: toolName,
+    href: getLocalizedPath(locale, getToolUrl(tool)),
   });
 
   const defaultSteps = [
-    `Open ${tool.name} — no account or login needed.`,
-    'Select your file or input your data into the tool panel above.',
-    'Adjust the settings, dimensions, or parameters to your preference.',
-    'Click process and save your result directly to your device.',
+    `${toolName} — ${t(locale, 'features.noAccounts')}`,
+    t(locale, 'home.step2Desc'),
+    'Adjust settings, dimensions, or parameters to your preference.',
+    t(locale, 'home.step3Desc'),
   ];
 
   const stepsToDisplay = howToSteps && howToSteps.length > 0 ? howToSteps : defaultSteps;
@@ -70,7 +94,7 @@ export function ToolPageShell({
   return (
     <>
       <JsonLd data={softwareApp} />
-      <JsonLd data={faqPage} />
+      {faqPage && <JsonLd data={faqPage} />}
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
         {/* 1. Breadcrumbs */}
@@ -80,18 +104,19 @@ export function ToolPageShell({
 
         {/* 2. Header: H1 + Intro */}
         <header className="mb-8">
-          <div className="mb-3 inline-flex items-center gap-2 rounded-[10px] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
+          <div
+            className="mb-3 inline-flex items-center gap-2 rounded-[10px] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white"
             style={{
               background: category ? `var(--color-${category.color})` : 'var(--color-accent-primary)',
             }}
           >
-            {category?.name || 'Tool'}
+            {categoryName}
           </div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4" style={{ color: 'var(--ink)' }}>
-            {tool.h1}
+            {toolH1}
           </h1>
           <p className="text-lg leading-relaxed max-w-3xl font-semibold" style={{ color: 'var(--ink-soft)' }}>
-            {tool.metaDescription}
+            {toolMetaDesc}
           </p>
         </header>
 
@@ -103,7 +128,8 @@ export function ToolPageShell({
         </section>
 
         {/* 4. Feature microcopy badge */}
-        <div className="mb-14 flex flex-wrap items-center justify-between gap-4 rounded-[14px] px-5 py-3.5 border shadow-sm"
+        <div
+          className="mb-14 flex flex-wrap items-center justify-between gap-4 rounded-[14px] px-5 py-3.5 border shadow-sm"
           style={{
             background: 'var(--surface)',
             borderColor: 'var(--border)',
@@ -112,12 +138,12 @@ export function ToolPageShell({
           <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold" style={{ color: 'var(--ink)' }}>
             <Zap size={18} className="text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>
-              <strong>Instant & Fast:</strong> High-performance utility tools ready for immediate use.
+              <strong>{t(locale, 'features.instantExecution')}:</strong> {t(locale, 'features.instantExecutionDesc')}
             </span>
           </div>
           <div className="flex items-center gap-2 text-xs text-stone-600 dark:text-stone-300 font-medium">
             <Sparkles size={14} className="text-amber-500 shrink-0" />
-            <span>Free Forever • No Watermarks • No Sign-up</span>
+            <span>{t(locale, 'features.freeForever')} • {t(locale, 'features.zeroWatermarks')} • {t(locale, 'features.noAccounts')}</span>
           </div>
         </div>
 
@@ -136,7 +162,7 @@ export function ToolPageShell({
         {/* 6. How to Use Section */}
         <section className="mb-14">
           <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--ink)' }}>
-            How to use {tool.name}
+            {t(locale, 'tools.howToUse')} {toolName}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {stepsToDisplay.map((step, idx) => (
@@ -163,10 +189,10 @@ export function ToolPageShell({
         </section>
 
         {/* 7. FAQ Accordion */}
-        {tool.faqs && tool.faqs.length > 0 && (
+        {faqsToDisplay && faqsToDisplay.length > 0 && (
           <section className="mb-14">
             <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--ink)' }}>
-              Frequently Asked Questions
+              {t(locale, 'tools.faq')}
             </h2>
             <div
               className="rounded-[14px] border p-6 sm:p-8"
@@ -175,7 +201,7 @@ export function ToolPageShell({
                 borderColor: 'var(--border)',
               }}
             >
-              <Accordion items={tool.faqs} />
+              <Accordion items={faqsToDisplay} />
             </div>
           </section>
         )}
@@ -185,14 +211,14 @@ export function ToolPageShell({
           <section className="mb-8">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold" style={{ color: 'var(--ink)' }}>
-                Related Tools
+                {t(locale, 'tools.relatedTools')}
               </h2>
               <Link
-                href="/tools"
+                href={getLocalizedPath(locale, '/tools')}
                 className="text-sm font-medium flex items-center gap-1 hover:underline"
                 style={{ color: 'var(--color-accent-primary)' }}
               >
-                <span>View all 156 tools</span>
+                <span>{t(locale, 'home.viewAllTools')}</span>
                 <ArrowRight size={14} />
               </Link>
             </div>
@@ -200,7 +226,7 @@ export function ToolPageShell({
               {relatedTools.map((rel) => (
                 <Link
                   key={rel.slug}
-                  href={getToolUrl(rel)}
+                  href={getLocalizedPath(locale, getToolUrl(rel))}
                   className="group block p-5 rounded-[14px] border transition-all duration-150 hover:shadow-md no-underline"
                   style={{
                     background: 'var(--surface)',

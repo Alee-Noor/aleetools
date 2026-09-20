@@ -1,0 +1,77 @@
+{
+  "header": {
+    "browseTools": "Parcourir les outils",
+    "about": "À propos",
+    "searchPlaceholder": "Rechercher parmi 156 outils...",
+    "noResults": "Aucun outil trouvé pour"
+  },
+  "footer": {
+    "copyright": "© {year} Alee Tools. Outils en ligne rapides, fiables et gratuits.",
+    "disclaimer": "Alee est indépendant et n'est affilié à aucune plateforme mentionnée."
+  },
+  "home": {
+    "badge": "Instantané & Haute Performance • Atelier Numérique Gratuit",
+    "heroTitle": "Un atelier numérique de petits outils rapides qui font le travail.",
+    "heroSubtitle": "156 outils utilitaires pour images, PDF, code, QR codes et réseaux sociaux. Résultats instantanés, sans compte, sans abonnement.",
+    "searchPlaceholder": "Rechercher parmi 156 outils gratuits (ex. « redimensionner », « pdf », « json »)...",
+    "exploreByCategory": "Explorer par catégorie :",
+    "popularTools": "Outils populaires",
+    "viewAllTools": "Voir les 156 outils",
+    "fiveWorkbenches": "Cinq ateliers spécialisés",
+    "workbenchSubtitle": "Choisissez l'outil dont vous avez besoin, obtenez votre résultat en secondes.",
+    "builtForSpeed": "Conçu pour la rapidité et la simplicité",
+    "builtForSpeedSubtitle": "Pourquoi Alee offre une expérience plus rapide, plus propre et plus fiable.",
+    "threeSteps": "Trois étapes simples",
+    "threeStepsSubtitle": "Pas d'installation, pas de vérification de compte, pas d'attente.",
+    "step1Title": "Choisissez votre outil",
+    "step1Desc": "Recherchez ou parcourez 156 outils spécialisés organisés en cinq catégories intuitives.",
+    "step2Title": "Déposez un fichier ou saisissez des données",
+    "step2Desc": "Sélectionnez votre image, PDF ou collez du texte. Le traitement automatisé transforme vos fichiers en quelques secondes.",
+    "step3Title": "Téléchargez votre résultat",
+    "step3Desc": "Copiez ou téléchargez vos fichiers finalisés instantanément, sans limites ni filigranes."
+  },
+  "features": {
+    "instantExecution": "Exécution instantanée",
+    "instantExecutionDesc": "Traitement accéléré par le matériel qui fournit des résultats en millisecondes, sans délai d'attente.",
+    "noAccounts": "Sans compte, sans friction",
+    "noAccountsDesc": "Pas besoin d'e-mail, d'inscription ou d'attente. Accès immédiat à chaque outil.",
+    "zeroWatermarks": "Zéro filigrane",
+    "zeroWatermarksDesc": "Vos créations et documents restent propres et professionnels. Nous n'ajoutons jamais de logo.",
+    "freeForever": "Gratuit pour toujours",
+    "freeForeverDesc": "Les 156 outils sont accessibles gratuitement, sans abonnement ni fonctionnalités cachées payantes."
+  },
+  "tools": {
+    "instantAccess": "Accès instantané",
+    "toolsAvailable": "{count} outils disponibles",
+    "browseBySubcategory": "Parcourir par sous-catégorie",
+    "allToolsIn": "Tous les outils {name}",
+    "totalTools": "{count} outils au total",
+    "toolsInSection": "Outils dans cette section",
+    "openWorkbench": "Ouvrir l'atelier",
+    "relatedTools": "Outils associés",
+    "howToUse": "Comment utiliser",
+    "faq": "Questions fréquemment posées",
+    "tool": "Outil"
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "tools": "Outils"
+  },
+  "common": {
+    "home": "Accueil",
+    "tools": "Outils",
+    "about": "À propos",
+    "privacy": "Confidentialité",
+    "contact": "Contact",
+    "image": "Image",
+    "pdf": "PDF",
+    "developer": "Développeur",
+    "qr": "QR"
+  },
+  "meta": {
+    "homeTitle": "Alee Tools – 156 outils en ligne gratuits et rapides",
+    "homeDescription": "156 outils utilitaires gratuits et instantanés pour créateurs, étudiants et développeurs. Redimensionnement d'images, outils PDF, formateurs JSON, générateurs de QR codes — sans inscription, sans paywall.",
+    "toolsTitle": "Les 156 outils gratuits – Répertoire complet | Alee Tools",
+    "toolsDescription": "Parcourez 156 outils gratuits côté client. Redimensionneurs d'images, convertisseurs PDF, formateurs pour développeurs, générateurs de QR codes et calculatrices."
+  }
+}

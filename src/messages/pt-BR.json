@@ -1,0 +1,77 @@
+{
+  "header": {
+    "browseTools": "Explorar ferramentas",
+    "about": "Sobre",
+    "searchPlaceholder": "Pesquisar entre 156 ferramentas...",
+    "noResults": "Nenhuma ferramenta encontrada para"
+  },
+  "footer": {
+    "copyright": "© {year} Alee Tools. Ferramentas online rápidas, confiáveis e gratuitas.",
+    "disclaimer": "Alee é independente e não é afiliado a nenhuma plataforma mencionada."
+  },
+  "home": {
+    "badge": "Instantâneo e de alto desempenho • Oficina digital gratuita",
+    "heroTitle": "Uma oficina digital de ferramentas pequenas e rápidas que fazem o trabalho.",
+    "heroSubtitle": "156 ferramentas utilitárias para imagens, PDFs, código, QR codes e redes sociais. Resultados instantâneos, sem contas, sem assinaturas.",
+    "searchPlaceholder": "Pesquisar entre 156 ferramentas gratuitas (ex. \"redimensionar\", \"pdf\", \"json\")...",
+    "exploreByCategory": "Explorar por categoria:",
+    "popularTools": "Ferramentas populares",
+    "viewAllTools": "Ver todas as 156 ferramentas",
+    "fiveWorkbenches": "Cinco oficinas especializadas",
+    "workbenchSubtitle": "Escolha a ferramenta certa, obtenha seu resultado em segundos.",
+    "builtForSpeed": "Projetado para velocidade e simplicidade",
+    "builtForSpeedSubtitle": "Por que Alee oferece uma experiência mais rápida, limpa e confiável.",
+    "threeSteps": "Três passos simples",
+    "threeStepsSubtitle": "Sem instalações, sem verificações de conta, sem espera.",
+    "step1Title": "Escolha sua ferramenta",
+    "step1Desc": "Pesquise ou navegue entre 156 ferramentas especializadas organizadas em cinco categorias intuitivas.",
+    "step2Title": "Solte um arquivo ou insira dados",
+    "step2Desc": "Selecione sua imagem, PDF ou cole texto. O processamento automatizado transforma seus arquivos em segundos.",
+    "step3Title": "Baixe seu resultado",
+    "step3Desc": "Copie ou baixe seus arquivos finalizados instantaneamente, sem limites ou marcas d'água."
+  },
+  "features": {
+    "instantExecution": "Execução instantânea",
+    "instantExecutionDesc": "Processamento acelerado por hardware que entrega resultados em milissegundos, sem atrasos.",
+    "noAccounts": "Sem contas, sem atrito",
+    "noAccountsDesc": "Sem email, sem cadastro, sem espera. Acesso imediato a cada ferramenta.",
+    "zeroWatermarks": "Zero marcas d'água",
+    "zeroWatermarksDesc": "Suas criações e documentos permanecem limpos e profissionais. Nunca adicionamos logos.",
+    "freeForever": "Grátis para sempre",
+    "freeForeverDesc": "Todas as 156 ferramentas são acessíveis gratuitamente, sem assinaturas ou paywalls ocultos."
+  },
+  "tools": {
+    "instantAccess": "Acesso instantâneo",
+    "toolsAvailable": "{count} ferramentas disponíveis",
+    "browseBySubcategory": "Explorar por subcategoria",
+    "allToolsIn": "Todas as ferramentas de {name}",
+    "totalTools": "{count} ferramentas no total",
+    "toolsInSection": "Ferramentas nesta seção",
+    "openWorkbench": "Abrir oficina",
+    "relatedTools": "Ferramentas relacionadas",
+    "howToUse": "Como usar",
+    "faq": "Perguntas frequentes",
+    "tool": "Ferramenta"
+  },
+  "breadcrumbs": {
+    "home": "Início",
+    "tools": "Ferramentas"
+  },
+  "common": {
+    "home": "Início",
+    "tools": "Ferramentas",
+    "about": "Sobre",
+    "privacy": "Privacidade",
+    "contact": "Contato",
+    "image": "Imagem",
+    "pdf": "PDF",
+    "developer": "Desenvolvedor",
+    "qr": "QR"
+  },
+  "meta": {
+    "homeTitle": "Alee Tools – 156 ferramentas online gratuitas e rápidas",
+    "homeDescription": "156 ferramentas utilitárias gratuitas e instantâneas para criadores, estudantes e desenvolvedores. Redimensionadores de imagens, ferramentas PDF, formatadores JSON, geradores de QR code — sem cadastro, sem paywall.",
+    "toolsTitle": "Todas as 156 ferramentas gratuitas – Diretório completo | Alee Tools",
+    "toolsDescription": "Explore 156 ferramentas gratuitas do lado do cliente. Redimensionadores de imagens, conversores PDF, formatadores para desenvolvedores, geradores de QR code e calculadoras."
+  }
+}

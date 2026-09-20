@@ -4,12 +4,15 @@ import { tools, categories } from '@/lib/tool-registry';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { buildCollectionPageJsonLd, buildBreadcrumbJsonLd } from '@/lib/seo';
 
+import { buildHreflangAlternates } from '@/lib/i18n';
+
 export const metadata: Metadata = {
   title: 'All 156 Free Utility Tools – Search & Browse Directory | Alee Tools',
   description:
-    'Browse all 156 free, private private client-side utilities. Image resizers, PDF converters, developer formatters, QR code generators, and calculators — nothing uploaded.',
+    'Browse all 156 free, private client-side utilities. Image resizers, PDF converters, developer formatters, QR code generators, and calculators — nothing uploaded.',
   alternates: {
     canonical: 'https://alee.software/tools',
+    languages: buildHreflangAlternates('/tools'),
   },
   openGraph: {
     title: 'All 156 Free Utility Tools | Alee Tools',

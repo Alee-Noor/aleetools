@@ -2,9 +2,13 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Search, Menu, X, Sun, Moon, Wrench } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { tools, getToolUrl, type Tool } from '@/lib/tool-registry';
+import { DEFAULT_LOCALE, isValidLocale, getLocalizedPath, type Locale } from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -15,7 +19,13 @@ export function Header() {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Simple fuzzy search - no Fuse.js needed for this
+  const pathname = usePathname();
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale: Locale = segments.length > 0 && isValidLocale(segments[0])
+    ? (segments[0] as Locale)
+    : DEFAULT_LOCALE;
+
+  // Simple fuzzy search
   useEffect(() => {
     if (!searchQuery.trim()) {
       setSearchResults([]);
@@ -51,7 +61,7 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 no-underline group" style={{ color: 'var(--ink)' }}>
+          <Link href={getLocalizedPath(currentLocale, '/')} className="flex items-center gap-2.5 no-underline group" style={{ color: 'var(--ink)' }}>
             <div className="flex h-9 w-9 items-center justify-center rounded-[10px] shadow-sm transition-transform group-hover:scale-105" style={{ background: 'var(--color-accent-primary)', color: 'white' }}>
               <Wrench size={18} />
             </div>
@@ -60,16 +70,24 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/tools" className="text-sm font-semibold no-underline transition-colors hover:text-emerald-700 dark:hover:text-emerald-400" style={{ color: 'var(--ink)' }}>
-              Browse Tools
+            <Link
+              href={getLocalizedPath(currentLocale, '/tools')}
+              className="text-sm font-semibold no-underline transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
+              style={{ color: 'var(--ink)' }}
+            >
+              {t(currentLocale, 'header.browseTools')}
             </Link>
-            <Link href="/about" className="text-sm font-semibold no-underline transition-colors hover:text-emerald-700 dark:hover:text-emerald-400" style={{ color: 'var(--ink)' }}>
-              About
+            <Link
+              href={getLocalizedPath(currentLocale, '/about')}
+              className="text-sm font-semibold no-underline transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
+              style={{ color: 'var(--ink)' }}
+            >
+              {t(currentLocale, 'header.about')}
             </Link>
           </nav>
 
-          {/* Right side: search + theme + mobile menu */}
-          <div className="flex items-center gap-3">
+          {/* Right side: search + language + theme + mobile menu */}
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Search */}
             <div ref={searchRef} className="relative">
               <button
@@ -83,13 +101,13 @@ export function Header() {
 
               {searchOpen && (
                 <div
-                  className="absolute right-0 top-12 w-80 rounded-[20px] p-3 shadow-lg"
+                  className="absolute right-0 top-12 w-80 rounded-[20px] p-3 shadow-lg z-50"
                   style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
                 >
                   <input
                     ref={inputRef}
                     type="text"
-                    placeholder="Search 156 tools..."
+                    placeholder={t(currentLocale, 'header.searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full rounded-[14px] px-4 py-2.5 text-sm outline-none"
@@ -105,7 +123,7 @@ export function Header() {
                       {searchResults.map((tool) => (
                         <Link
                           key={`${tool.category}-${tool.slug}`}
-                          href={getToolUrl(tool)}
+                          href={getLocalizedPath(currentLocale, getToolUrl(tool))}
                           className="flex items-center gap-3 rounded-[10px] px-3 py-2 text-sm no-underline transition-colors"
                           style={{ color: 'var(--ink)' }}
                           onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
@@ -119,12 +137,15 @@ export function Header() {
                   )}
                   {searchQuery && searchResults.length === 0 && (
                     <p className="mt-2 px-3 py-2 text-sm" style={{ color: 'var(--ink-soft)' }}>
-                      No tools found for &ldquo;{searchQuery}&rdquo;
+                      {t(currentLocale, 'header.noResults')} &ldquo;{searchQuery}&rdquo;
                     </p>
                   )}
                 </div>
               )}
             </div>
+
+            {/* Language Switcher */}
+            <LanguageSwitcher />
 
             {/* Theme toggle */}
             <button
@@ -152,17 +173,37 @@ export function Header() {
         {menuOpen && (
           <nav className="border-t py-4 md:hidden" style={{ borderColor: 'var(--border)' }}>
             <div className="flex flex-col gap-3">
-              <Link href="/tools" className="text-sm font-medium no-underline py-2" style={{ color: 'var(--ink)' }} onClick={() => setMenuOpen(false)}>
-                Browse Tools
+              <Link
+                href={getLocalizedPath(currentLocale, '/tools')}
+                className="text-sm font-medium no-underline py-2"
+                style={{ color: 'var(--ink)' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(currentLocale, 'header.browseTools')}
               </Link>
-              <Link href="/about" className="text-sm font-medium no-underline py-2" style={{ color: 'var(--ink)' }} onClick={() => setMenuOpen(false)}>
-                About
+              <Link
+                href={getLocalizedPath(currentLocale, '/about')}
+                className="text-sm font-medium no-underline py-2"
+                style={{ color: 'var(--ink)' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(currentLocale, 'header.about')}
               </Link>
-              <Link href="/privacy" className="text-sm font-medium no-underline py-2" style={{ color: 'var(--ink)' }} onClick={() => setMenuOpen(false)}>
-                Privacy
+              <Link
+                href={getLocalizedPath(currentLocale, '/privacy')}
+                className="text-sm font-medium no-underline py-2"
+                style={{ color: 'var(--ink)' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(currentLocale, 'common.privacy')}
               </Link>
-              <Link href="/contact" className="text-sm font-medium no-underline py-2" style={{ color: 'var(--ink)' }} onClick={() => setMenuOpen(false)}>
-                Contact
+              <Link
+                href={getLocalizedPath(currentLocale, '/contact')}
+                className="text-sm font-medium no-underline py-2"
+                style={{ color: 'var(--ink)' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(currentLocale, 'common.contact')}
               </Link>
             </div>
           </nav>

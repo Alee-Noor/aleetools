@@ -1,26 +1,68 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Mail, MessageSquare } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { buildHreflangAlternates } from '@/lib/i18n';
+import {
+  NON_DEFAULT_LOCALES,
+  isValidLocale,
+  getLocalizedPath,
+  buildHreflangAlternates,
+  OG_LOCALES,
+  type Locale,
+} from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
-export const metadata: Metadata = {
-  title: 'Contact – Feedback & Feature Requests | Alee Tools',
-  description:
-    'Have a suggestion for a new browser tool or feedback on existing utilities? Get in touch with the Alee Tools team.',
-  alternates: {
-    canonical: 'https://alee.software/contact',
-    languages: buildHreflangAlternates('/contact'),
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function ContactPage() {
+export async function generateStaticParams() {
+  return NON_DEFAULT_LOCALES.map((locale) => ({
+    locale,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) return {};
+  const loc = locale as Locale;
+
+  const canonicalUrl = `https://alee.software${getLocalizedPath(loc, '/contact')}`;
+  const title = `${t(loc, 'common.contact')} – Alee Tools`;
+  const description = t(loc, 'home.heroSubtitle');
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: buildHreflangAlternates('/contact'),
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: 'Alee Tools',
+      type: 'website',
+      locale: OG_LOCALES[loc] || 'en_US',
+    },
+  };
+}
+
+export default async function LocalizedContactPage({ params }: Props) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) {
+    notFound();
+  }
+  const loc = locale as Locale;
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
       <div className="mb-6">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Contact', href: '/contact' },
+            { label: t(loc, 'breadcrumbs.home'), href: getLocalizedPath(loc, '/') },
+            { label: t(loc, 'common.contact'), href: getLocalizedPath(loc, '/contact') },
           ]}
         />
       </div>
@@ -31,13 +73,13 @@ export default function ContactPage() {
           style={{ background: 'var(--color-accent-primary-soft)' }}
         >
           <MessageSquare size={14} />
-          <span>Feedback & Support</span>
+          <span>{t(loc, 'common.contact')} • Alee Tools</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4" style={{ color: 'var(--ink)' }}>
-          Get in Touch
+          {t(loc, 'common.contact')}
         </h1>
         <p className="text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed">
-          Alee Tools is constantly growing. If there is a browser tool or file format you wish we supported, let us know.
+          {t(loc, 'home.heroSubtitle')}
         </p>
       </header>
 
@@ -53,7 +95,7 @@ export default function ContactPage() {
             </h2>
           </div>
           <p className="text-sm text-stone-600 dark:text-stone-300">
-            For general inquiries, bug reports, or partnership proposals, reach out directly at:
+            For inquiries, feedback, or suggestions:
           </p>
           <div className="p-4 rounded-[12px] bg-stone-100 dark:bg-stone-900/60 font-mono text-sm font-semibold inline-block">
             hello@alee.software

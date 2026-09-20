@@ -1,5 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { categories, subcategories, getSubcategoriesByCategory, getCategoryUrl, getSubcategoryUrl } from '@/lib/tool-registry';
+import { DEFAULT_LOCALE, isValidLocale, getLocalizedPath, type Locale } from '@/lib/i18n';
+import { t } from '@/lib/translations';
 
 const categoryColors: Record<string, string> = {
   'accent-primary': 'var(--color-accent-primary)',
@@ -10,6 +15,14 @@ const categoryColors: Record<string, string> = {
 };
 
 export function Footer() {
+  const pathname = usePathname();
+  const segments = pathname.split('/').filter(Boolean);
+  const currentLocale: Locale = segments.length > 0 && isValidLocale(segments[0])
+    ? (segments[0] as Locale)
+    : DEFAULT_LOCALE;
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="border-t mt-20" style={{ borderColor: 'var(--border)', background: 'var(--surface)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -20,8 +33,8 @@ export function Footer() {
             return (
               <div key={cat.slug}>
                 <Link
-                  href={getCategoryUrl(cat)}
-                  className="text-sm font-semibold no-underline mb-3 block"
+                  href={getLocalizedPath(currentLocale, getCategoryUrl(cat))}
+                  className="text-sm font-semibold no-underline mb-3 block hover:underline"
                   style={{ color: categoryColors[cat.color] || 'var(--ink)', fontFamily: 'var(--font-display)' }}
                 >
                   {cat.name}
@@ -31,8 +44,8 @@ export function Footer() {
                     {subs.map((sub) => (
                       <li key={sub.slug}>
                         <Link
-                          href={getSubcategoryUrl(sub)}
-                          className="text-xs no-underline transition-colors"
+                          href={getLocalizedPath(currentLocale, getSubcategoryUrl(sub))}
+                          className="text-xs no-underline transition-colors hover:text-emerald-700 dark:hover:text-emerald-400"
                           style={{ color: 'var(--ink-soft)' }}
                         >
                           {sub.name}
@@ -41,7 +54,9 @@ export function Footer() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>26 tools</p>
+                  <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>
+                    {t(currentLocale, 'tools.totalTools', { count: 26 })}
+                  </p>
                 )}
               </div>
             );
@@ -51,18 +66,36 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: 'var(--border)' }}>
           <div className="flex items-center gap-4">
-            <Link href="/about" className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors" style={{ color: 'var(--ink-soft)' }}>About</Link>
-            <Link href="/privacy" className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors" style={{ color: 'var(--ink-soft)' }}>Privacy</Link>
-            <Link href="/contact" className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors" style={{ color: 'var(--ink-soft)' }}>Contact</Link>
+            <Link
+              href={getLocalizedPath(currentLocale, '/about')}
+              className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+              style={{ color: 'var(--ink-soft)' }}
+            >
+              {t(currentLocale, 'common.about')}
+            </Link>
+            <Link
+              href={getLocalizedPath(currentLocale, '/privacy')}
+              className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+              style={{ color: 'var(--ink-soft)' }}
+            >
+              {t(currentLocale, 'common.privacy')}
+            </Link>
+            <Link
+              href={getLocalizedPath(currentLocale, '/contact')}
+              className="text-xs font-medium no-underline hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+              style={{ color: 'var(--ink-soft)' }}
+            >
+              {t(currentLocale, 'common.contact')}
+            </Link>
           </div>
           <p className="text-xs font-medium" style={{ color: 'var(--ink-soft)' }}>
-            © {new Date().getFullYear()} Alee Tools. Fast, reliable, and free online utility tools.
+            {t(currentLocale, 'footer.copyright', { year: currentYear })}
           </p>
         </div>
 
         {/* Disclaimer */}
         <p className="text-xs mt-4 text-center font-medium" style={{ color: 'var(--ink-soft)', opacity: 0.85 }}>
-          Alee is independent and not affiliated with Instagram, YouTube, TikTok, or any other platform mentioned.
+          {t(currentLocale, 'footer.disclaimer')}
         </p>
       </div>
     </footer>

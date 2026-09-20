@@ -1,0 +1,2928 @@
+{
+  "categories": {
+    "image-social-media-hub": {
+      "name": "Hub Outils Image & Réseaux Sociaux",
+      "description": "Redimensionnez, compressez, recadrez et optimisez vos images pour Instagram, YouTube, TikTok et plus encore. Obtenez les dimensions exactes sans téléverser de fichier.",
+      "title": "Outils Image & Réseaux Sociaux – En Ligne et Gratuit | Alee Tools",
+      "metaDescription": "Redimensionnez, compressez, recadrez et optimisez vos images pour Instagram, YouTube, TikTok et le Web. Gratuit, instantané et 100% privé dans votre navigateur."
+    },
+    "pdf-toolkit": {
+      "name": "Boîte à Outils PDF pour Étudiants & Bureau",
+      "description": "Fusionnez, divisez, compressez, convertissez et créez des fichiers PDF instantanément. Conçu pour étudiants, enseignants et professionnels du bureau sans logiciel à installer.",
+      "title": "Boîte à Outils PDF Gratuite en Ligne – Fusionner, Compresser, Convertir | Alee Tools",
+      "metaDescription": "Fusionnez, divisez, compressez et convertissez vos fichiers PDF instantanément dans votre navigateur. 100% gratuit, sans inscription, sans limite ni filigrane."
+    },
+    "developer-tools": {
+      "name": "Outils pour Développeurs",
+      "description": "Formateurs JSON, encodeurs, décodeurs, testeurs regex, convertisseurs de couleurs, générateurs CSS et calculateurs réseau — la boîte à outils quotidienne des développeurs.",
+      "title": "Outils de Développement en Ligne Gratuits – JSON, Encodage, Regex | Alee Tools",
+      "metaDescription": "Formateurs JSON, encodeurs/décodeurs Base64 et URL, testeurs Regex, convertisseurs de couleur et utilitaires réseau en ligne. Rapides et sécurisés."
+    },
+    "image-converter-toolkit": {
+      "name": "Boîte à Outils Image → Tout Format",
+      "description": "Convertissez vos images entre JPG, PNG, WebP, HEIC, SVG, BMP, GIF, compressez sans perte de qualité et éditez facilement avec rotation, flou et filigrane.",
+      "title": "Convertisseur d'Images en Ligne Gratuit – JPG, PNG, WebP, HEIC | Alee Tools",
+      "metaDescription": "Convertissez vos images entre tous les formats (JPG, PNG, WebP, HEIC, SVG, BMP, GIF) et éditez-les sans perte de qualité directement dans votre navigateur."
+    },
+    "qr-barcode-tools": {
+      "name": "Outils QR Code & Code-barres",
+      "description": "Générez et scannez des codes QR pour URL, Wi-Fi, vCard, e-mail et créez des codes-barres aux formats EAN, UPC, Code 128, Code 39 et ISBN.",
+      "title": "Générateur et Lecteur de QR Code & Code-barres Gratuit | Alee Tools",
+      "metaDescription": "Générez et scannez des codes QR et codes-barres (EAN, UPC, Code 128, ISBN) facilement en ligne. Gratuit, rapide et prêt pour l'impression."
+    }
+  },
+  "subcategories": {
+    "instagram": {
+      "name": "Outils Instagram",
+      "description": "Calculateurs de taille, redimensionneurs, compresseurs et créateurs de grilles pour publications, stories, reels et photos de profil."
+    },
+    "youtube": {
+      "name": "Outils YouTube",
+      "description": "Redimensionneurs de miniatures, créateurs de bannières et générateurs de repères temporels pour créateurs YouTube."
+    },
+    "tiktok": {
+      "name": "Outils TikTok",
+      "description": "Vérificateurs de format vidéo, redimensionneurs de photo de profil et créateurs de miniatures adaptés aux dimensions TikTok."
+    },
+    "general": {
+      "name": "Outils d'Images Généraux",
+      "description": "Compressez, redimensionnez, recadrez et convertissez des images pour tout usage avec aperçu instantané."
+    },
+    "json": {
+      "name": "Outils JSON",
+      "description": "Formatez, validez, compressez, convertissez et inspectez vos données JSON directement dans le navigateur."
+    },
+    "web": {
+      "name": "Outils d'Encodage Web",
+      "description": "Encodeurs et décodeurs URL, HTML, Base64 ainsi que minificateurs et formateurs HTML, CSS et JavaScript."
+    },
+    "developer": {
+      "name": "Utilitaires Développeur",
+      "description": "Générateurs UUID, décodeurs JWT, testeurs Regex, constructeurs Cron, convertisseurs de timestamp et de couleurs."
+    },
+    "networking": {
+      "name": "Outils Réseau",
+      "description": "Calculateurs IPv4/IPv6, outils CIDR et sous-réseau, convertisseurs IP en binaire et générateurs d'adresses MAC."
+    },
+    "conversion": {
+      "name": "Conversion d'Images",
+      "description": "Convertissez instantanément vos images entre JPG, PNG, WebP, HEIC, SVG, BMP et GIF sans téléversement."
+    },
+    "compression": {
+      "name": "Compression d'Images",
+      "description": "Réduisez la taille de vos fichiers JPG, PNG, WebP et HEIC sans perte visible de netteté."
+    },
+    "editing": {
+      "name": "Édition d'Images",
+      "description": "Redimensionnez, recadrez, pivotez, appliquez du flou, ajustez la luminosité et ajoutez des filigranes."
+    },
+    "qr-codes": {
+      "name": "Outils QR Code",
+      "description": "Générez des codes QR pour liens, réseaux Wi-Fi, cartes de visite, e-mails et scannez des QR codes depuis une image."
+    },
+    "barcodes": {
+      "name": "Outils Code-barres",
+      "description": "Générez et scannez des codes-barres aux formats EAN, UPC, Code 128, Code 39 et ISBN pour produits et gestion de stock."
+    }
+  },
+  "tools": {
+    "instagram-post-size-calculator": {
+      "name": "Calculateur Taille Post Instagram",
+      "h1": "Calculateur Taille Post Instagram – Outil Gratuit en Ligne",
+      "title": "Calculateur Taille Post Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur taille post instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur taille post instagram.",
+      "keywords": [
+        "calculateur taille post instagram",
+        "calculateur taille post instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Taille Post Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-story-size-calculator": {
+      "name": "Calculateur Taille Story Instagram",
+      "h1": "Calculateur Taille Story Instagram – Outil Gratuit en Ligne",
+      "title": "Calculateur Taille Story Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur taille story instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur taille story instagram.",
+      "keywords": [
+        "calculateur taille story instagram",
+        "calculateur taille story instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Taille Story Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-reel-size-checker": {
+      "name": "Vérificateur Format Reel Instagram",
+      "h1": "Vérificateur Format Reel Instagram – Outil Gratuit en Ligne",
+      "title": "Vérificateur Format Reel Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil vérificateur format reel instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour vérificateur format reel instagram.",
+      "keywords": [
+        "vérificateur format reel instagram",
+        "vérificateur format reel instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Vérificateur Format Reel Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-profile-picture-resizer": {
+      "name": "Redimensionneur Photo Profil Instagram",
+      "h1": "Redimensionneur Photo Profil Instagram – Outil Gratuit en Ligne",
+      "title": "Redimensionneur Photo Profil Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil redimensionneur photo profil instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour redimensionneur photo profil instagram.",
+      "keywords": [
+        "redimensionneur photo profil instagram",
+        "redimensionneur photo profil instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Redimensionneur Photo Profil Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-image-compressor": {
+      "name": "Compresseur Image Instagram",
+      "h1": "Compresseur Image Instagram – Outil Gratuit en Ligne",
+      "title": "Compresseur Image Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur image instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour compresseur image instagram.",
+      "keywords": [
+        "compresseur image instagram",
+        "compresseur image instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur Image Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-thumbnail-downloader": {
+      "name": "Téléchargeur Miniature Instagram",
+      "h1": "Téléchargeur Miniature Instagram – Outil Gratuit en Ligne",
+      "title": "Téléchargeur Miniature Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil téléchargeur miniature instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour téléchargeur miniature instagram.",
+      "keywords": [
+        "téléchargeur miniature instagram",
+        "téléchargeur miniature instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Téléchargeur Miniature Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-grid-maker": {
+      "name": "Créateur de Grille Instagram",
+      "h1": "Créateur de Grille Instagram – Outil Gratuit en Ligne",
+      "title": "Créateur de Grille Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur de grille instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour créateur de grille instagram.",
+      "keywords": [
+        "créateur de grille instagram",
+        "créateur de grille instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur de Grille Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-3x3-grid-splitter": {
+      "name": "Diviseur de Grille 3x3 Instagram",
+      "h1": "Diviseur de Grille 3x3 Instagram – Outil Gratuit en Ligne",
+      "title": "Diviseur de Grille 3x3 Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil diviseur de grille 3x3 instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour diviseur de grille 3x3 instagram.",
+      "keywords": [
+        "diviseur de grille 3x3 instagram",
+        "diviseur de grille 3x3 instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Diviseur de Grille 3x3 Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "instagram-916-cropper": {
+      "name": "Recadreur Format 9:16 Instagram",
+      "h1": "Recadreur Format 9:16 Instagram – Outil Gratuit en Ligne",
+      "title": "Recadreur Format 9:16 Instagram en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil recadreur format 9:16 instagram directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour recadreur format 9:16 instagram.",
+      "keywords": [
+        "recadreur format 9:16 instagram",
+        "recadreur format 9:16 instagram gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Recadreur Format 9:16 Instagram ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-thumbnail-resizer": {
+      "name": "Redimensionneur Miniature YouTube",
+      "h1": "Redimensionneur Miniature YouTube – Outil Gratuit en Ligne",
+      "title": "Redimensionneur Miniature YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil redimensionneur miniature youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour redimensionneur miniature youtube.",
+      "keywords": [
+        "redimensionneur miniature youtube",
+        "redimensionneur miniature youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Redimensionneur Miniature YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-thumbnail-compressor": {
+      "name": "Compresseur Miniature YouTube",
+      "h1": "Compresseur Miniature YouTube – Outil Gratuit en Ligne",
+      "title": "Compresseur Miniature YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur miniature youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour compresseur miniature youtube.",
+      "keywords": [
+        "compresseur miniature youtube",
+        "compresseur miniature youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur Miniature YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-banner-maker": {
+      "name": "Créateur Bannière YouTube",
+      "h1": "Créateur Bannière YouTube – Outil Gratuit en Ligne",
+      "title": "Créateur Bannière YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur bannière youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour créateur bannière youtube.",
+      "keywords": [
+        "créateur bannière youtube",
+        "créateur bannière youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur Bannière YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-profile-picture-resizer": {
+      "name": "Redimensionneur Photo Profil YouTube",
+      "h1": "Redimensionneur Photo Profil YouTube – Outil Gratuit en Ligne",
+      "title": "Redimensionneur Photo Profil YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil redimensionneur photo profil youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour redimensionneur photo profil youtube.",
+      "keywords": [
+        "redimensionneur photo profil youtube",
+        "redimensionneur photo profil youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Redimensionneur Photo Profil YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-shorts-size-calculator": {
+      "name": "Calculateur Format YouTube Shorts",
+      "h1": "Calculateur Format YouTube Shorts – Outil Gratuit en Ligne",
+      "title": "Calculateur Format YouTube Shorts en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur format youtube shorts directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur format youtube shorts.",
+      "keywords": [
+        "calculateur format youtube shorts",
+        "calculateur format youtube shorts gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Format YouTube Shorts ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-thumbnail-preview": {
+      "name": "Aperçu Miniature YouTube",
+      "h1": "Aperçu Miniature YouTube – Outil Gratuit en Ligne",
+      "title": "Aperçu Miniature YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil aperçu miniature youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour aperçu miniature youtube.",
+      "keywords": [
+        "aperçu miniature youtube",
+        "aperçu miniature youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Aperçu Miniature YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "youtube-timestamp-generator": {
+      "name": "Générateur Chapitres & Timestamps YouTube",
+      "h1": "Générateur Chapitres & Timestamps YouTube – Outil Gratuit en Ligne",
+      "title": "Générateur Chapitres & Timestamps YouTube en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil générateur chapitres & timestamps youtube directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour générateur chapitres & timestamps youtube.",
+      "keywords": [
+        "générateur chapitres & timestamps youtube",
+        "générateur chapitres & timestamps youtube gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur Chapitres & Timestamps YouTube ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "tiktok-video-size-checker": {
+      "name": "Vérificateur Format Vidéo TikTok",
+      "h1": "Vérificateur Format Vidéo TikTok – Outil Gratuit en Ligne",
+      "title": "Vérificateur Format Vidéo TikTok en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil vérificateur format vidéo tiktok directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour vérificateur format vidéo tiktok.",
+      "keywords": [
+        "vérificateur format vidéo tiktok",
+        "vérificateur format vidéo tiktok gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Vérificateur Format Vidéo TikTok ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "tiktok-profile-picture-resizer": {
+      "name": "Redimensionneur Photo Profil TikTok",
+      "h1": "Redimensionneur Photo Profil TikTok – Outil Gratuit en Ligne",
+      "title": "Redimensionneur Photo Profil TikTok en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil redimensionneur photo profil tiktok directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour redimensionneur photo profil tiktok.",
+      "keywords": [
+        "redimensionneur photo profil tiktok",
+        "redimensionneur photo profil tiktok gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Redimensionneur Photo Profil TikTok ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "tiktok-thumbnail-maker": {
+      "name": "Créateur Miniature TikTok",
+      "h1": "Créateur Miniature TikTok – Outil Gratuit en Ligne",
+      "title": "Créateur Miniature TikTok en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur miniature tiktok directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour créateur miniature tiktok.",
+      "keywords": [
+        "créateur miniature tiktok",
+        "créateur miniature tiktok gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur Miniature TikTok ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "tiktok-video-compressor": {
+      "name": "Compresseur Vidéo TikTok",
+      "h1": "Compresseur Vidéo TikTok – Outil Gratuit en Ligne",
+      "title": "Compresseur Vidéo TikTok en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur vidéo tiktok directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour compresseur vidéo tiktok.",
+      "keywords": [
+        "compresseur vidéo tiktok",
+        "compresseur vidéo tiktok gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur Vidéo TikTok ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-compressor": {
+      "name": "Compresseur d'Images",
+      "h1": "Compresseur d'Images – Outil Gratuit en Ligne",
+      "title": "Compresseur d'Images en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur d'images directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour compresseur d'images.",
+      "keywords": [
+        "compresseur d'images",
+        "compresseur d'images gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur d'Images ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-resizer": {
+      "name": "Redimensionner Image",
+      "h1": "Redimensionner Image – Outil Gratuit en Ligne",
+      "title": "Redimensionner Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil redimensionner image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour redimensionner image.",
+      "keywords": [
+        "redimensionner image",
+        "redimensionner image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Redimensionner Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-cropper": {
+      "name": "Recadrer Image",
+      "h1": "Recadrer Image – Outil Gratuit en Ligne",
+      "title": "Recadrer Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil recadrer image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour recadrer image.",
+      "keywords": [
+        "recadrer image",
+        "recadrer image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Recadrer Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "jpg-to-png": {
+      "name": "Convertir JPG en PNG",
+      "h1": "Convertir JPG en PNG – Outil Gratuit en Ligne",
+      "title": "Convertir JPG en PNG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir jpg en png directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour convertir jpg en png.",
+      "keywords": [
+        "convertir jpg en png",
+        "convertir jpg en png gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir JPG en PNG ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "png-to-jpg": {
+      "name": "Convertir PNG en JPG",
+      "h1": "Convertir PNG en JPG – Outil Gratuit en Ligne",
+      "title": "Convertir PNG en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir png en jpg directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour convertir png en jpg.",
+      "keywords": [
+        "convertir png en jpg",
+        "convertir png en jpg gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir PNG en JPG ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "webp-to-jpg": {
+      "name": "Convertir WebP en JPG",
+      "h1": "Convertir WebP en JPG – Outil Gratuit en Ligne",
+      "title": "Convertir WebP en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir webp en jpg directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour convertir webp en jpg.",
+      "keywords": [
+        "convertir webp en jpg",
+        "convertir webp en jpg gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir WebP en JPG ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "webp-to-png": {
+      "name": "Convertir WebP en PNG",
+      "h1": "Convertir WebP en PNG – Outil Gratuit en Ligne",
+      "title": "Convertir WebP en PNG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir webp en png directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour convertir webp en png.",
+      "keywords": [
+        "convertir webp en png",
+        "convertir webp en png gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir WebP en PNG ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-to-webp": {
+      "name": "Convertir Image en WebP",
+      "h1": "Convertir Image en WebP – Outil Gratuit en Ligne",
+      "title": "Convertir Image en WebP en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir image en webp directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour convertir image en webp.",
+      "keywords": [
+        "convertir image en webp",
+        "convertir image en webp gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir Image en WebP ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-metadata-viewer": {
+      "name": "Lecteur Métadonnées EXIF Image",
+      "h1": "Lecteur Métadonnées EXIF Image – Outil Gratuit en Ligne",
+      "title": "Lecteur Métadonnées EXIF Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil lecteur métadonnées exif image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour lecteur métadonnées exif image.",
+      "keywords": [
+        "lecteur métadonnées exif image",
+        "lecteur métadonnées exif image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Lecteur Métadonnées EXIF Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "exif-remover": {
+      "name": "Supprimer Données EXIF Image",
+      "h1": "Supprimer Données EXIF Image – Outil Gratuit en Ligne",
+      "title": "Supprimer Données EXIF Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil supprimer données exif image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour supprimer données exif image.",
+      "keywords": [
+        "supprimer données exif image",
+        "supprimer données exif image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Supprimer Données EXIF Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-dpi-calculator": {
+      "name": "Calculateur DPI Image pour Impression",
+      "h1": "Calculateur DPI Image pour Impression – Outil Gratuit en Ligne",
+      "title": "Calculateur DPI Image pour Impression en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur dpi image pour impression directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur dpi image pour impression.",
+      "keywords": [
+        "calculateur dpi image pour impression",
+        "calculateur dpi image pour impression gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur DPI Image pour Impression ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "aspect-ratio-calculator": {
+      "name": "Calculateur Ratio d'Aspect Image",
+      "h1": "Calculateur Ratio d'Aspect Image – Outil Gratuit en Ligne",
+      "title": "Calculateur Ratio d'Aspect Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur ratio d'aspect image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur ratio d'aspect image.",
+      "keywords": [
+        "calculateur ratio d'aspect image",
+        "calculateur ratio d'aspect image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Ratio d'Aspect Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-pixel-calculator": {
+      "name": "Calculateur Pixels et Résolution",
+      "h1": "Calculateur Pixels et Résolution – Outil Gratuit en Ligne",
+      "title": "Calculateur Pixels et Résolution en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil calculateur pixels et résolution directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour calculateur pixels et résolution.",
+      "keywords": [
+        "calculateur pixels et résolution",
+        "calculateur pixels et résolution gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Pixels et Résolution ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "image-color-picker": {
+      "name": "Pipette et Sélecteur de Couleur Image",
+      "h1": "Pipette et Sélecteur de Couleur Image – Outil Gratuit en Ligne",
+      "title": "Pipette et Sélecteur de Couleur Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil pipette et sélecteur de couleur image directement dans votre navigateur. Gratuit, instantané, sans filigrane et 100% privé.",
+      "shortDescription": "Outil rapide et précis pour pipette et sélecteur de couleur image.",
+      "keywords": [
+        "pipette et sélecteur de couleur image",
+        "pipette et sélecteur de couleur image gratuit",
+        "outils réseaux sociaux",
+        "dimension image en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Pipette et Sélecteur de Couleur Image ?",
+          "a": "Sélectionnez votre fichier ou entrez vos dimensions, ajustez selon vos préférences et téléchargez votre résultat immédiatement."
+        }
+      ]
+    },
+    "merge-pdf": {
+      "name": "Fusionner PDF",
+      "h1": "Fusionner des Fichiers PDF en Ligne – Gratuit",
+      "title": "Fusionner PDF en ligne gratuit – Combiner plusieurs PDF | Alee Tools",
+      "metaDescription": "Fusionnez plusieurs fichiers PDF en un seul document instantanément. 100% gratuit, sécurisé et sans inscription. Vos fichiers restent sur votre appareil.",
+      "shortDescription": "Combinez plusieurs fichiers PDF en un seul document ordonné.",
+      "keywords": [
+        "fusionner pdf",
+        "combiner pdf gratuit",
+        "unir des pdf en ligne",
+        "assembler pdf",
+        "fusion pdf"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fusionner des fichiers PDF gratuitement ?",
+          "a": "Déposez vos fichiers PDF, réorganisez les pages ou les fichiers selon l'ordre souhaité, puis cliquez sur Fusionner."
+        },
+        {
+          "q": "Mes fichiers PDF sont-ils téléversés sur un serveur ?",
+          "a": "Non. Tout le traitement s'effectue localement dans votre navigateur pour une confidentialité totale."
+        },
+        {
+          "q": "Y a-t-il une limite de taille ou de nombre de fichiers ?",
+          "a": "Aucune limite artificielle. Vous pouvez fusionner autant de documents que votre appareil peut gérer."
+        }
+      ]
+    },
+    "split-pdf": {
+      "name": "Diviser PDF",
+      "h1": "Diviser un Fichier PDF en Ligne – Gratuit",
+      "title": "Diviser PDF en ligne gratuit – Séparer pages PDF | Alee Tools",
+      "metaDescription": "Extrayez des pages ou divisez un PDF en plusieurs fichiers distincts. Gratuit, instantané et sans envoi de fichiers sur un serveur.",
+      "shortDescription": "Séparez des pages de votre PDF ou divisez-le en plusieurs documents.",
+      "keywords": [
+        "diviser pdf",
+        "séparer pages pdf",
+        "découper pdf gratuit",
+        "extraire pages pdf"
+      ],
+      "faqs": [
+        {
+          "q": "Comment séparer les pages d'un PDF ?",
+          "a": "Choisissez votre fichier PDF, indiquez les intervalles de pages à extraire et téléchargez vos nouveaux fichiers."
+        }
+      ]
+    },
+    "pdf-page-extractor": {
+      "name": "Extraire Pages PDF",
+      "h1": "Extraire Pages PDF – Outil Gratuit en Ligne",
+      "title": "Extraire Pages PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil extraire pages pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour extraire pages pdf en toute simplicité.",
+      "keywords": [
+        "extraire pages pdf",
+        "extraire pages pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Extraire Pages PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-page-deleter": {
+      "name": "Supprimer Pages PDF",
+      "h1": "Supprimer Pages PDF – Outil Gratuit en Ligne",
+      "title": "Supprimer Pages PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil supprimer pages pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour supprimer pages pdf en toute simplicité.",
+      "keywords": [
+        "supprimer pages pdf",
+        "supprimer pages pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Supprimer Pages PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-rotator": {
+      "name": "Faire Pivoter PDF",
+      "h1": "Faire Pivoter PDF – Outil Gratuit en Ligne",
+      "title": "Faire Pivoter PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil faire pivoter pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour faire pivoter pdf en toute simplicité.",
+      "keywords": [
+        "faire pivoter pdf",
+        "faire pivoter pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Faire Pivoter PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-reorder": {
+      "name": "Réorganiser Pages PDF",
+      "h1": "Réorganiser Pages PDF – Outil Gratuit en Ligne",
+      "title": "Réorganiser Pages PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil réorganiser pages pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour réorganiser pages pdf en toute simplicité.",
+      "keywords": [
+        "réorganiser pages pdf",
+        "réorganiser pages pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Réorganiser Pages PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-compressor": {
+      "name": "Compresser PDF",
+      "h1": "Compresser un Fichier PDF en Ligne – Gratuit",
+      "title": "Compresser PDF en ligne gratuit – Réduire taille PDF | Alee Tools",
+      "metaDescription": "Réduisez la taille de vos fichiers PDF tout en préservant une netteté maximale. Gratuit, sans perte de lisibilité et sans inscription.",
+      "shortDescription": "Diminuez le poids de vos documents PDF sans perte de qualité visuelle.",
+      "keywords": [
+        "compresser pdf",
+        "réduire taille pdf",
+        "diminuer poids pdf",
+        "compresser pdf gratuit en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment réduire la taille d'un PDF ?",
+          "a": "Déposez votre document PDF, sélectionnez le niveau de compression souhaité et téléchargez le fichier allégé."
+        }
+      ]
+    },
+    "pdf-to-jpg": {
+      "name": "PDF en JPG",
+      "h1": "Convertir PDF en JPG en Ligne – Gratuit",
+      "title": "Convertir PDF en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Transformez chaque page de votre PDF en image JPG haute résolution. Gratuit, instantané et sans filigrane dans votre navigateur.",
+      "shortDescription": "Convertissez toutes les pages de votre PDF en images JPG nettes.",
+      "keywords": [
+        "pdf en jpg",
+        "convertir pdf en jpg",
+        "transformer pdf en image",
+        "pdf vers jpg gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "La conversion est-elle gratuite ?",
+          "a": "Oui, totalement gratuite et sans aucune limitation."
+        }
+      ]
+    },
+    "jpg-to-pdf": {
+      "name": "JPG en PDF",
+      "h1": "Convertir JPG en PDF en Ligne – Gratuit",
+      "title": "Convertir JPG en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Convertissez vos photos JPG en document PDF propre et imprimable. Ajustez les marges et l'orientation en quelques clics.",
+      "shortDescription": "Regroupez vos images JPG dans un document PDF parfait.",
+      "keywords": [
+        "jpg en pdf",
+        "convertir jpg en pdf",
+        "transformer image en pdf",
+        "jpg vers pdf gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Puis-je ajouter plusieurs photos ?",
+          "a": "Oui, vous pouvez combiner plusieurs photos JPG en un seul fichier PDF."
+        }
+      ]
+    },
+    "png-to-pdf": {
+      "name": "PNG en PDF",
+      "h1": "PNG en PDF – Outil Gratuit en Ligne",
+      "title": "PNG en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil png en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour png en pdf en toute simplicité.",
+      "keywords": [
+        "png en pdf",
+        "png en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser PNG en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "images-to-pdf": {
+      "name": "Images en PDF",
+      "h1": "Images en PDF – Outil Gratuit en Ligne",
+      "title": "Images en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil images en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour images en pdf en toute simplicité.",
+      "keywords": [
+        "images en pdf",
+        "images en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Images en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-metadata-viewer": {
+      "name": "Lecteur Métadonnées PDF",
+      "h1": "Lecteur Métadonnées PDF – Outil Gratuit en Ligne",
+      "title": "Lecteur Métadonnées PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil lecteur métadonnées pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour lecteur métadonnées pdf en toute simplicité.",
+      "keywords": [
+        "lecteur métadonnées pdf",
+        "lecteur métadonnées pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Lecteur Métadonnées PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-password-generator": {
+      "name": "Protéger PDF par Mot de Passe",
+      "h1": "Protéger PDF par Mot de Passe – Outil Gratuit en Ligne",
+      "title": "Protéger PDF par Mot de Passe en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil protéger pdf par mot de passe directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour protéger pdf par mot de passe en toute simplicité.",
+      "keywords": [
+        "protéger pdf par mot de passe",
+        "protéger pdf par mot de passe gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Protéger PDF par Mot de Passe ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-unlocker": {
+      "name": "Déverrouiller PDF",
+      "h1": "Déverrouiller PDF – Outil Gratuit en Ligne",
+      "title": "Déverrouiller PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil déverrouiller pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour déverrouiller pdf en toute simplicité.",
+      "keywords": [
+        "déverrouiller pdf",
+        "déverrouiller pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Déverrouiller PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-page-numberer": {
+      "name": "Numéroter Pages PDF",
+      "h1": "Numéroter Pages PDF – Outil Gratuit en Ligne",
+      "title": "Numéroter Pages PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil numéroter pages pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour numéroter pages pdf en toute simplicité.",
+      "keywords": [
+        "numéroter pages pdf",
+        "numéroter pages pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Numéroter Pages PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-watermark": {
+      "name": "Ajouter Filigrane PDF",
+      "h1": "Ajouter Filigrane PDF – Outil Gratuit en Ligne",
+      "title": "Ajouter Filigrane PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil ajouter filigrane pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour ajouter filigrane pdf en toute simplicité.",
+      "keywords": [
+        "ajouter filigrane pdf",
+        "ajouter filigrane pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Ajouter Filigrane PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-text-extractor": {
+      "name": "Extraire Texte PDF",
+      "h1": "Extraire Texte PDF – Outil Gratuit en Ligne",
+      "title": "Extraire Texte PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil extraire texte pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour extraire texte pdf en toute simplicité.",
+      "keywords": [
+        "extraire texte pdf",
+        "extraire texte pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Extraire Texte PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-viewer": {
+      "name": "Lecteur PDF en Ligne",
+      "h1": "Lecteur PDF en Ligne – Outil Gratuit en Ligne",
+      "title": "Lecteur PDF en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil lecteur pdf en ligne directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour lecteur pdf en ligne en toute simplicité.",
+      "keywords": [
+        "lecteur pdf en ligne",
+        "lecteur pdf en ligne gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Lecteur PDF en Ligne ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "pdf-print-optimizer": {
+      "name": "Optimiseur Impression PDF",
+      "h1": "Optimiseur Impression PDF – Outil Gratuit en Ligne",
+      "title": "Optimiseur Impression PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil optimiseur impression pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour optimiseur impression pdf en toute simplicité.",
+      "keywords": [
+        "optimiseur impression pdf",
+        "optimiseur impression pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Optimiseur Impression PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "a4-pdf-maker": {
+      "name": "Créateur PDF Format A4",
+      "h1": "Créateur PDF Format A4 – Outil Gratuit en Ligne",
+      "title": "Créateur PDF Format A4 en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur pdf format a4 directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour créateur pdf format a4 en toute simplicité.",
+      "keywords": [
+        "créateur pdf format a4",
+        "créateur pdf format a4 gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur PDF Format A4 ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "letter-pdf-maker": {
+      "name": "Créateur PDF Format Lettre",
+      "h1": "Créateur PDF Format Lettre – Outil Gratuit en Ligne",
+      "title": "Créateur PDF Format Lettre en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur pdf format lettre directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour créateur pdf format lettre en toute simplicité.",
+      "keywords": [
+        "créateur pdf format lettre",
+        "créateur pdf format lettre gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur PDF Format Lettre ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "resume-pdf-maker": {
+      "name": "Créateur CV en PDF",
+      "h1": "Créateur CV en PDF – Outil Gratuit en Ligne",
+      "title": "Créateur CV en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur cv en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour créateur cv en pdf en toute simplicité.",
+      "keywords": [
+        "créateur cv en pdf",
+        "créateur cv en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur CV en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "assignment-pdf-maker": {
+      "name": "Créateur Devoir en PDF",
+      "h1": "Créateur Devoir en PDF – Outil Gratuit en Ligne",
+      "title": "Créateur Devoir en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil créateur devoir en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour créateur devoir en pdf en toute simplicité.",
+      "keywords": [
+        "créateur devoir en pdf",
+        "créateur devoir en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Créateur Devoir en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "notes-to-pdf": {
+      "name": "Convertir Notes en PDF",
+      "h1": "Convertir Notes en PDF – Outil Gratuit en Ligne",
+      "title": "Convertir Notes en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir notes en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour convertir notes en pdf en toute simplicité.",
+      "keywords": [
+        "convertir notes en pdf",
+        "convertir notes en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir Notes en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "images-to-a4-pdf": {
+      "name": "Images en PDF A4",
+      "h1": "Images en PDF A4 – Outil Gratuit en Ligne",
+      "title": "Images en PDF A4 en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil images en pdf a4 directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour images en pdf a4 en toute simplicité.",
+      "keywords": [
+        "images en pdf a4",
+        "images en pdf a4 gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Images en PDF A4 ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "scan-to-pdf": {
+      "name": "Scanner Document en PDF",
+      "h1": "Scanner Document en PDF – Outil Gratuit en Ligne",
+      "title": "Scanner Document en PDF en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil scanner document en pdf directement dans votre navigateur. 100% gratuit, rapide, sans filigrane ni inscription.",
+      "shortDescription": "Outil rapide pour scanner document en pdf en toute simplicité.",
+      "keywords": [
+        "scanner document en pdf",
+        "scanner document en pdf gratuit",
+        "outils pdf en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Scanner Document en PDF ?",
+          "a": "Ouvrez l'outil, chargez vos documents et appliquez les réglages désirés en quelques secondes."
+        }
+      ]
+    },
+    "json-formatter": {
+      "name": "Formateur JSON en Ligne",
+      "h1": "Formateur JSON en Ligne – Outil Gratuit en Ligne",
+      "title": "Formateur JSON en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre formateur json en ligne directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : formateur json en ligne instantané.",
+      "keywords": [
+        "formateur json en ligne",
+        "formateur json en ligne en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Formateur JSON en Ligne ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-minifier": {
+      "name": "Minificateur JSON",
+      "h1": "Minificateur JSON – Outil Gratuit en Ligne",
+      "title": "Minificateur JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre minificateur json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : minificateur json instantané.",
+      "keywords": [
+        "minificateur json",
+        "minificateur json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Minificateur JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-validator": {
+      "name": "Validateur JSON",
+      "h1": "Validateur JSON – Outil Gratuit en Ligne",
+      "title": "Validateur JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre validateur json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : validateur json instantané.",
+      "keywords": [
+        "validateur json",
+        "validateur json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Validateur JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-viewer": {
+      "name": "Visualiseur JSON",
+      "h1": "Visualiseur JSON – Outil Gratuit en Ligne",
+      "title": "Visualiseur JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre visualiseur json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : visualiseur json instantané.",
+      "keywords": [
+        "visualiseur json",
+        "visualiseur json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Visualiseur JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-tree-viewer": {
+      "name": "Arborescence JSON Interactive",
+      "h1": "Arborescence JSON Interactive – Outil Gratuit en Ligne",
+      "title": "Arborescence JSON Interactive en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre arborescence json interactive directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : arborescence json interactive instantané.",
+      "keywords": [
+        "arborescence json interactive",
+        "arborescence json interactive en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Arborescence JSON Interactive ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-to-csv": {
+      "name": "Convertisseur JSON en CSV",
+      "h1": "Convertisseur JSON en CSV – Outil Gratuit en Ligne",
+      "title": "Convertisseur JSON en CSV en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur json en csv directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur json en csv instantané.",
+      "keywords": [
+        "convertisseur json en csv",
+        "convertisseur json en csv en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur JSON en CSV ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "csv-to-json": {
+      "name": "Convertisseur CSV en JSON",
+      "h1": "Convertisseur CSV en JSON – Outil Gratuit en Ligne",
+      "title": "Convertisseur CSV en JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur csv en json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur csv en json instantané.",
+      "keywords": [
+        "convertisseur csv en json",
+        "convertisseur csv en json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur CSV en JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-to-yaml": {
+      "name": "Convertisseur JSON en YAML",
+      "h1": "Convertisseur JSON en YAML – Outil Gratuit en Ligne",
+      "title": "Convertisseur JSON en YAML en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur json en yaml directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur json en yaml instantané.",
+      "keywords": [
+        "convertisseur json en yaml",
+        "convertisseur json en yaml en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur JSON en YAML ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "yaml-to-json": {
+      "name": "Convertisseur YAML en JSON",
+      "h1": "Convertisseur YAML en JSON – Outil Gratuit en Ligne",
+      "title": "Convertisseur YAML en JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur yaml en json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur yaml en json instantané.",
+      "keywords": [
+        "convertisseur yaml en json",
+        "convertisseur yaml en json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur YAML en JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-diff": {
+      "name": "Comparateur Diff JSON",
+      "h1": "Comparateur Diff JSON – Outil Gratuit en Ligne",
+      "title": "Comparateur Diff JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre comparateur diff json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : comparateur diff json instantané.",
+      "keywords": [
+        "comparateur diff json",
+        "comparateur diff json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Comparateur Diff JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-escape": {
+      "name": "Échappeur de Caractères JSON",
+      "h1": "Échappeur de Caractères JSON – Outil Gratuit en Ligne",
+      "title": "Échappeur de Caractères JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre échappeur de caractères json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : échappeur de caractères json instantané.",
+      "keywords": [
+        "échappeur de caractères json",
+        "échappeur de caractères json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Échappeur de Caractères JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "json-unescape": {
+      "name": "Déséchappeur de Chaînes JSON",
+      "h1": "Déséchappeur de Chaînes JSON – Outil Gratuit en Ligne",
+      "title": "Déséchappeur de Chaînes JSON en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre déséchappeur de chaînes json directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : déséchappeur de chaînes json instantané.",
+      "keywords": [
+        "déséchappeur de chaînes json",
+        "déséchappeur de chaînes json en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Déséchappeur de Chaînes JSON ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "url-encoder": {
+      "name": "Encodeur URL",
+      "h1": "Encodeur URL – Outil Gratuit en Ligne",
+      "title": "Encodeur URL en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre encodeur url directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : encodeur url instantané.",
+      "keywords": [
+        "encodeur url",
+        "encodeur url en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Encodeur URL ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "url-decoder": {
+      "name": "Décodeur URL",
+      "h1": "Décodeur URL – Outil Gratuit en Ligne",
+      "title": "Décodeur URL en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre décodeur url directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : décodeur url instantané.",
+      "keywords": [
+        "décodeur url",
+        "décodeur url en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Décodeur URL ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "html-encoder": {
+      "name": "Encodeur Entités HTML",
+      "h1": "Encodeur Entités HTML – Outil Gratuit en Ligne",
+      "title": "Encodeur Entités HTML en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre encodeur entités html directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : encodeur entités html instantané.",
+      "keywords": [
+        "encodeur entités html",
+        "encodeur entités html en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Encodeur Entités HTML ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "html-decoder": {
+      "name": "Décodeur Entités HTML",
+      "h1": "Décodeur Entités HTML – Outil Gratuit en Ligne",
+      "title": "Décodeur Entités HTML en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre décodeur entités html directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : décodeur entités html instantané.",
+      "keywords": [
+        "décodeur entités html",
+        "décodeur entités html en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Décodeur Entités HTML ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "base64-encoder": {
+      "name": "Encodeur Base64 Texte & Fichier",
+      "h1": "Encodeur Base64 Texte & Fichier – Outil Gratuit en Ligne",
+      "title": "Encodeur Base64 Texte & Fichier en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre encodeur base64 texte & fichier directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : encodeur base64 texte & fichier instantané.",
+      "keywords": [
+        "encodeur base64 texte & fichier",
+        "encodeur base64 texte & fichier en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Encodeur Base64 Texte & Fichier ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "base64-decoder": {
+      "name": "Décodeur Base64 en Ligne",
+      "h1": "Décodeur Base64 en Ligne – Outil Gratuit en Ligne",
+      "title": "Décodeur Base64 en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre décodeur base64 en ligne directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : décodeur base64 en ligne instantané.",
+      "keywords": [
+        "décodeur base64 en ligne",
+        "décodeur base64 en ligne en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Décodeur Base64 en Ligne ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "html-minifier": {
+      "name": "Minificateur HTML",
+      "h1": "Minificateur HTML – Outil Gratuit en Ligne",
+      "title": "Minificateur HTML en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre minificateur html directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : minificateur html instantané.",
+      "keywords": [
+        "minificateur html",
+        "minificateur html en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Minificateur HTML ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "css-minifier": {
+      "name": "Minificateur CSS",
+      "h1": "Minificateur CSS – Outil Gratuit en Ligne",
+      "title": "Minificateur CSS en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre minificateur css directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : minificateur css instantané.",
+      "keywords": [
+        "minificateur css",
+        "minificateur css en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Minificateur CSS ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "js-minifier": {
+      "name": "Minificateur JavaScript",
+      "h1": "Minificateur JavaScript – Outil Gratuit en Ligne",
+      "title": "Minificateur JavaScript en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre minificateur javascript directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : minificateur javascript instantané.",
+      "keywords": [
+        "minificateur javascript",
+        "minificateur javascript en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Minificateur JavaScript ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "css-formatter": {
+      "name": "Formateur & Beautifier CSS",
+      "h1": "Formateur & Beautifier CSS – Outil Gratuit en Ligne",
+      "title": "Formateur & Beautifier CSS en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre formateur & beautifier css directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : formateur & beautifier css instantané.",
+      "keywords": [
+        "formateur & beautifier css",
+        "formateur & beautifier css en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Formateur & Beautifier CSS ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "html-formatter": {
+      "name": "Formateur & Beautifier HTML",
+      "h1": "Formateur & Beautifier HTML – Outil Gratuit en Ligne",
+      "title": "Formateur & Beautifier HTML en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre formateur & beautifier html directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : formateur & beautifier html instantané.",
+      "keywords": [
+        "formateur & beautifier html",
+        "formateur & beautifier html en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Formateur & Beautifier HTML ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "js-formatter": {
+      "name": "Formateur JavaScript Beautifier",
+      "h1": "Formateur JavaScript Beautifier – Outil Gratuit en Ligne",
+      "title": "Formateur JavaScript Beautifier en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre formateur javascript beautifier directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : formateur javascript beautifier instantané.",
+      "keywords": [
+        "formateur javascript beautifier",
+        "formateur javascript beautifier en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Formateur JavaScript Beautifier ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "uuid-generator": {
+      "name": "Générateur UUID v4 en Ligne",
+      "h1": "Générateur UUID v4 en Ligne – Outil Gratuit en Ligne",
+      "title": "Générateur UUID v4 en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur uuid v4 en ligne directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur uuid v4 en ligne instantané.",
+      "keywords": [
+        "générateur uuid v4 en ligne",
+        "générateur uuid v4 en ligne en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur UUID v4 en Ligne ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "guid-generator": {
+      "name": "Générateur GUID en Ligne",
+      "h1": "Générateur GUID en Ligne – Outil Gratuit en Ligne",
+      "title": "Générateur GUID en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur guid en ligne directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur guid en ligne instantané.",
+      "keywords": [
+        "générateur guid en ligne",
+        "générateur guid en ligne en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur GUID en Ligne ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "password-generator": {
+      "name": "Générateur Mot de Passe Sécurisé",
+      "h1": "Générateur Mot de Passe Sécurisé – Outil Gratuit en Ligne",
+      "title": "Générateur Mot de Passe Sécurisé en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur mot de passe sécurisé directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur mot de passe sécurisé instantané.",
+      "keywords": [
+        "générateur mot de passe sécurisé",
+        "générateur mot de passe sécurisé en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur Mot de Passe Sécurisé ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "jwt-decoder": {
+      "name": "Décodeur Token JWT en Ligne",
+      "h1": "Décodeur Token JWT en Ligne – Outil Gratuit en Ligne",
+      "title": "Décodeur Token JWT en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre décodeur token jwt en ligne directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : décodeur token jwt en ligne instantané.",
+      "keywords": [
+        "décodeur token jwt en ligne",
+        "décodeur token jwt en ligne en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Décodeur Token JWT en Ligne ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "jwt-generator": {
+      "name": "Générateur de Tokens JWT",
+      "h1": "Générateur de Tokens JWT – Outil Gratuit en Ligne",
+      "title": "Générateur de Tokens JWT en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur de tokens jwt directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur de tokens jwt instantané.",
+      "keywords": [
+        "générateur de tokens jwt",
+        "générateur de tokens jwt en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur de Tokens JWT ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "regex-tester": {
+      "name": "Testeur d'Expressions Régulières (Regex)",
+      "h1": "Testeur d'Expressions Régulières (Regex) – Outil Gratuit en Ligne",
+      "title": "Testeur d'Expressions Régulières (Regex) en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre testeur d'expressions régulières (regex) directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : testeur d'expressions régulières (regex) instantané.",
+      "keywords": [
+        "testeur d'expressions régulières (regex)",
+        "testeur d'expressions régulières (regex) en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Testeur d'Expressions Régulières (Regex) ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "regex-generator": {
+      "name": "Générateur de Regex",
+      "h1": "Générateur de Regex – Outil Gratuit en Ligne",
+      "title": "Générateur de Regex en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur de regex directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur de regex instantané.",
+      "keywords": [
+        "générateur de regex",
+        "générateur de regex en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur de Regex ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "cron-expression-generator": {
+      "name": "Générateur d'Expressions Cron",
+      "h1": "Générateur d'Expressions Cron – Outil Gratuit en Ligne",
+      "title": "Générateur d'Expressions Cron en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur d'expressions cron directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur d'expressions cron instantané.",
+      "keywords": [
+        "générateur d'expressions cron",
+        "générateur d'expressions cron en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur d'Expressions Cron ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "cron-expression-translator": {
+      "name": "Traducteur d'Expressions Cron",
+      "h1": "Traducteur d'Expressions Cron – Outil Gratuit en Ligne",
+      "title": "Traducteur d'Expressions Cron en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre traducteur d'expressions cron directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : traducteur d'expressions cron instantané.",
+      "keywords": [
+        "traducteur d'expressions cron",
+        "traducteur d'expressions cron en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Traducteur d'Expressions Cron ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "unix-timestamp-converter": {
+      "name": "Convertisseur Timestamp Unix",
+      "h1": "Convertisseur Timestamp Unix – Outil Gratuit en Ligne",
+      "title": "Convertisseur Timestamp Unix en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur timestamp unix directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur timestamp unix instantané.",
+      "keywords": [
+        "convertisseur timestamp unix",
+        "convertisseur timestamp unix en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur Timestamp Unix ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "unix-timestamp-generator": {
+      "name": "Générateur de Timestamp Unix",
+      "h1": "Générateur de Timestamp Unix – Outil Gratuit en Ligne",
+      "title": "Générateur de Timestamp Unix en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur de timestamp unix directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur de timestamp unix instantané.",
+      "keywords": [
+        "générateur de timestamp unix",
+        "générateur de timestamp unix en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur de Timestamp Unix ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "timestamp-to-date": {
+      "name": "Convertisseur Timestamp en Date",
+      "h1": "Convertisseur Timestamp en Date – Outil Gratuit en Ligne",
+      "title": "Convertisseur Timestamp en Date en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur timestamp en date directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur timestamp en date instantané.",
+      "keywords": [
+        "convertisseur timestamp en date",
+        "convertisseur timestamp en date en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur Timestamp en Date ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "color-converter": {
+      "name": "Convertisseur de Couleurs HEX RGB HSL",
+      "h1": "Convertisseur de Couleurs HEX RGB HSL – Outil Gratuit en Ligne",
+      "title": "Convertisseur de Couleurs HEX RGB HSL en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur de couleurs hex rgb hsl directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur de couleurs hex rgb hsl instantané.",
+      "keywords": [
+        "convertisseur de couleurs hex rgb hsl",
+        "convertisseur de couleurs hex rgb hsl en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur de Couleurs HEX RGB HSL ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "hex-to-rgb": {
+      "name": "Convertisseur HEX en RGB",
+      "h1": "Convertisseur HEX en RGB – Outil Gratuit en Ligne",
+      "title": "Convertisseur HEX en RGB en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur hex en rgb directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur hex en rgb instantané.",
+      "keywords": [
+        "convertisseur hex en rgb",
+        "convertisseur hex en rgb en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur HEX en RGB ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "rgb-to-hex": {
+      "name": "Convertisseur RGB en HEX",
+      "h1": "Convertisseur RGB en HEX – Outil Gratuit en Ligne",
+      "title": "Convertisseur RGB en HEX en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur rgb en hex directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur rgb en hex instantané.",
+      "keywords": [
+        "convertisseur rgb en hex",
+        "convertisseur rgb en hex en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur RGB en HEX ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "hex-to-hsl": {
+      "name": "Convertisseur HEX en HSL",
+      "h1": "Convertisseur HEX en HSL – Outil Gratuit en Ligne",
+      "title": "Convertisseur HEX en HSL en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur hex en hsl directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur hex en hsl instantané.",
+      "keywords": [
+        "convertisseur hex en hsl",
+        "convertisseur hex en hsl en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur HEX en HSL ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "css-gradient-generator": {
+      "name": "Générateur de Dégradés CSS",
+      "h1": "Générateur de Dégradés CSS – Outil Gratuit en Ligne",
+      "title": "Générateur de Dégradés CSS en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur de dégradés css directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur de dégradés css instantané.",
+      "keywords": [
+        "générateur de dégradés css",
+        "générateur de dégradés css en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur de Dégradés CSS ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "css-box-shadow-generator": {
+      "name": "Générateur Box Shadow CSS",
+      "h1": "Générateur Box Shadow CSS – Outil Gratuit en Ligne",
+      "title": "Générateur Box Shadow CSS en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur box shadow css directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur box shadow css instantané.",
+      "keywords": [
+        "générateur box shadow css",
+        "générateur box shadow css en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur Box Shadow CSS ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "css-border-radius-generator": {
+      "name": "Générateur Border Radius CSS",
+      "h1": "Générateur Border Radius CSS – Outil Gratuit en Ligne",
+      "title": "Générateur Border Radius CSS en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur border radius css directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur border radius css instantané.",
+      "keywords": [
+        "générateur border radius css",
+        "générateur border radius css en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur Border Radius CSS ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "ipv4-calculator": {
+      "name": "Calculateur Sous-Réseau IPv4",
+      "h1": "Calculateur Sous-Réseau IPv4 – Outil Gratuit en Ligne",
+      "title": "Calculateur Sous-Réseau IPv4 en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre calculateur sous-réseau ipv4 directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : calculateur sous-réseau ipv4 instantané.",
+      "keywords": [
+        "calculateur sous-réseau ipv4",
+        "calculateur sous-réseau ipv4 en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Sous-Réseau IPv4 ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "ipv6-calculator": {
+      "name": "Calculateur d'Adresses IPv6",
+      "h1": "Calculateur d'Adresses IPv6 – Outil Gratuit en Ligne",
+      "title": "Calculateur d'Adresses IPv6 en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre calculateur d'adresses ipv6 directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : calculateur d'adresses ipv6 instantané.",
+      "keywords": [
+        "calculateur d'adresses ipv6",
+        "calculateur d'adresses ipv6 en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur d'Adresses IPv6 ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "cidr-calculator": {
+      "name": "Calculateur Notation CIDR Réseau",
+      "h1": "Calculateur Notation CIDR Réseau – Outil Gratuit en Ligne",
+      "title": "Calculateur Notation CIDR Réseau en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre calculateur notation cidr réseau directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : calculateur notation cidr réseau instantané.",
+      "keywords": [
+        "calculateur notation cidr réseau",
+        "calculateur notation cidr réseau en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Notation CIDR Réseau ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "subnet-calculator": {
+      "name": "Calculateur Masque de Sous-Réseau",
+      "h1": "Calculateur Masque de Sous-Réseau – Outil Gratuit en Ligne",
+      "title": "Calculateur Masque de Sous-Réseau en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre calculateur masque de sous-réseau directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : calculateur masque de sous-réseau instantané.",
+      "keywords": [
+        "calculateur masque de sous-réseau",
+        "calculateur masque de sous-réseau en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Calculateur Masque de Sous-Réseau ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "ip-to-binary": {
+      "name": "Convertisseur Adresse IP en Binaire",
+      "h1": "Convertisseur Adresse IP en Binaire – Outil Gratuit en Ligne",
+      "title": "Convertisseur Adresse IP en Binaire en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur adresse ip en binaire directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur adresse ip en binaire instantané.",
+      "keywords": [
+        "convertisseur adresse ip en binaire",
+        "convertisseur adresse ip en binaire en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur Adresse IP en Binaire ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "binary-to-decimal": {
+      "name": "Convertisseur Binaire en Décimal",
+      "h1": "Convertisseur Binaire en Décimal – Outil Gratuit en Ligne",
+      "title": "Convertisseur Binaire en Décimal en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre convertisseur binaire en décimal directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : convertisseur binaire en décimal instantané.",
+      "keywords": [
+        "convertisseur binaire en décimal",
+        "convertisseur binaire en décimal en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertisseur Binaire en Décimal ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "mac-address-generator": {
+      "name": "Générateur d'Adresses MAC Aléatoires",
+      "h1": "Générateur d'Adresses MAC Aléatoires – Outil Gratuit en Ligne",
+      "title": "Générateur d'Adresses MAC Aléatoires en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre générateur d'adresses mac aléatoires directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : générateur d'adresses mac aléatoires instantané.",
+      "keywords": [
+        "générateur d'adresses mac aléatoires",
+        "générateur d'adresses mac aléatoires en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Générateur d'Adresses MAC Aléatoires ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "user-agent-parser": {
+      "name": "Analyseur User-Agent Navigateur",
+      "h1": "Analyseur User-Agent Navigateur – Outil Gratuit en Ligne",
+      "title": "Analyseur User-Agent Navigateur en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre analyseur user-agent navigateur directement dans votre navigateur. 100% gratuit, rapide, précis et sans aucune dépendance côté serveur.",
+      "shortDescription": "Outil pour développeurs : analyseur user-agent navigateur instantané.",
+      "keywords": [
+        "analyseur user-agent navigateur",
+        "analyseur user-agent navigateur en ligne",
+        "outils developpeur gratuit",
+        "web dev tools"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Analyseur User-Agent Navigateur ?",
+          "a": "Entrez ou collez votre code/valeur dans l'outil et observez le résultat formaté immédiatement."
+        }
+      ]
+    },
+    "jpg-to-webp": {
+      "name": "Convertir JPG en WebP",
+      "h1": "Convertir JPG en WebP – Outil Gratuit en Ligne",
+      "title": "Convertir JPG en WebP en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir jpg en webp directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir jpg en webp avec aperçu instantané.",
+      "keywords": [
+        "convertir jpg en webp",
+        "convertir jpg en webp gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir JPG en WebP ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "png-to-webp": {
+      "name": "Convertir PNG en WebP",
+      "h1": "Convertir PNG en WebP – Outil Gratuit en Ligne",
+      "title": "Convertir PNG en WebP en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir png en webp directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir png en webp avec aperçu instantané.",
+      "keywords": [
+        "convertir png en webp",
+        "convertir png en webp gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir PNG en WebP ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "heic-to-jpg": {
+      "name": "Convertir HEIC en JPG",
+      "h1": "Convertir HEIC en JPG – Outil Gratuit en Ligne",
+      "title": "Convertir HEIC en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir heic en jpg directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir heic en jpg avec aperçu instantané.",
+      "keywords": [
+        "convertir heic en jpg",
+        "convertir heic en jpg gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir HEIC en JPG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "heic-to-png": {
+      "name": "Convertir HEIC en PNG",
+      "h1": "Convertir HEIC en PNG – Outil Gratuit en Ligne",
+      "title": "Convertir HEIC en PNG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir heic en png directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir heic en png avec aperçu instantané.",
+      "keywords": [
+        "convertir heic en png",
+        "convertir heic en png gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir HEIC en PNG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "svg-to-png": {
+      "name": "Convertir SVG en PNG",
+      "h1": "Convertir SVG en PNG – Outil Gratuit en Ligne",
+      "title": "Convertir SVG en PNG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir svg en png directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir svg en png avec aperçu instantané.",
+      "keywords": [
+        "convertir svg en png",
+        "convertir svg en png gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir SVG en PNG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "bmp-to-jpg": {
+      "name": "Convertir BMP en JPG",
+      "h1": "Convertir BMP en JPG – Outil Gratuit en Ligne",
+      "title": "Convertir BMP en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir bmp en jpg directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir bmp en jpg avec aperçu instantané.",
+      "keywords": [
+        "convertir bmp en jpg",
+        "convertir bmp en jpg gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir BMP en JPG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "gif-to-jpg": {
+      "name": "Convertir GIF en JPG",
+      "h1": "Convertir GIF en JPG – Outil Gratuit en Ligne",
+      "title": "Convertir GIF en JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir gif en jpg directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir gif en jpg avec aperçu instantané.",
+      "keywords": [
+        "convertir gif en jpg",
+        "convertir gif en jpg gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir GIF en JPG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "jpg-compressor": {
+      "name": "Compresseur JPG",
+      "h1": "Compresseur JPG – Outil Gratuit en Ligne",
+      "title": "Compresseur JPG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur jpg directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour compresseur jpg avec aperçu instantané.",
+      "keywords": [
+        "compresseur jpg",
+        "compresseur jpg gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur JPG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "png-compressor": {
+      "name": "Compresseur PNG",
+      "h1": "Compresseur PNG – Outil Gratuit en Ligne",
+      "title": "Compresseur PNG en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur png directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour compresseur png avec aperçu instantané.",
+      "keywords": [
+        "compresseur png",
+        "compresseur png gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur PNG ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "webp-compressor": {
+      "name": "Compresseur WebP",
+      "h1": "Compresseur WebP – Outil Gratuit en Ligne",
+      "title": "Compresseur WebP en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur webp directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour compresseur webp avec aperçu instantané.",
+      "keywords": [
+        "compresseur webp",
+        "compresseur webp gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur WebP ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "heic-compressor": {
+      "name": "Compresseur HEIC iPhone",
+      "h1": "Compresseur HEIC iPhone – Outil Gratuit en Ligne",
+      "title": "Compresseur HEIC iPhone en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil compresseur heic iphone directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour compresseur heic iphone avec aperçu instantané.",
+      "keywords": [
+        "compresseur heic iphone",
+        "compresseur heic iphone gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Compresseur HEIC iPhone ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-rotator": {
+      "name": "Faire Pivoter Image",
+      "h1": "Faire Pivoter Image – Outil Gratuit en Ligne",
+      "title": "Faire Pivoter Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil faire pivoter image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour faire pivoter image avec aperçu instantané.",
+      "keywords": [
+        "faire pivoter image",
+        "faire pivoter image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Faire Pivoter Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-flipper": {
+      "name": "Miroir et Retourner Image",
+      "h1": "Miroir et Retourner Image – Outil Gratuit en Ligne",
+      "title": "Miroir et Retourner Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil miroir et retourner image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour miroir et retourner image avec aperçu instantané.",
+      "keywords": [
+        "miroir et retourner image",
+        "miroir et retourner image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Miroir et Retourner Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-background-blur": {
+      "name": "Flouter Arrière-Plan Image",
+      "h1": "Flouter Arrière-Plan Image – Outil Gratuit en Ligne",
+      "title": "Flouter Arrière-Plan Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil flouter arrière-plan image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour flouter arrière-plan image avec aperçu instantané.",
+      "keywords": [
+        "flouter arrière-plan image",
+        "flouter arrière-plan image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Flouter Arrière-Plan Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-pixelate": {
+      "name": "Pixelliser et Censurer Image",
+      "h1": "Pixelliser et Censurer Image – Outil Gratuit en Ligne",
+      "title": "Pixelliser et Censurer Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil pixelliser et censurer image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour pixelliser et censurer image avec aperçu instantané.",
+      "keywords": [
+        "pixelliser et censurer image",
+        "pixelliser et censurer image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Pixelliser et Censurer Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-grayscale": {
+      "name": "Convertir Image en Noir et Blanc",
+      "h1": "Convertir Image en Noir et Blanc – Outil Gratuit en Ligne",
+      "title": "Convertir Image en Noir et Blanc en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil convertir image en noir et blanc directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour convertir image en noir et blanc avec aperçu instantané.",
+      "keywords": [
+        "convertir image en noir et blanc",
+        "convertir image en noir et blanc gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Convertir Image en Noir et Blanc ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-brightness": {
+      "name": "Ajuster Luminosité Image",
+      "h1": "Ajuster Luminosité Image – Outil Gratuit en Ligne",
+      "title": "Ajuster Luminosité Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil ajuster luminosité image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour ajuster luminosité image avec aperçu instantané.",
+      "keywords": [
+        "ajuster luminosité image",
+        "ajuster luminosité image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Ajuster Luminosité Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-contrast": {
+      "name": "Ajuster Contraste Image",
+      "h1": "Ajuster Contraste Image – Outil Gratuit en Ligne",
+      "title": "Ajuster Contraste Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil ajuster contraste image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour ajuster contraste image avec aperçu instantané.",
+      "keywords": [
+        "ajuster contraste image",
+        "ajuster contraste image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Ajuster Contraste Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-sharpen": {
+      "name": "Améliorer Netteté Image",
+      "h1": "Améliorer Netteté Image – Outil Gratuit en Ligne",
+      "title": "Améliorer Netteté Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil améliorer netteté image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour améliorer netteté image avec aperçu instantané.",
+      "keywords": [
+        "améliorer netteté image",
+        "améliorer netteté image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Améliorer Netteté Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "image-watermark": {
+      "name": "Ajouter Filigrane sur Image",
+      "h1": "Ajouter Filigrane sur Image – Outil Gratuit en Ligne",
+      "title": "Ajouter Filigrane sur Image en ligne gratuit | Alee Tools",
+      "metaDescription": "Utilisez notre outil ajouter filigrane sur image directement dans votre navigateur. Gratuit, instantané, sans perte de qualité et 100% privé.",
+      "shortDescription": "Outil rapide pour ajouter filigrane sur image avec aperçu instantané.",
+      "keywords": [
+        "ajouter filigrane sur image",
+        "ajouter filigrane sur image gratuit",
+        "convertisseur image",
+        "editeur photo en ligne"
+      ],
+      "faqs": [
+        {
+          "q": "Comment utiliser Ajouter Filigrane sur Image ?",
+          "a": "Choisissez votre image, ajustez les paramètres et téléchargez votre fichier optimisé en un clic."
+        }
+      ]
+    },
+    "qr-code-generator": {
+      "name": "Générateur de Code QR Gratuit",
+      "h1": "Générateur de Code QR Gratuit – En Ligne & Prêt à Imprimer",
+      "title": "Générateur de Code QR Gratuit en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur de code qr gratuit haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur de code qr gratuit.",
+      "keywords": [
+        "générateur de code qr gratuit",
+        "générateur de code qr gratuit gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur de Code QR Gratuit ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "qr-code-scanner": {
+      "name": "Lecteur & Scanner de Code QR en Ligne",
+      "h1": "Lecteur & Scanner de Code QR en Ligne – En Ligne & Prêt à Imprimer",
+      "title": "Lecteur & Scanner de Code QR en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre lecteur & scanner de code qr en ligne haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour lecteur & scanner de code qr en ligne.",
+      "keywords": [
+        "lecteur & scanner de code qr en ligne",
+        "lecteur & scanner de code qr en ligne gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Lecteur & Scanner de Code QR en Ligne ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "url-qr": {
+      "name": "Générateur QR Code pour Lien URL",
+      "h1": "Générateur QR Code pour Lien URL – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code pour Lien URL en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code pour lien url haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code pour lien url.",
+      "keywords": [
+        "générateur qr code pour lien url",
+        "générateur qr code pour lien url gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code pour Lien URL ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "wi-fi-qr": {
+      "name": "Générateur QR Code Connexion Wi-Fi",
+      "h1": "Générateur QR Code Connexion Wi-Fi – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code Connexion Wi-Fi en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code connexion wi-fi haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code connexion wi-fi.",
+      "keywords": [
+        "générateur qr code connexion wi-fi",
+        "générateur qr code connexion wi-fi gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code Connexion Wi-Fi ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "text-qr": {
+      "name": "Générateur QR Code pour Texte Brut",
+      "h1": "Générateur QR Code pour Texte Brut – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code pour Texte Brut en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code pour texte brut haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code pour texte brut.",
+      "keywords": [
+        "générateur qr code pour texte brut",
+        "générateur qr code pour texte brut gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code pour Texte Brut ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "email-qr": {
+      "name": "Générateur QR Code pour E-mail",
+      "h1": "Générateur QR Code pour E-mail – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code pour E-mail en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code pour e-mail haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code pour e-mail.",
+      "keywords": [
+        "générateur qr code pour e-mail",
+        "générateur qr code pour e-mail gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code pour E-mail ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "phone-qr": {
+      "name": "Générateur QR Code pour Numéro Téléphone",
+      "h1": "Générateur QR Code pour Numéro Téléphone – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code pour Numéro Téléphone en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code pour numéro téléphone haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code pour numéro téléphone.",
+      "keywords": [
+        "générateur qr code pour numéro téléphone",
+        "générateur qr code pour numéro téléphone gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code pour Numéro Téléphone ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "whatsapp-qr": {
+      "name": "Générateur QR Code Message WhatsApp",
+      "h1": "Générateur QR Code Message WhatsApp – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code Message WhatsApp en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code message whatsapp haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code message whatsapp.",
+      "keywords": [
+        "générateur qr code message whatsapp",
+        "générateur qr code message whatsapp gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code Message WhatsApp ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "vcard-qr": {
+      "name": "Générateur QR Code Carte de Visite vCard",
+      "h1": "Générateur QR Code Carte de Visite vCard – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code Carte de Visite vCard en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code carte de visite vcard haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code carte de visite vcard.",
+      "keywords": [
+        "générateur qr code carte de visite vcard",
+        "générateur qr code carte de visite vcard gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code Carte de Visite vCard ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "location-qr": {
+      "name": "Générateur QR Code Localisation GPS",
+      "h1": "Générateur QR Code Localisation GPS – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code Localisation GPS en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code localisation gps haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code localisation gps.",
+      "keywords": [
+        "générateur qr code localisation gps",
+        "générateur qr code localisation gps gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code Localisation GPS ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "sms-qr": {
+      "name": "Générateur QR Code pour SMS Direct",
+      "h1": "Générateur QR Code pour SMS Direct – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code pour SMS Direct en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code pour sms direct haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code pour sms direct.",
+      "keywords": [
+        "générateur qr code pour sms direct",
+        "générateur qr code pour sms direct gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code pour SMS Direct ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "bitcoin-qr": {
+      "name": "Générateur QR Code Adresse Crypto Bitcoin",
+      "h1": "Générateur QR Code Adresse Crypto Bitcoin – En Ligne & Prêt à Imprimer",
+      "title": "Générateur QR Code Adresse Crypto Bitcoin en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur qr code adresse crypto bitcoin haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur qr code adresse crypto bitcoin.",
+      "keywords": [
+        "générateur qr code adresse crypto bitcoin",
+        "générateur qr code adresse crypto bitcoin gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur QR Code Adresse Crypto Bitcoin ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "barcode-generator": {
+      "name": "Générateur de Code-Barres Gratuit",
+      "h1": "Générateur de Code-Barres Gratuit – En Ligne & Prêt à Imprimer",
+      "title": "Générateur de Code-Barres Gratuit en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur de code-barres gratuit haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur de code-barres gratuit.",
+      "keywords": [
+        "générateur de code-barres gratuit",
+        "générateur de code-barres gratuit gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur de Code-Barres Gratuit ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "ean-generator": {
+      "name": "Générateur Code-Barres EAN-13 & EAN-8",
+      "h1": "Générateur Code-Barres EAN-13 & EAN-8 – En Ligne & Prêt à Imprimer",
+      "title": "Générateur Code-Barres EAN-13 & EAN-8 en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur code-barres ean-13 & ean-8 haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur code-barres ean-13 & ean-8.",
+      "keywords": [
+        "générateur code-barres ean-13 & ean-8",
+        "générateur code-barres ean-13 & ean-8 gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur Code-Barres EAN-13 & EAN-8 ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "upc-generator": {
+      "name": "Générateur Code-Barres UPC-A Produit",
+      "h1": "Générateur Code-Barres UPC-A Produit – En Ligne & Prêt à Imprimer",
+      "title": "Générateur Code-Barres UPC-A Produit en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur code-barres upc-a produit haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur code-barres upc-a produit.",
+      "keywords": [
+        "générateur code-barres upc-a produit",
+        "générateur code-barres upc-a produit gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur Code-Barres UPC-A Produit ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "code-128-generator": {
+      "name": "Générateur Code 128 Haute Densité",
+      "h1": "Générateur Code 128 Haute Densité – En Ligne & Prêt à Imprimer",
+      "title": "Générateur Code 128 Haute Densité en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur code 128 haute densité haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur code 128 haute densité.",
+      "keywords": [
+        "générateur code 128 haute densité",
+        "générateur code 128 haute densité gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur Code 128 Haute Densité ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "code-39-generator": {
+      "name": "Générateur Code 39 Alphanumérique",
+      "h1": "Générateur Code 39 Alphanumérique – En Ligne & Prêt à Imprimer",
+      "title": "Générateur Code 39 Alphanumérique en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur code 39 alphanumérique haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur code 39 alphanumérique.",
+      "keywords": [
+        "générateur code 39 alphanumérique",
+        "générateur code 39 alphanumérique gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur Code 39 Alphanumérique ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "isbn-barcode": {
+      "name": "Générateur Code-Barres ISBN pour Livre",
+      "h1": "Générateur Code-Barres ISBN pour Livre – En Ligne & Prêt à Imprimer",
+      "title": "Générateur Code-Barres ISBN pour Livre en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre générateur code-barres isbn pour livre haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour générateur code-barres isbn pour livre.",
+      "keywords": [
+        "générateur code-barres isbn pour livre",
+        "générateur code-barres isbn pour livre gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Générateur Code-Barres ISBN pour Livre ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    },
+    "barcode-scanner": {
+      "name": "Lecteur & Scanner de Code-Barres en Ligne",
+      "h1": "Lecteur & Scanner de Code-Barres en Ligne – En Ligne & Prêt à Imprimer",
+      "title": "Lecteur & Scanner de Code-Barres en Ligne en ligne gratuit | Alee Tools",
+      "metaDescription": "Créez ou scannez avec notre lecteur & scanner de code-barres en ligne haute résolution. Gratuit, instantané, sans inscription et prêt pour l'impression ou l'affichage web.",
+      "shortDescription": "Outil rapide et précis pour lecteur & scanner de code-barres en ligne.",
+      "keywords": [
+        "lecteur & scanner de code-barres en ligne",
+        "lecteur & scanner de code-barres en ligne gratuit",
+        "generateur code barre",
+        "creer qr code gratuit"
+      ],
+      "faqs": [
+        {
+          "q": "Comment fonctionne Lecteur & Scanner de Code-Barres en Ligne ?",
+          "a": "Entrez vos données, prévisualisez instantanément le code généré et téléchargez-le au format SVG ou PNG net."
+        }
+      ]
+    }
+  }
+}

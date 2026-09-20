@@ -1,0 +1,77 @@
+{
+  "header": {
+    "browseTools": "Explorar herramientas",
+    "about": "Acerca de",
+    "searchPlaceholder": "Buscar entre 156 herramientas...",
+    "noResults": "No se encontraron herramientas para"
+  },
+  "footer": {
+    "copyright": "© {year} Alee Tools. Herramientas en línea rápidas, confiables y gratuitas.",
+    "disclaimer": "Alee es independiente y no está afiliado a ninguna plataforma mencionada."
+  },
+  "home": {
+    "badge": "Instantáneo y de alto rendimiento • Taller digital gratuito",
+    "heroTitle": "Un taller digital de herramientas pequeñas y rápidas que hacen el trabajo.",
+    "heroSubtitle": "156 herramientas utilitarias para imágenes, PDF, código, códigos QR y redes sociales. Resultados instantáneos, sin cuentas, sin suscripciones.",
+    "searchPlaceholder": "Buscar entre 156 herramientas gratuitas (ej. «redimensionar», «pdf», «json»)...",
+    "exploreByCategory": "Explorar por categoría:",
+    "popularTools": "Herramientas populares",
+    "viewAllTools": "Ver las 156 herramientas",
+    "fiveWorkbenches": "Cinco talleres especializados",
+    "workbenchSubtitle": "Elige la herramienta que necesitas, obtén tu resultado en segundos.",
+    "builtForSpeed": "Diseñado para velocidad y simplicidad",
+    "builtForSpeedSubtitle": "Por qué Alee ofrece una experiencia más rápida, limpia y confiable.",
+    "threeSteps": "Tres pasos sencillos",
+    "threeStepsSubtitle": "Sin instaladores, sin verificaciones de cuenta, sin tiempos de espera.",
+    "step1Title": "Elige tu herramienta",
+    "step1Desc": "Busca o navega entre 156 herramientas especializadas organizadas en cinco categorías intuitivas.",
+    "step2Title": "Sube un archivo o ingresa datos",
+    "step2Desc": "Selecciona tu imagen, PDF o pega texto. El procesamiento automatizado transforma tus archivos en segundos.",
+    "step3Title": "Descarga tu resultado",
+    "step3Desc": "Copia o descarga tus archivos finalizados instantáneamente, sin límites ni marcas de agua."
+  },
+  "features": {
+    "instantExecution": "Ejecución instantánea",
+    "instantExecutionDesc": "Procesamiento acelerado por hardware que entrega resultados en milisegundos, sin retrasos.",
+    "noAccounts": "Sin cuentas, sin fricciones",
+    "noAccountsDesc": "No necesitas email, registro ni esperar. Acceso inmediato a cada herramienta.",
+    "zeroWatermarks": "Cero marcas de agua",
+    "zeroWatermarksDesc": "Tus creaciones y documentos permanecen limpios y profesionales. Nunca agregamos logos.",
+    "freeForever": "Gratis para siempre",
+    "freeForeverDesc": "Las 156 herramientas son accesibles gratuitamente, sin suscripciones ni funciones de pago ocultas."
+  },
+  "tools": {
+    "instantAccess": "Acceso instantáneo",
+    "toolsAvailable": "{count} herramientas disponibles",
+    "browseBySubcategory": "Explorar por subcategoría",
+    "allToolsIn": "Todas las herramientas de {name}",
+    "totalTools": "{count} herramientas en total",
+    "toolsInSection": "Herramientas en esta sección",
+    "openWorkbench": "Abrir taller",
+    "relatedTools": "Herramientas relacionadas",
+    "howToUse": "Cómo usar",
+    "faq": "Preguntas frecuentes",
+    "tool": "Herramienta"
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "tools": "Herramientas"
+  },
+  "common": {
+    "home": "Inicio",
+    "tools": "Herramientas",
+    "about": "Acerca de",
+    "privacy": "Privacidad",
+    "contact": "Contacto",
+    "image": "Imagen",
+    "pdf": "PDF",
+    "developer": "Desarrollador",
+    "qr": "QR"
+  },
+  "meta": {
+    "homeTitle": "Alee Tools – 156 herramientas en línea gratuitas y rápidas",
+    "homeDescription": "156 herramientas utilitarias gratuitas e instantáneas para creadores, estudiantes y desarrolladores. Redimensionadores de imágenes, herramientas PDF, formateadores JSON, generadores de códigos QR — sin registro, sin paywall.",
+    "toolsTitle": "Las 156 herramientas gratuitas – Directorio completo | Alee Tools",
+    "toolsDescription": "Explora 156 herramientas gratuitas del lado del cliente. Redimensionadores de imágenes, convertidores PDF, formateadores para desarrolladores, generadores de códigos QR y calculadoras."
+  }
+}
