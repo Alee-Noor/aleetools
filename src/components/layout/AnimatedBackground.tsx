@@ -17,7 +17,7 @@ export function AnimatedBackground() {
 
       {/* 3. Dynamic Diagonal Vector Line Laser Beams */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-70 dark:opacity-85"
+        className="absolute inset-0 h-full w-full opacity-70 dark:opacity-85 pointer-events-none overflow-hidden"
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>

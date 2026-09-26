@@ -159,7 +159,7 @@ export async function buildSubcategoryMetadata(
 
 // ─── JSON-LD BUILDERS ───────────────────────────────────────────
 
-export async function buildToolJsonLd(tool: Tool, locale: Locale = DEFAULT_LOCALE) {
+export async function buildToolJsonLd(tool: Tool, locale: Locale = DEFAULT_LOCALE, steps?: string[]) {
   const toolPath = getToolUrl(tool);
   const url = `${BASE_URL}${getLocalizedPath(locale, toolPath)}`;
   const seo = await getToolSeoTranslation(locale, tool.slug);
@@ -175,13 +175,21 @@ export async function buildToolJsonLd(tool: Tool, locale: Locale = DEFAULT_LOCAL
     url,
     applicationCategory: 'UtilitiesApplication',
     inLanguage: locale,
-    operatingSystem: 'Any (runs in browser)',
+    operatingSystem: 'Any (runs in modern browser)',
+    browserRequirements: 'Requires JavaScript. Supported in Chrome, Safari, Firefox, Edge, and mobile browsers.',
+    softwareVersion: '2.0',
+    featureList: '100% Client-Side Processing, Zero File Uploads, Instant Execution, Free Forever',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
     },
     description,
+    author: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: BASE_URL,
+    },
   };
 
   const faqPage = faqs && faqs.length > 0 ? {
@@ -197,7 +205,19 @@ export async function buildToolJsonLd(tool: Tool, locale: Locale = DEFAULT_LOCAL
     })),
   } : null;
 
-  return { softwareApp, faqPage };
+  const howToSchema = steps && steps.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to use ${name}`,
+    description: `Step-by-step instructions to use ${name} securely in your browser.`,
+    step: steps.map((step, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      text: step,
+    })),
+  } : null;
+
+  return { softwareApp, faqPage, howToSchema };
 }
 
 export function buildBreadcrumbJsonLd(items: { name: string; url: string }[]) {

@@ -8,6 +8,7 @@ const BASE = 'https://alee.software';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
+  const now = new Date();
 
   // 1. Static Pages
   const staticPaths = ['', '/tools', '/about', '/privacy', '/contact'];
@@ -17,7 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       entries.push({
         url: `${BASE}${getLocalizedPath(locale, path)}`,
         changeFrequency: 'weekly',
-        priority: path === '' ? (locale === 'en' ? 1.0 : 0.9) : 0.7,
+        priority: path === '' ? (locale === 'en' ? 1.0 : 0.9) : (path === '/tools' ? 0.9 : 0.6),
+        lastModified: now,
         alternates,
       });
     }
@@ -32,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE}${getLocalizedPath(locale, path)}`,
         changeFrequency: 'weekly',
         priority: 0.8,
+        lastModified: now,
         alternates,
       });
     }
@@ -46,13 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE}${getLocalizedPath(locale, path)}`,
         changeFrequency: 'weekly',
         priority: 0.7,
+        lastModified: now,
         alternates,
       });
     }
   }
 
   // 4. Tool Pages
-  const now = new Date();
   for (const tool of tools) {
     const path = getToolUrl(tool);
     const alternates = { languages: buildHreflangAlternates(path) };

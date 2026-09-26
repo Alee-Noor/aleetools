@@ -281,20 +281,53 @@ export async function addPageNumbersPdf(
 /**
  * Read PDF metadata and page count
  */
-export async function getPdfInfo(file: File): Promise<PdfInfo> {
-  const fileBytes = await file.arrayBuffer();
-  const doc = await PDFDocument.load(fileBytes);
-
-  return {
-    pageCount: doc.getPageCount(),
-    title: doc.getTitle() || 'Untitled',
-    author: doc.getAuthor() || 'Unknown',
-    subject: doc.getSubject() || 'None',
-    creator: doc.getCreator() || 'Unknown',
-    producer: doc.getProducer() || 'Unknown',
-    creationDate: doc.getCreationDate()?.toLocaleString() || 'Unknown',
-    modificationDate: doc.getModificationDate()?.toLocaleString() || 'Unknown',
-  };
+export async function getPdfInfo(file: File | Uint8Array): Promise<PdfInfo> {
+  const fileBytes = file instanceof Uint8Array ? file : await file.arrayBuffer();
+  try {
+    const doc = await PDFDocument.load(fileBytes, { ignoreEncryption: true });
+    return {
+      pageCount: doc.getPageCount(),
+      title: doc.getTitle() || 'Untitled',
+      author: doc.getAuthor() || 'Unknown',
+      subject: doc.getSubject() || 'None',
+      creator: doc.getCreator() || 'Unknown',
+      producer: doc.getProducer() || 'Unknown',
+      creationDate: doc.getCreationDate()?.toLocaleString() || 'Unknown',
+      modificationDate: doc.getModificationDate()?.toLocaleString() || 'Unknown',
+    };
+  } catch (pdfLibErr) {
+    console.warn('PDFDocument.load failed in getPdfInfo, falling back to pdfjs-dist:', pdfLibErr);
+    try {
+      const pdfjsLib = await import('pdfjs-dist');
+      if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
+      }
+      const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(fileBytes) });
+      const pdfDoc = await loadingTask.promise;
+      return {
+        pageCount: pdfDoc.numPages,
+        title: 'Untitled',
+        author: 'Unknown',
+        subject: 'None',
+        creator: 'Unknown',
+        producer: 'Unknown',
+        creationDate: 'Unknown',
+        modificationDate: 'Unknown',
+      };
+    } catch (err2) {
+      console.error('All PDF parsing failed in getPdfInfo:', err2);
+      return {
+        pageCount: 1,
+        title: 'Untitled',
+        author: 'Unknown',
+        subject: 'None',
+        creator: 'Unknown',
+        producer: 'Unknown',
+        creationDate: 'Unknown',
+        modificationDate: 'Unknown',
+      };
+    }
+  }
 }
 
 /**
@@ -567,7 +600,7 @@ export interface PdfThumbnail {
  * Fast client-side rendering of PDF page thumbnails for visual selection cards
  */
 export async function renderPdfThumbnails(
-  file: File,
+  file: File | Uint8Array,
   maxPages: number = 100,
   scale: number = 0.55
 ): Promise<PdfThumbnail[]> {
@@ -575,8 +608,11 @@ export async function renderPdfThumbnails(
   if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
   }
-  const arrayBuffer = await file.arrayBuffer();
-  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  const data =
+    file instanceof Uint8Array
+      ? file
+      : new Uint8Array(await file.arrayBuffer());
+  const loadingTask = pdfjsLib.getDocument({ data });
   const pdfDoc = await loadingTask.promise;
   const total = Math.min(pdfDoc.numPages, maxPages);
   const thumbnails: PdfThumbnail[] = [];
@@ -608,7 +644,7 @@ export async function renderPdfThumbnails(
  * Render a single high-resolution PDF page for the enlargement modal inspection
  */
 export async function renderSinglePdfPage(
-  file: File,
+  file: File | Uint8Array,
   pageNumber: number,
   scale: number = 1.8
 ): Promise<PdfThumbnail> {
@@ -616,8 +652,11 @@ export async function renderSinglePdfPage(
   if (!pdfjsLib.GlobalWorkerOptions.workerSrc) {
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js`;
   }
-  const arrayBuffer = await file.arrayBuffer();
-  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  const data =
+    file instanceof Uint8Array
+      ? file
+      : new Uint8Array(await file.arrayBuffer());
+  const loadingTask = pdfjsLib.getDocument({ data });
   const pdfDoc = await loadingTask.promise;
   const page = await pdfDoc.getPage(pageNumber);
   const viewport = page.getViewport({ scale });

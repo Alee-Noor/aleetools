@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, Layers, Sparkles, Folder } from 'lucide-react';
+import { ArrowRight, Layers, Sparkles, Folder, ShieldCheck, Lock, Zap, CheckCircle2, HelpCircle } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import {
@@ -228,6 +228,57 @@ export async function CategoryView({ categorySlug, locale = DEFAULT_LOCALE }: Ca
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* Category Educational & Security Guide */}
+        <section className="mt-16 sm:mt-24 rounded-[20px] border p-6 sm:p-10 space-y-8" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+          <div className="max-w-3xl space-y-3">
+            <div className="inline-flex items-center gap-2 rounded-[10px] px-3.5 py-1 text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300">
+              <ShieldCheck size={14} />
+              <span>In-Browser Client Execution Guarantee</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: 'var(--ink)' }}>
+              About the {catDisplayName} Collection
+            </h2>
+            <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              The {catDisplayName} collection at Alee Tools provides {categoryTools.length} dedicated single-purpose utilities built to solve specific challenges quickly and accurately. Whether you need to compress media, parse complex formats, or generate assets for production, every operation executes 100% locally in your web browser.
+            </p>
+            <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              Unlike competitor tools that send your proprietary files to remote cloud servers, our architecture relies on client-side WebAssembly, HTML5 Canvas, and modern browser standards. Zero files are uploaded, zero data is stored, and your work remains completely confidential.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+            <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+              <div className="p-2 rounded-[8px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 w-fit">
+                <Lock size={16} />
+              </div>
+              <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Private & Secure</h3>
+              <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                Your data stays in your browser memory. Ideal for confidential documents, sensitive code, and private media.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+              <div className="p-2 rounded-[8px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 w-fit">
+                <Zap size={16} />
+              </div>
+              <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Hardware Accelerated</h3>
+              <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                Calculated on your local device for instant results without network upload or download bottlenecks.
+              </p>
+            </div>
+
+            <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+              <div className="p-2 rounded-[8px] bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 w-fit">
+                <CheckCircle2 size={16} />
+              </div>
+              <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Free Forever</h3>
+              <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                No hidden subscriptions, no credit card requirements, no account creation, and zero watermarks.
+              </p>
+            </div>
           </div>
         </section>
       </div>

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Lock, Zap, CheckCircle2 } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { ToolPageShell } from '@/components/tools/ToolPageShell';
@@ -177,6 +177,57 @@ export async function DynamicToolOrSubcategoryView({
                     </div>
                   </Link>
                 ))}
+              </div>
+            </section>
+
+            {/* Subcategory Educational & Privacy Architecture */}
+            <section className="mt-16 sm:mt-24 rounded-[20px] border p-6 sm:p-10 space-y-8" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+              <div className="max-w-3xl space-y-3">
+                <div className="inline-flex items-center gap-2 rounded-[10px] px-3.5 py-1 text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300">
+                  <ShieldCheck size={14} />
+                  <span>100% In-Browser Privacy Standards</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: 'var(--ink)' }}>
+                  Why Use {subDisplayName} on Alee Tools?
+                </h2>
+                <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                  The {subDisplayName} suite includes {subcategoryTools.length} focused browser-based tools designed to eliminate tedious file handling. Each tool runs locally on your machine using modern web standards including WebAssembly, Web Workers, and the HTML5 Canvas API.
+                </p>
+                <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                  Unlike cloud-based services that upload your personal data to remote servers, Alee Tools guarantees total client-side privacy. Your files never cross the network, zero logs are created, and your work completes in milliseconds with zero paywalls.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+                <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+                  <div className="p-2 rounded-[8px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 w-fit">
+                    <Lock size={16} />
+                  </div>
+                  <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Zero File Uploads</h3>
+                  <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                    Operations are isolated to your local browser session. Complete confidentiality guaranteed.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+                  <div className="p-2 rounded-[8px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 w-fit">
+                    <Zap size={16} />
+                  </div>
+                  <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Instant Speed</h3>
+                  <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                    Bypasses network bandwidth bottlenecks for instant conversions and calculations.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-[14px] border space-y-2 bg-stone-50/50 dark:bg-stone-900/30" style={{ borderColor: 'var(--border)' }}>
+                  <div className="p-2 rounded-[8px] bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 w-fit">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Free Forever</h3>
+                  <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+                    No subscription plans, no registration requirements, and no watermarks on your files.
+                  </p>
+                </div>
               </div>
             </section>
           </div>

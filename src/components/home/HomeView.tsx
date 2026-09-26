@@ -24,6 +24,9 @@ import {
   getToolCount,
   getCategoryUrl,
   getToolUrl,
+  getToolsByCategory,
+  getSubcategoriesByCategory,
+  getSubcategoryUrl,
 } from '@/lib/tool-registry';
 import { buildWebsiteJsonLd } from '@/lib/seo';
 import { type Locale, DEFAULT_LOCALE, getLocalizedPath } from '@/lib/i18n';
@@ -254,6 +257,144 @@ export async function HomeView({ locale = DEFAULT_LOCALE }: { locale?: Locale })
                     </div>
                   </ClayCard>
                 </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ─── 3.5. COMPLETE CRAWLABLE TOOL DIRECTORY (DISCOVERY & INTERNAL LINKING ENGINE) ─── */}
+        <section className="space-y-8" id="tools-directory">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <div
+                className="inline-flex items-center gap-2 rounded-[10px] px-3.5 py-1 text-xs font-bold uppercase tracking-wider mb-2"
+                style={{
+                  background: 'var(--color-accent-primary-soft)',
+                  color: 'var(--color-accent-primary)',
+                }}
+              >
+                <Layers size={13} />
+                <span>Full Directory • 156 In-Browser Tools</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2" style={{ color: 'var(--ink)' }}>
+                Complete Directory of All 156 Free Utility Tools
+              </h2>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--ink-soft)' }}>
+                Zero paywalls, zero accounts, and zero file uploads. Every utility runs directly inside your browser memory for maximum privacy and speed.
+              </p>
+            </div>
+            <Link
+              href={getLocalizedPath(locale, '/tools')}
+              className="text-xs sm:text-sm font-semibold flex items-center gap-1 hover:underline shrink-0"
+              style={{ color: 'var(--color-accent-primary)' }}
+            >
+              <span>{t(locale, 'home.viewAllTools')} (156)</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="space-y-6">
+            {categories.map((cat) => {
+              const catTools = getToolsByCategory(cat.slug);
+              const catSubs = getSubcategoriesByCategory(cat.slug);
+              const flatTools = catTools.filter((t) => !t.subcategory);
+              const IconComp = categoryIconMap[cat.slug] || Layers;
+
+              return (
+                <div
+                  key={cat.slug}
+                  className="rounded-[20px] border p-6 sm:p-8 space-y-6 shadow-sm transition-all"
+                  style={{
+                    background: 'var(--surface)',
+                    borderColor: 'var(--border)',
+                  }}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style={{ borderColor: 'var(--border)' }}>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="flex h-10 w-10 items-center justify-center rounded-[10px] text-white shadow-sm shrink-0"
+                        style={{ background: `var(--color-${cat.color})` }}
+                      >
+                        <IconComp size={20} />
+                      </div>
+                      <div>
+                        <Link
+                          href={getLocalizedPath(locale, getCategoryUrl(cat))}
+                          className="text-lg sm:text-xl font-bold hover:underline no-underline"
+                          style={{ color: 'var(--ink)' }}
+                        >
+                          {cat.name}
+                        </Link>
+                        <p className="text-xs text-stone-500 font-medium">
+                          {cat.description}
+                        </p>
+                      </div>
+                    </div>
+                    <Link
+                      href={getLocalizedPath(locale, getCategoryUrl(cat))}
+                      className="text-xs font-bold hover:underline flex items-center gap-1"
+                      style={{ color: `var(--color-${cat.color})` }}
+                    >
+                      <span>Explore Category</span>
+                      <ArrowRight size={12} />
+                    </Link>
+                  </div>
+
+                  {/* Subcategories grouping */}
+                  {catSubs.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {catSubs.map((sub) => {
+                        const subTools = catTools.filter((t) => t.subcategory === sub.slug);
+                        return (
+                          <div key={sub.slug} className="space-y-2.5">
+                            <Link
+                              href={getLocalizedPath(locale, getSubcategoryUrl(sub))}
+                              className="text-xs font-bold uppercase tracking-wider block hover:underline no-underline"
+                              style={{ color: `var(--color-${cat.color})` }}
+                            >
+                              {sub.name}
+                            </Link>
+                            <ul className="space-y-1.5 list-none p-0 m-0">
+                              {subTools.map((tool) => (
+                                <li key={tool.slug}>
+                                  <Link
+                                    href={getLocalizedPath(locale, getToolUrl(tool))}
+                                    className="text-xs font-medium no-underline hover:underline flex items-center gap-1.5 group py-0.5"
+                                    style={{ color: 'var(--ink)' }}
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-600 group-hover:bg-emerald-600 transition-colors shrink-0" />
+                                    <span className="group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-1">
+                                      {tool.name}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Flat tools list (e.g. PDF Toolkit) */}
+                  {flatTools.length > 0 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                      {flatTools.map((tool) => (
+                        <Link
+                          key={tool.slug}
+                          href={getLocalizedPath(locale, getToolUrl(tool))}
+                          className="flex items-center gap-2 p-2.5 rounded-[10px] border border-black/5 dark:border-white/5 hover:border-emerald-500/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 no-underline transition-all group"
+                          style={{ background: 'var(--bg)' }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+                          <span className="text-xs font-medium group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors line-clamp-1" style={{ color: 'var(--ink)' }}>
+                            {tool.name}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   FileText,
   Download,
@@ -38,6 +38,13 @@ import {
   Minimize2,
   Maximize2,
   X,
+  GripVertical,
+  ChevronUp,
+  ChevronDown,
+  ArrowUpDown,
+  FileStack,
+  Files,
+  ListOrdered,
 } from 'lucide-react';
 import { ClayButton } from '@/components/ui/ClayButton';
 import { FileDropzone } from '@/components/ui/FileDropzone';
@@ -118,6 +125,35 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
   // Multi-file state
   const [files, setFiles] = useState<File[]>([]);
 
+  // Merge PDF Drag-and-Drop & Visual Potential PDF state
+  const [mergeFilesMeta, setMergeFilesMeta] = useState<
+    Record<
+      string,
+      {
+        pageCount: number;
+        coverUrl?: string;
+        pages?: { pageNumber: number; dataUrl: string }[];
+        loading: boolean;
+      }
+    >
+  >({});
+  const [draggedFileIdx, setDraggedFileIdx] = useState<number | null>(null);
+  const [dragOverFileIdx, setDragOverFileIdx] = useState<number | null>(null);
+  const [mergePreviewTab, setMergePreviewTab] = useState<'documents' | 'pages'>('documents');
+  const [mergedResultThumbnails, setMergedResultThumbnails] = useState<PdfThumbnail[]>([]);
+  const [loadingMergedResultThumbs, setLoadingMergedResultThumbs] = useState<boolean>(false);
+  const [inspectMergeModal, setInspectMergeModal] = useState<{
+    title: string;
+    sourceDoc?: string;
+    pageNumber: number;
+    totalPages?: number;
+    dataUrl: string;
+    file?: File;
+    loading?: boolean;
+  } | null>(null);
+  const [mergeInspectZoom, setMergeInspectZoom] = useState<number>(100);
+  const metaLoadedKeysRef = useRef<Set<string>>(new Set());
+
   // Single PDF state
   const [singlePdf, setSinglePdf] = useState<File | null>(null);
   const [pdfInfo, setPdfInfo] = useState<PdfInfo | null>(null);
@@ -182,6 +218,7 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
     setPageJpgImages([]);
     setExtractedText(null);
     setCompressedStats(null);
+    setMergedResultThumbnails([]);
     setErrorMsg(null);
   };
 
@@ -191,15 +228,20 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
       if (e.key === 'Escape') {
         setInspectPageNumber(null);
         setShowFullDocModal(false);
+        setInspectMergeModal(null);
       } else if (inspectPageNumber && e.key === 'ArrowLeft') {
         navigateInspectPage('prev');
       } else if (inspectPageNumber && e.key === 'ArrowRight') {
         navigateInspectPage('next');
+      } else if (inspectMergeModal && e.key === 'ArrowLeft') {
+        navigateMergeInspectPage('prev');
+      } else if (inspectMergeModal && e.key === 'ArrowRight') {
+        navigateMergeInspectPage('next');
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [inspectPageNumber, pdfInfo]);
+  }, [inspectPageNumber, pdfInfo, inspectMergeModal, mergeFilesMeta]);
 
   // Handle files
   const handleFilesSelected = async (selected: File[]) => {
@@ -264,7 +306,155 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
 
   const removeFile = (idx: number) => {
     setFiles((prev) => prev.filter((_, i) => i !== idx));
+    resetResults();
   };
+
+  const getFileKey = (file: File) => `${file.name}_${file.size}_${file.lastModified}`;
+
+  const moveFile = (fromIdx: number, toIdx: number) => {
+    if (fromIdx === toIdx || fromIdx < 0 || toIdx < 0 || fromIdx >= files.length || toIdx >= files.length) return;
+    setFiles((prev) => {
+      const next = [...prev];
+      const [moved] = next.splice(fromIdx, 1);
+      next.splice(toIdx, 0, moved);
+      return next;
+    });
+    resetResults();
+  };
+
+  const moveFileUp = (idx: number) => moveFile(idx, idx - 1);
+  const moveFileDown = (idx: number) => moveFile(idx, idx + 1);
+
+  const reverseFileList = () => {
+    setFiles((prev) => [...prev].reverse());
+    resetResults();
+  };
+
+  const sortFilesByName = () => {
+    setFiles((prev) =>
+      [...prev].sort((a, b) =>
+        a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' })
+      )
+    );
+    resetResults();
+  };
+
+  // Load metadata & cover/page previews for files in Merge mode
+  useEffect(() => {
+    if (!isMerge || files.length === 0) {
+      if (files.length === 0) metaLoadedKeysRef.current.clear();
+      return;
+    }
+
+    files.forEach(async (file) => {
+      const key = getFileKey(file);
+      if (metaLoadedKeysRef.current.has(key)) return;
+      metaLoadedKeysRef.current.add(key);
+
+      try {
+        const info = await getPdfInfo(file);
+        // Pre-render pages for continuous sequence preview (up to 40 pages per file)
+        const thumbs = await renderPdfThumbnails(file, Math.min(info.pageCount, 40), 0.4);
+
+        setMergeFilesMeta((prev) => ({
+          ...prev,
+          [key]: {
+            pageCount: info.pageCount,
+            coverUrl: thumbs[0]?.dataUrl,
+            pages: thumbs.map((t) => ({ pageNumber: t.pageNumber, dataUrl: t.dataUrl })),
+            loading: false,
+          },
+        }));
+      } catch (err) {
+        console.warn('Could not load metadata for merge file:', file.name, err);
+        setMergeFilesMeta((prev) => ({
+          ...prev,
+          [key]: { pageCount: 1, loading: false },
+        }));
+      }
+    });
+  }, [files, isMerge]);
+
+  // Open inspection modal for merge pages with on-demand fallback
+  const openInspectMergePage = async (
+    file: File,
+    pageNum: number,
+    totalDocPages: number,
+    title: string,
+    existingUrl?: string
+  ) => {
+    setMergeInspectZoom(100);
+    setInspectMergeModal({
+      title,
+      sourceDoc: file.name,
+      pageNumber: pageNum,
+      totalPages: totalDocPages,
+      dataUrl: existingUrl || '',
+      file,
+      loading: !existingUrl,
+    });
+
+    if (!existingUrl) {
+      try {
+        const rendered = await renderSinglePdfPage(file, pageNum, 1.8);
+        setInspectMergeModal((prev) =>
+          prev ? { ...prev, dataUrl: rendered.dataUrl, loading: false } : null
+        );
+      } catch (err) {
+        console.warn('Could not render single page for inspection:', err);
+        setInspectMergeModal((prev) =>
+          prev ? { ...prev, loading: false } : null
+        );
+      }
+    }
+  };
+
+  const navigateMergeInspectPage = async (direction: 'prev' | 'next') => {
+    if (!inspectMergeModal || !inspectMergeModal.file) return;
+    const targetPage =
+      direction === 'prev'
+        ? inspectMergeModal.pageNumber - 1
+        : inspectMergeModal.pageNumber + 1;
+    if (targetPage < 1 || (inspectMergeModal.totalPages && targetPage > inspectMergeModal.totalPages)) return;
+
+    const file = inspectMergeModal.file;
+    const key = getFileKey(file);
+    const cachedPage = mergeFilesMeta[key]?.pages?.find((p) => p.pageNumber === targetPage);
+
+    await openInspectMergePage(
+      file,
+      targetPage,
+      inspectMergeModal.totalPages || 1,
+      `${file.name} - Page ${targetPage} of ${inspectMergeModal.totalPages}`,
+      cachedPage?.dataUrl
+    );
+  };
+
+  // Generate visual previews of newly merged PDF output
+  useEffect(() => {
+    if (!isMerge || !resultBytes) {
+      setMergedResultThumbnails([]);
+      return;
+    }
+
+    let isMounted = true;
+    setLoadingMergedResultThumbs(true);
+
+    renderPdfThumbnails(resultBytes, 60, 0.45)
+      .then((thumbs) => {
+        if (isMounted) setMergedResultThumbnails(thumbs);
+      })
+      .catch((err) => {
+        console.warn('Failed to render merged result thumbnails:', err);
+      })
+      .finally(() => {
+        if (isMounted) setLoadingMergedResultThumbs(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [resultBytes, isMerge]);
 
   // ─── Bidirectional Sync: Visual Cards <-> Text Inputs ───
 
@@ -528,7 +718,11 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
 
   const handleDownloadPdf = () => {
     if (!resultBytes) return;
-    const baseName = singlePdf ? singlePdf.name.replace(/\.pdf$/i, '') : 'document';
+    const baseName = singlePdf
+      ? singlePdf.name.replace(/\.pdf$/i, '')
+      : files.length > 0
+      ? files[0].name.replace(/\.pdf$/i, '')
+      : 'document';
     let suffix = '-processed.pdf';
     if (isPasswordProtect) suffix = '-protected.pdf';
     else if (isUnlock) suffix = '-unlocked.pdf';
@@ -539,6 +733,7 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
     else if (isRotate) suffix = '-rotated.pdf';
     else if (isCompress) suffix = '-compressed.pdf';
     else if (isPrintOptimizer) suffix = '-print-ready.pdf';
+    else if (isMerge) suffix = '-merged.pdf';
 
     downloadPdfBytes(resultBytes, `${baseName}${suffix}`);
   };
@@ -567,17 +762,557 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
     setTimeout(() => setCopiedText(false), 2000);
   };
 
+  // Merge Plan Computation
+  let accumulatedMergePages = 0;
+  const mergePlanWithRanges = files.map((file, idx) => {
+    const key = getFileKey(file);
+    const meta = mergeFilesMeta[key];
+    const count = meta?.pageCount || 1;
+    const startPage = accumulatedMergePages + 1;
+    const endPage = accumulatedMergePages + count;
+    accumulatedMergePages = endPage;
+    return {
+      file,
+      key,
+      meta,
+      count,
+      order: idx + 1,
+      startPage,
+      endPage,
+      rangeStr: count === 1 ? `Page ${startPage}` : `Pages ${startPage}–${endPage}`,
+    };
+  });
+  const totalPotentialPages = accumulatedMergePages;
+  const totalPotentialBytes = files.reduce((acc, f) => acc + f.size, 0);
+
   return (
     <div className="space-y-6">
-      {/* 1. Multi-file upload for Image-to-PDF or Merge */}
-      {(isImageToPdf || isMerge) && (
-        <div className="space-y-4">
+      {/* 1. Multi-file upload, Drag & Drop Reordering, and Potential Merged PDF Preview for Merge Tool */}
+      {isMerge && (
+        <div className="space-y-6">
           <FileDropzone
-            accept={isImageToPdf ? 'image/*' : 'application/pdf'}
+            accept="application/pdf"
             multiple
             onFilesSelected={handleFilesSelected}
-            title={isImageToPdf ? 'Select or drop images to convert to PDF' : 'Select or drop PDF files to merge'}
-            subtitle={isImageToPdf ? 'Supports JPG, PNG, WebP, GIF. Multiple images supported.' : 'Select 2 or more PDF documents.'}
+            title="Select or drop PDF files to merge"
+            subtitle="Browser-side instant merge • Rearrange & preview visual document flow before merging"
+          />
+
+          {files.length > 0 && (
+            <div
+              className="space-y-4 p-5 sm:p-6 rounded-[18px] border shadow-sm"
+              style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}
+            >
+              {/* Header with Title and Quick Reorder Actions */}
+              <div
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <div className="space-y-0.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm sm:text-base font-bold" style={{ color: 'var(--ink)' }}>
+                      Merge Sequence ({files.length} {files.length === 1 ? 'Document' : 'Documents'})
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold text-xs">
+                      {totalPotentialPages} Total Pages
+                    </span>
+                  </div>
+                  <p className="text-xs text-stone-500">
+                    Drag cards using the handle <span className="font-semibold">⠿</span> or click arrows to change order. Document #1 will be first in the merged PDF.
+                  </p>
+                </div>
+
+                {/* Quick Actions */}
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={reverseFileList}
+                    disabled={files.length < 2}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-[8px] border text-xs font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-all"
+                    style={{ borderColor: 'var(--border)' }}
+                    title="Reverse the order of all uploaded PDFs"
+                  >
+                    <ArrowUpDown size={13} />
+                    <span>Reverse</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={sortFilesByName}
+                    disabled={files.length < 2}
+                    className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-[8px] border text-xs font-semibold text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-all"
+                    style={{ borderColor: 'var(--border)' }}
+                    title="Sort files alphabetically by name (A to Z)"
+                  >
+                    <ListOrdered size={13} />
+                    <span>Sort A-Z</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFiles([]);
+                      resetResults();
+                    }}
+                    className="px-2.5 py-1.5 rounded-[8px] text-xs text-stone-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 font-medium transition-all"
+                  >
+                    Clear all
+                  </button>
+                </div>
+              </div>
+
+              {/* Draggable Document Cards */}
+              <div className="space-y-2.5">
+                {mergePlanWithRanges.map((planItem, idx) => {
+                  const isDragging = draggedFileIdx === idx;
+                  const isDragTarget = dragOverFileIdx === idx && draggedFileIdx !== idx;
+
+                  return (
+                    <div
+                      key={`merge-file-${planItem.file.name}-${idx}`}
+                      draggable
+                      onDragStart={(e) => {
+                        setDraggedFileIdx(idx);
+                        e.dataTransfer.effectAllowed = 'move';
+                        e.dataTransfer.setData('text/plain', String(idx));
+                      }}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.dataTransfer.dropEffect = 'move';
+                        if (dragOverFileIdx !== idx) setDragOverFileIdx(idx);
+                      }}
+                      onDragLeave={() => {
+                        if (dragOverFileIdx === idx) setDragOverFileIdx(null);
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        const sourceIdx = draggedFileIdx ?? parseInt(e.dataTransfer.getData('text/plain'), 10);
+                        if (!isNaN(sourceIdx) && sourceIdx !== idx) {
+                          moveFile(sourceIdx, idx);
+                        }
+                        setDraggedFileIdx(null);
+                        setDragOverFileIdx(null);
+                      }}
+                      onDragEnd={() => {
+                        setDraggedFileIdx(null);
+                        setDragOverFileIdx(null);
+                      }}
+                      className={`group relative flex items-center justify-between p-3 sm:p-4 rounded-[14px] border transition-all duration-200 select-none ${
+                        isDragging
+                          ? 'opacity-40 border-dashed border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20 scale-[0.98]'
+                          : isDragTarget
+                          ? 'ring-2 ring-emerald-500 border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/40 scale-[1.01] shadow-md'
+                          : 'bg-stone-50/90 dark:bg-stone-800/60 border-stone-200 dark:border-stone-700/80 hover:border-stone-300 dark:hover:border-stone-600 shadow-xs'
+                      }`}
+                    >
+                      {/* Left: Drag Handle + Order Badge + Cover Thumbnail + File Info */}
+                      <div className="flex items-center gap-3 sm:gap-3.5 min-w-0 flex-1">
+                        {/* Drag Handle */}
+                        <div
+                          className="cursor-grab active:cursor-grabbing p-1 text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-200 transition-colors shrink-0"
+                          title="Drag to reorder merge sequence"
+                        >
+                          <GripVertical size={18} />
+                        </div>
+
+                        {/* Order Position Badge */}
+                        <span className="h-6 w-6 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                          #{planItem.order}
+                        </span>
+
+                        {/* Document Cover Thumbnail */}
+                        <div
+                          onClick={() => {
+                            openInspectMergePage(
+                              planItem.file,
+                              1,
+                              planItem.count,
+                              `${planItem.file.name} - Page 1 of ${planItem.count}`,
+                              planItem.meta?.coverUrl
+                            );
+                          }}
+                          className="relative group/thumb cursor-pointer overflow-hidden rounded-[6px] border border-stone-200 dark:border-stone-700 shadow-xs w-[40px] h-[54px] sm:w-[46px] sm:h-[62px] shrink-0 bg-white dark:bg-stone-900 flex items-center justify-center hover:ring-2 hover:ring-emerald-500 transition-all"
+                          title="Click to view and inspect pages"
+                        >
+                          {planItem.meta?.coverUrl ? (
+                            <>
+                              <img
+                                src={planItem.meta.coverUrl}
+                                alt={planItem.file.name}
+                                className="w-full h-full object-cover"
+                              />
+                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/thumb:opacity-100 flex items-center justify-center text-white transition-opacity">
+                                <Eye size={14} />
+                              </div>
+                            </>
+                          ) : planItem.meta?.loading ? (
+                            <RefreshCw size={14} className="animate-spin text-stone-400" />
+                          ) : (
+                            <FileText size={22} className="text-red-500" />
+                          )}
+                        </div>
+
+                        {/* File Details */}
+                        <div className="min-w-0 space-y-1">
+                          <h5
+                            className="font-bold text-xs sm:text-sm truncate max-w-xs sm:max-w-md"
+                            style={{ color: 'var(--ink)' }}
+                            title={planItem.file.name}
+                          >
+                            {planItem.file.name}
+                          </h5>
+                          <div className="flex flex-wrap items-center gap-2 text-xs">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                openInspectMergePage(
+                                  planItem.file,
+                                  1,
+                                  planItem.count,
+                                  `${planItem.file.name} - Page 1 of ${planItem.count}`,
+                                  planItem.meta?.coverUrl
+                                );
+                              }}
+                              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 hover:bg-emerald-600 text-emerald-700 dark:text-emerald-300 hover:text-white font-bold text-[11px] transition-all cursor-pointer"
+                              title="Click to view and inspect pages of this document"
+                            >
+                              <Eye size={11} />
+                              <span>{planItem.count} {planItem.count === 1 ? 'Page' : 'Pages'} • View Pages</span>
+                            </button>
+                            <span className="text-stone-500 text-[11px]">
+                              {(planItem.file.size / 1024).toFixed(1)} KB
+                            </span>
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-700/60 text-stone-700 dark:text-stone-200 font-mono text-[11px] font-semibold">
+                              Merged: {planItem.rangeStr}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Reorder Controls (Up/Down) & Remove Button */}
+                      <div className="flex items-center gap-1 shrink-0 ml-3">
+                        <button
+                          type="button"
+                          disabled={idx === 0}
+                          onClick={() => moveFileUp(idx)}
+                          className="p-1.5 sm:p-2 rounded-[8px] text-stone-500 hover:text-emerald-600 hover:bg-stone-200 dark:hover:bg-stone-700 disabled:opacity-25 transition-all"
+                          title="Move Earlier in Merge Sequence (Up)"
+                        >
+                          <ChevronUp size={16} />
+                        </button>
+
+                        <button
+                          type="button"
+                          disabled={idx === files.length - 1}
+                          onClick={() => moveFileDown(idx)}
+                          className="p-1.5 sm:p-2 rounded-[8px] text-stone-500 hover:text-emerald-600 hover:bg-stone-200 dark:hover:bg-stone-700 disabled:opacity-25 transition-all"
+                          title="Move Later in Merge Sequence (Down)"
+                        >
+                          <ChevronDown size={16} />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => removeFile(idx)}
+                          className="p-1.5 sm:p-2 rounded-[8px] text-stone-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all ml-1"
+                          title="Remove this document from merge"
+                        >
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {files.length === 1 && (
+                <div className="p-3.5 rounded-[12px] bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 text-amber-800 dark:text-amber-200 text-xs flex items-center gap-2">
+                  <Info size={16} className="shrink-0 text-amber-600" />
+                  <span>
+                    Upload at least 1 more PDF document to combine. Once added, you can drag and drop them to change the merge ordering.
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ─────────────────────────────────────────────────────────────
+              LIVE PREVIEW OF POTENTIAL MERGED PDF
+              ───────────────────────────────────────────────────────────── */}
+          {files.length >= 2 && (
+            <div
+              className="p-5 sm:p-6 rounded-[18px] border shadow-sm space-y-5"
+              style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}
+            >
+              {/* Header */}
+              <div
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <div className="h-7 w-7 rounded-[8px] bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+                      <Sparkles size={16} />
+                    </div>
+                    <h4 className="text-sm sm:text-base font-bold" style={{ color: 'var(--ink)' }}>
+                      Visual Potential Merged PDF Preview
+                    </h4>
+                  </div>
+                  <p className="text-xs text-stone-500">
+                    Live visual simulation of your assembled document before merging. Order reflects your arrangement above.
+                  </p>
+                </div>
+
+                {/* View Mode Switcher */}
+                <div
+                  className="flex items-center p-1 rounded-[10px] bg-stone-100 dark:bg-stone-800/80 border text-xs"
+                  style={{ borderColor: 'var(--border)' }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setMergePreviewTab('documents')}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[7px] font-semibold transition-all ${
+                      mergePreviewTab === 'documents'
+                        ? 'bg-white dark:bg-stone-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                        : 'text-stone-500 hover:text-stone-800 dark:hover:text-stone-200'
+                    }`}
+                  >
+                    <FileStack size={14} />
+                    <span>Document Flow</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setMergePreviewTab('pages')}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-[7px] font-semibold transition-all ${
+                      mergePreviewTab === 'pages'
+                        ? 'bg-white dark:bg-stone-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
+                        : 'text-stone-500 hover:text-stone-800 dark:hover:text-stone-200'
+                    }`}
+                  >
+                    <Layers size={14} />
+                    <span>Page-by-Page Sequence ({totalPotentialPages})</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Metrics Summary Strip */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="p-3 rounded-[12px] bg-stone-100/70 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-800 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-stone-500">Documents</span>
+                  <p className="text-base font-extrabold" style={{ color: 'var(--ink)' }}>{files.length} PDFs</p>
+                </div>
+                <div className="p-3 rounded-[12px] bg-stone-100/70 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-800 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-stone-500">Combined Pages</span>
+                  <p className="text-base font-extrabold text-emerald-600 dark:text-emerald-400">{totalPotentialPages} Pages</p>
+                </div>
+                <div className="p-3 rounded-[12px] bg-stone-100/70 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-800 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-stone-500">Combined Size</span>
+                  <p className="text-base font-extrabold" style={{ color: 'var(--ink)' }}>
+                    {totalPotentialBytes > 1024 * 1024
+                      ? `${(totalPotentialBytes / (1024 * 1024)).toFixed(2)} MB`
+                      : `${(totalPotentialBytes / 1024).toFixed(0)} KB`}
+                  </p>
+                </div>
+                <div className="p-3 rounded-[12px] bg-stone-100/70 dark:bg-stone-800/40 border border-stone-200 dark:border-stone-800 space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider font-bold text-stone-500">First Document</span>
+                  <p className="text-xs font-bold truncate" style={{ color: 'var(--ink)' }}>{files[0]?.name}</p>
+                </div>
+              </div>
+
+              {/* View 1: Document Sequence Flow */}
+              {mergePreviewTab === 'documents' && (
+                <div className="space-y-3">
+                  <div className="text-xs font-semibold text-stone-500 flex items-center justify-between">
+                    <span>Sequential Order Pipeline</span>
+                    <span className="text-[11px] text-emerald-600 dark:text-emerald-400">Click cover to inspect</span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 py-2">
+                    {mergePlanWithRanges.map((item, idx) => (
+                      <div key={`flow-${item.key}-${idx}`} className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 p-3 rounded-[14px] bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-emerald-500 transition-all max-w-[240px]">
+                          <div
+                            className="relative cursor-pointer overflow-hidden rounded border border-stone-200 dark:border-stone-700 w-12 h-16 shrink-0 bg-stone-50 dark:bg-stone-800 flex items-center justify-center hover:ring-2 hover:ring-emerald-500 transition-all"
+                            onClick={() => {
+                              openInspectMergePage(
+                                item.file,
+                                1,
+                                item.count,
+                                `${item.file.name} - Page 1 of ${item.count}`,
+                                item.meta?.coverUrl
+                              );
+                            }}
+                            title="Click to view and inspect pages"
+                          >
+                            {item.meta?.coverUrl ? (
+                              <img src={item.meta.coverUrl} alt={item.file.name} className="w-full h-full object-cover" />
+                            ) : (
+                              <FileText size={22} className="text-stone-400" />
+                            )}
+                            <span className="absolute bottom-1 right-1 px-1 py-0.2 rounded bg-black/75 text-white font-mono text-[9px] font-bold">
+                              #{item.order}
+                            </span>
+                          </div>
+                          <div className="min-w-0 space-y-1">
+                            <span className="font-bold text-xs truncate block" style={{ color: 'var(--ink)' }}>
+                              {item.file.name}
+                            </span>
+                            <span className="inline-block px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold text-[10px]">
+                              {item.rangeStr}
+                            </span>
+                            <span className="text-[10px] text-stone-500 block">
+                              {item.count} {item.count === 1 ? 'page' : 'pages'}
+                            </span>
+                          </div>
+                        </div>
+
+                        {idx < mergePlanWithRanges.length - 1 && (
+                          <div className="text-stone-400 dark:text-stone-600 shrink-0">
+                            <ArrowRight size={18} className="stroke-[2.5]" />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* View 2: Continuous Page-by-Page Sequence */}
+              {mergePreviewTab === 'pages' && (
+                <div className="space-y-3">
+                  <div className="text-xs font-semibold text-stone-500 flex items-center justify-between">
+                    <span>Continuous Merged Document Flow</span>
+                    <span className="text-[11px] text-emerald-600 dark:text-emerald-400">Click any page to zoom</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 pt-1">
+                    {(() => {
+                      let globalMergedPage = 1;
+                      const pageCards: React.ReactNode[] = [];
+
+                      for (let fileIdx = 0; fileIdx < mergePlanWithRanges.length; fileIdx++) {
+                        const planItem = mergePlanWithRanges[fileIdx];
+                        const pages = planItem.meta?.pages || [];
+
+                        if (pages.length > 0) {
+                          pages.forEach((p) => {
+                            const currentMergedPageNum = globalMergedPage;
+                            pageCards.push(
+                              <div
+                                key={`potential-p-${planItem.key}-${p.pageNumber}`}
+                                onClick={() => {
+                                  openInspectMergePage(
+                                    planItem.file,
+                                    p.pageNumber,
+                                    planItem.count,
+                                    `Merged Page #${currentMergedPageNum} • ${planItem.file.name} (p. ${p.pageNumber})`,
+                                    p.dataUrl
+                                  );
+                                }}
+                                className="group relative flex flex-col justify-between p-2 rounded-[12px] bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xs hover:border-emerald-500 hover:shadow-md cursor-pointer transition-all"
+                              >
+                                <div className="flex items-center justify-between pb-1.5 px-0.5 text-[10px]">
+                                  <span className="font-extrabold text-emerald-700 dark:text-emerald-300">
+                                    Page {currentMergedPageNum}
+                                  </span>
+                                  <span className="text-stone-400 font-medium">Doc #{planItem.order}</span>
+                                </div>
+
+                                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-md border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 flex items-center justify-center">
+                                  <img
+                                    src={p.dataUrl}
+                                    alt={`Merged Page ${currentMergedPageNum}`}
+                                    className="max-h-full max-w-full object-contain"
+                                  />
+                                  <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity">
+                                    <ZoomIn size={16} />
+                                  </div>
+                                </div>
+
+                                <div className="pt-1.5 px-0.5">
+                                  <p className="text-[10px] text-stone-500 truncate" title={planItem.file.name}>
+                                    {planItem.file.name}
+                                  </p>
+                                </div>
+                              </div>
+                            );
+                            globalMergedPage++;
+                          });
+
+                          if (planItem.count > pages.length) {
+                            const remaining = planItem.count - pages.length;
+                            pageCards.push(
+                              <div
+                                key={`potential-more-${planItem.key}`}
+                                onClick={() => {
+                                  openInspectMergePage(
+                                    planItem.file,
+                                    pages.length + 1,
+                                    planItem.count,
+                                    `${planItem.file.name} - Page ${pages.length + 1} of ${planItem.count}`
+                                  );
+                                }}
+                                className="flex flex-col items-center justify-center p-3 rounded-[12px] bg-stone-100 dark:bg-stone-800/50 border border-dashed border-stone-300 dark:border-stone-700 text-center min-h-[140px] cursor-pointer hover:border-emerald-500 transition-all"
+                                title="Click to view more pages of this document"
+                              >
+                                <span className="text-xs font-bold text-stone-600 dark:text-stone-300">
+                                  +{remaining} More Pages
+                                </span>
+                                <span className="text-[10px] text-stone-400 mt-1 truncate max-w-[100px]">
+                                  from {planItem.file.name}
+                                </span>
+                              </div>
+                            );
+                            globalMergedPage += remaining;
+                          }
+                        } else {
+                          for (let pageNum = 1; pageNum <= planItem.count; pageNum++) {
+                            const currentMergedPageNum = globalMergedPage;
+                            pageCards.push(
+                              <div
+                                key={`placeholder-${planItem.key}-${pageNum}`}
+                                onClick={() => {
+                                  openInspectMergePage(
+                                    planItem.file,
+                                    pageNum,
+                                    planItem.count,
+                                    `Merged Page #${currentMergedPageNum} • ${planItem.file.name} (p. ${pageNum})`
+                                  );
+                                }}
+                                className="group relative flex flex-col justify-between p-2 rounded-[12px] bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 aspect-[3/4] cursor-pointer hover:border-emerald-500 transition-all"
+                                title="Click to view this page"
+                              >
+                                <span className="text-[10px] font-bold text-stone-500">Page {currentMergedPageNum}</span>
+                                <div className="flex flex-col items-center justify-center text-stone-400">
+                                  <FileText size={20} />
+                                  <span className="text-[10px] mt-1 truncate max-w-[80px]">{planItem.file.name}</span>
+                                </div>
+                                <span className="text-[9px] text-stone-400 text-center">Doc #{planItem.order}</span>
+                              </div>
+                            );
+                            globalMergedPage++;
+                          }
+                        }
+                      }
+
+                      return pageCards;
+                    })()}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 2. Image-to-PDF upload */}
+      {isImageToPdf && (
+        <div className="space-y-4">
+          <FileDropzone
+            accept="image/*"
+            multiple
+            onFilesSelected={handleFilesSelected}
+            title="Select or drop images to convert to PDF"
+            subtitle="Supports JPG, PNG, WebP, GIF. Multiple images supported."
           />
 
           {files.length > 0 && (
@@ -623,34 +1358,32 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
           )}
 
           {/* Options for Image-to-PDF */}
-          {isImageToPdf && (
-            <div className="grid grid-cols-2 gap-4 p-5 rounded-[16px] border" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Page Size</label>
-                <select
-                  value={pageSize}
-                  onChange={(e) => setPageSize(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
-                  style={{ borderColor: 'var(--border)' }}
-                >
-                  <option value="A4">A4 (Standard 210 × 297 mm)</option>
-                  <option value="Letter">US Letter (8.5 × 11 in)</option>
-                </select>
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Orientation</label>
-                <select
-                  value={orientation}
-                  onChange={(e) => setOrientation(e.target.value as any)}
-                  className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
-                  style={{ borderColor: 'var(--border)' }}
-                >
-                  <option value="portrait">Portrait</option>
-                  <option value="landscape">Landscape</option>
-                </select>
-              </div>
+          <div className="grid grid-cols-2 gap-4 p-5 rounded-[16px] border" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Page Size</label>
+              <select
+                value={pageSize}
+                onChange={(e) => setPageSize(e.target.value as any)}
+                className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <option value="A4">A4 (Standard 210 × 297 mm)</option>
+                <option value="Letter">US Letter (8.5 × 11 in)</option>
+              </select>
             </div>
-          )}
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-stone-700 dark:text-stone-300">Orientation</label>
+              <select
+                value={orientation}
+                onChange={(e) => setOrientation(e.target.value as any)}
+                className="w-full px-3 py-2 text-xs font-semibold rounded-[10px] border outline-none bg-transparent"
+                style={{ borderColor: 'var(--border)' }}
+              >
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
+            </div>
+          </div>
         </div>
       )}
 
@@ -2028,6 +2761,8 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
             ? 'Apply Password & Protect PDF'
             : isUnlock
             ? 'Unlock & Decrypt PDF'
+            : isMerge
+            ? `Merge ${files.length} PDF Files in this Order`
             : `Apply ${tool.name}`}
         </ClayButton>
       )}
@@ -2216,6 +2951,8 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
                   ? 'Pages Rotated & Ready!'
                   : isPrintOptimizer
                   ? 'Print-Ready PDF Formatted!'
+                  : isMerge
+                  ? 'PDFs Merged Successfully!'
                   : 'PDF Ready for Download!'}
               </h4>
 
@@ -2235,6 +2972,10 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
                 ) : isUnlock ? (
                   <span>
                     Output size: <strong>{(resultBytes.length / 1024).toFixed(1)} KB</strong>. Password restrictions removed.
+                  </span>
+                ) : isMerge ? (
+                  <span>
+                    Output size: <strong>{(resultBytes.length / 1024).toFixed(1)} KB</strong>. Merged from {files.length} documents into 1 PDF.
                   </span>
                 ) : (
                   <span>
@@ -2276,8 +3017,194 @@ export function PdfTool({ tool, locale }: PdfToolProps) {
               ? 'Download Compressed PDF'
               : isSplit || isExtract
               ? 'Download Extracted PDF'
+              : isMerge
+              ? 'Download Merged PDF'
               : 'Download PDF'}
           </ClayButton>
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          OUTPUT 5: POST-MERGE VISUAL GALLERY (Newly Merged PDF)
+          ───────────────────────────────────────────────────────────── */}
+      {isMerge && resultBytes && (
+        <div
+          className="p-5 sm:p-6 rounded-[18px] border shadow-sm space-y-4"
+          style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}
+        >
+          <div
+            className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b"
+            style={{ borderColor: 'var(--border)' }}
+          >
+            <div className="space-y-0.5">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 size={18} className="text-emerald-600 shrink-0" />
+                <h4 className="text-sm sm:text-base font-bold" style={{ color: 'var(--ink)' }}>
+                  Merged Document Visual Verification
+                </h4>
+              </div>
+              <p className="text-xs text-stone-500">
+                Visual proof of your final merged PDF pages. Click any page to inspect and zoom.
+              </p>
+            </div>
+            <ClayButton
+              onClick={handleDownloadPdf}
+              variant="primary"
+              icon={<Download size={14} />}
+              className="py-2 px-3 text-xs font-bold"
+            >
+              Download Merged PDF
+            </ClayButton>
+          </div>
+
+          {loadingMergedResultThumbs ? (
+            <div className="flex flex-col items-center justify-center gap-3 py-10 text-stone-500">
+              <RefreshCw size={24} className="animate-spin text-emerald-600" />
+              <span className="text-xs font-semibold">Generating visual preview of merged PDF pages...</span>
+            </div>
+          ) : mergedResultThumbnails.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+              {mergedResultThumbnails.map((thumb) => (
+                <div
+                  key={`merged-res-thumb-${thumb.pageNumber}`}
+                  onClick={() => {
+                    setInspectMergeModal({
+                      title: `Merged PDF - Page ${thumb.pageNumber}`,
+                      pageNumber: thumb.pageNumber,
+                      totalPages: mergedResultThumbnails.length,
+                      dataUrl: thumb.dataUrl,
+                    });
+                  }}
+                  className="group relative flex flex-col justify-between p-2 rounded-[12px] bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xs hover:border-emerald-500 hover:shadow-md cursor-pointer transition-all"
+                >
+                  <div className="flex items-center justify-between pb-1.5 px-0.5 text-[10px] font-bold text-stone-700 dark:text-stone-300">
+                    <span>Page {thumb.pageNumber}</span>
+                    <Eye size={12} className="text-stone-400 group-hover:text-emerald-600 transition-colors" />
+                  </div>
+                  <div className="relative aspect-[3/4] w-full overflow-hidden rounded-md border border-stone-200 dark:border-stone-700 bg-white flex items-center justify-center">
+                    <img
+                      src={thumb.dataUrl}
+                      alt={`Merged Page ${thumb.pageNumber}`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                    <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity">
+                      <ZoomIn size={16} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
+          MODAL: INSPECT MERGE PREVIEW / RESULT PAGE (High Res)
+          ───────────────────────────────────────────────────────────── */}
+      {inspectMergeModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in">
+          <div className="relative flex flex-col w-full max-w-4xl max-h-[92vh] rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900">
+              <div className="space-y-0.5 min-w-0 pr-4">
+                <span className="text-sm font-bold text-stone-900 dark:text-stone-100 block truncate">
+                  {inspectMergeModal.title}
+                </span>
+                {inspectMergeModal.sourceDoc && (
+                  <span className="text-[11px] text-stone-500 block truncate">
+                    Source: {inspectMergeModal.sourceDoc}
+                  </span>
+                )}
+              </div>
+
+              {/* Stepper / Zoom / Close */}
+              <div className="flex items-center gap-2 shrink-0">
+                {/* Document Page Stepper */}
+                {inspectMergeModal.totalPages && inspectMergeModal.totalPages > 1 && (
+                  <div className="flex items-center border rounded-[8px] overflow-hidden border-stone-200 dark:border-stone-700">
+                    <button
+                      type="button"
+                      disabled={inspectMergeModal.pageNumber <= 1}
+                      onClick={() => navigateMergeInspectPage('prev')}
+                      className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 text-stone-600 dark:text-stone-300 transition-colors"
+                      title="Previous Page (Left Arrow)"
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <span className="px-2 font-mono font-bold text-[11px] text-stone-600 dark:text-stone-300">
+                      {inspectMergeModal.pageNumber} / {inspectMergeModal.totalPages}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={inspectMergeModal.pageNumber >= inspectMergeModal.totalPages}
+                      onClick={() => navigateMergeInspectPage('next')}
+                      className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 text-stone-600 dark:text-stone-300 transition-colors"
+                      title="Next Page (Right Arrow)"
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+                )}
+
+                <div className="flex items-center border rounded-[8px] overflow-hidden border-stone-200 dark:border-stone-700 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setMergeInspectZoom((z) => Math.max(50, z - 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom Out"
+                  >
+                    <ZoomOut size={15} />
+                  </button>
+                  <span className="px-2 font-mono font-bold text-[11px] text-stone-600 dark:text-stone-300">
+                    {mergeInspectZoom}%
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setMergeInspectZoom((z) => Math.min(250, z + 25))}
+                    className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-600 dark:text-stone-300"
+                    title="Zoom In"
+                  >
+                    <ZoomIn size={15} />
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setInspectMergeModal(null)}
+                  className="p-1.5 rounded-[8px] text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800"
+                  title="Close (Esc)"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-stone-100 dark:bg-stone-950/80">
+              {inspectMergeModal.loading ? (
+                <div className="flex flex-col items-center gap-3 py-16 text-stone-500">
+                  <RefreshCw size={28} className="animate-spin text-emerald-600" />
+                  <span className="text-xs font-semibold">Rendering high-resolution page view...</span>
+                </div>
+              ) : inspectMergeModal.dataUrl ? (
+                <div
+                  className="transition-transform duration-150 origin-center bg-white shadow-2xl rounded-lg p-2 max-w-full"
+                  style={{
+                    width: `${(mergeInspectZoom / 100) * 100}%`,
+                    maxWidth: mergeInspectZoom === 100 ? '720px' : 'none',
+                  }}
+                >
+                  <img
+                    src={inspectMergeModal.dataUrl}
+                    alt={inspectMergeModal.title}
+                    className="w-full h-auto object-contain rounded shadow"
+                  />
+                </div>
+              ) : (
+                <div className="text-xs text-stone-500">Could not render page preview.</div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Search, ArrowRight, Layers, Sparkles } from 'lucide-react';
+import { Search, ArrowRight, Layers, Sparkles, ShieldCheck, Lock, Zap, CheckCircle2, HelpCircle } from 'lucide-react';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Chip } from '@/components/ui/Chip';
 import { getToolUrl, type Tool, type Category } from '@/lib/tool-registry';
@@ -236,6 +236,107 @@ export function ToolsDirectoryClient({ categories, tools, locale = DEFAULT_LOCAL
           </button>
         </div>
       )}
+
+      {/* ─── DIRECTORY EDUCATIONAL & SEO GUIDE ─── */}
+      <section className="mt-16 sm:mt-24 space-y-12 border-t pt-12" style={{ borderColor: 'var(--border)' }}>
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-[10px] px-3.5 py-1 text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300">
+            <ShieldCheck size={14} />
+            <span>Architecture & Security Standards</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: 'var(--ink)' }}>
+            Why In-Browser Client-Side Processing is the Future of Web Tools
+          </h2>
+          <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+            Every tool in the Alee catalog has been engineered with a single guiding principle: <strong>your files belong to you</strong>. When you use conventional online tool websites, your files must be transmitted across the internet to third-party cloud servers. This exposes confidential company documents, proprietary code, personal identity photos, and private contracts to potential security breaches and unwanted data retention.
+          </p>
+          <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+            Alee Tools replaces cloud-dependent architectures with modern client-side standards. Utilizing HTML5 Canvas, WebAssembly (WASM), and the Web Cryptography API, every byte of data is manipulated directly within your local browser memory. Processing completes instantly without network upload delays, and zero data is ever transmitted or stored on remote servers.
+          </p>
+        </div>
+
+        {/* 4 Pillars Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="p-5 rounded-[16px] border space-y-2.5" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="p-2 rounded-[10px] bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 w-fit">
+              <Lock size={18} />
+            </div>
+            <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>100% Zero-Upload Privacy</h3>
+            <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              No cloud storage, no server databases, and no third-party inspection. Fully compliant with GDPR and CCPA privacy standards.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-[16px] border space-y-2.5" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="p-2 rounded-[10px] bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 w-fit">
+              <Zap size={18} />
+            </div>
+            <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Instant Hardware Speed</h3>
+            <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              Operations run on your device&apos;s CPU and GPU, eliminating network latency and file upload wait times.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-[16px] border space-y-2.5" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="p-2 rounded-[10px] bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-400 w-fit">
+              <CheckCircle2 size={18} />
+            </div>
+            <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>Zero Paywalls or Quotas</h3>
+            <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              No monthly subscription limits, credit card demands, or artificial file size restrictions. Free forever.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-[16px] border space-y-2.5" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+            <div className="p-2 rounded-[10px] bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-400 w-fit">
+              <Sparkles size={18} />
+            </div>
+            <h3 className="text-sm font-bold" style={{ color: 'var(--ink)' }}>No Watermarks Added</h3>
+            <p className="text-xs leading-relaxed font-medium" style={{ color: 'var(--ink-soft)' }}>
+              Your exported PDFs, images, and barcodes remain completely clean and ready for immediate professional use.
+            </p>
+          </div>
+        </div>
+
+        {/* 5 Workbenches Overview */}
+        <div className="rounded-[18px] border p-6 sm:p-8 space-y-6" style={{ background: 'var(--surface)', borderColor: 'var(--border)' }}>
+          <h3 className="text-lg sm:text-xl font-bold" style={{ color: 'var(--ink)' }}>
+            Overview of the Five Specialized Workbenches
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed font-medium">
+            <div className="space-y-1.5">
+              <strong className="text-emerald-700 dark:text-emerald-400 text-sm block">1. Image & Social Media Utility Hub</strong>
+              <p style={{ color: 'var(--ink-soft)' }}>
+                Tailored aspect ratio calculators, grid splitters, and image resizers engineered for Instagram, YouTube, TikTok, and general publishing. Delivers exact platform dimensions without compression artifacts.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <strong className="text-amber-700 dark:text-amber-400 text-sm block">2. PDF Student & Office Toolkit</strong>
+              <p style={{ color: 'var(--ink-soft)' }}>
+                Perform essential document operations — merging, splitting, compressing, rotating, watermarking, and converting — directly in your browser. Handles sensitive contracts and academic papers with complete confidentiality.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <strong className="text-blue-700 dark:text-blue-400 text-sm block">3. Developer Utilities & Network Tools</strong>
+              <p style={{ color: 'var(--ink-soft)' }}>
+                Everyday engineering tools including JSON formatters, regex testers, UUID generators, Base64 converters, CIDR calculators, and color space converters designed for low-latency workflow efficiency.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <strong className="text-red-700 dark:text-red-400 text-sm block">4. Image Format Conversion & Editing</strong>
+              <p style={{ color: 'var(--ink-soft)' }}>
+                Convert seamlessly between modern web formats (WebP, PNG, JPG, SVG, HEIC, BMP) with client-side lossy and lossless algorithms that retain crisp detail while shrinking file weight.
+              </p>
+            </div>
+            <div className="space-y-1.5 md:col-span-2">
+              <strong className="text-purple-700 dark:text-purple-400 text-sm block">5. QR Code & Barcode Generation Suite</strong>
+              <p style={{ color: 'var(--ink-soft)' }}>
+                Create scannable vector QR codes for URLs, Wi-Fi credentials, vCards, and emails, alongside industry-standard product barcodes (EAN-13, UPC-A, Code 128) with customizable error correction levels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

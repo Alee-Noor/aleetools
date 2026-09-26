@@ -1,9 +1,21 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { AnimatedBackground } from "@/components/layout/AnimatedBackground";
+import { DirectionManager } from "@/components/layout/DirectionManager";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F7F5F0" },
+    { media: "(prefers-color-scheme: dark)", color: "#141312" },
+  ],
+};
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +39,18 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
   },
   icons: {
     icon: [
@@ -37,8 +61,6 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
 };
-
-import { DirectionManager } from "@/components/layout/DirectionManager";
 
 export default function RootLayout({
   children,
