@@ -25,6 +25,7 @@ import {
   type BarcodeFormat,
 } from '@/lib/engines/barcode-engine';
 import type { Tool } from '@/lib/tool-registry';
+import { QrCodeSeoContent } from './QrCodeSeoContent';
 
 interface QrToolProps {
   tool: Tool;
@@ -192,6 +193,32 @@ export function QrTool({ tool }: QrToolProps) {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+  };
+
+  const handleDownloadSvg = async () => {
+    try {
+      const payload = getPayload();
+      if (!payload.trim()) return;
+      const svgString = await QRCode.toString(payload, {
+        type: 'svg',
+        margin: 2,
+        color: {
+          dark: fgColor,
+          light: bgColor,
+        },
+      });
+      const blob = new Blob([svgString], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${tool.slug}.svg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Failed to generate SVG QR code:', err);
+    }
   };
 
   // -------------------------------------------------------------
@@ -1135,7 +1162,7 @@ export function QrTool({ tool }: QrToolProps) {
           )}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <ClayButton
             onClick={handleDownloadQr}
             disabled={!dataUrl}
@@ -1144,8 +1171,23 @@ export function QrTool({ tool }: QrToolProps) {
           >
             Download PNG High-Res
           </ClayButton>
+          <ClayButton
+            onClick={handleDownloadSvg}
+            disabled={!dataUrl}
+            variant="secondary"
+            icon={<Download size={16} />}
+          >
+            Download Vector SVG
+          </ClayButton>
         </div>
       </div>
+
+      {/* Massive SEO Content for QR Code Generator */}
+      {slug === 'qr-code-generator' && (
+        <div className="md:col-span-12">
+          <QrCodeSeoContent />
+        </div>
+      )}
     </div>
   );
 }

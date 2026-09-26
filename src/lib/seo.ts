@@ -22,7 +22,7 @@ const SITE_NAME = 'Alee Tools';
 
 function formatTitle(title: string): { absolute: string } {
   const clean = title.trim();
-  const withSite = clean.includes(SITE_NAME) ? clean : `${clean} | ${SITE_NAME}`;
+  const withSite = clean.includes(SITE_NAME) || clean.includes('|') ? clean : `${clean} | ${SITE_NAME}`;
   return { absolute: withSite };
 }
 
